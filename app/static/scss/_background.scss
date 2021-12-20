@@ -1,0 +1,33 @@
+.back {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  top: 0;
+  left: -3%;
+  width: 106%;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+
+  .icon {
+    opacity: .1;
+  }
+
+  .line {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+    &:nth-child(even) {
+      justify-content: space-between;
+
+      .icon {
+        &:first-child, &:last-child {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

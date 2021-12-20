@@ -1,0 +1,24 @@
+{% extends './parts/base.html' %}
+
+
+{% block content %}
+
+  <div class="list quiz_list">
+    {% for quiz in object_list %}
+      <a href="" class="item">
+        <div class="q">{{ quiz.question }}</div>
+        <div class="foot">
+          <div class="author">
+            <i class="fas fa-user"></i>
+            {{ quiz.author }}
+          </div>
+          <div class="update">
+            <i class="fas fa-history"></i>
+            {{ quiz.updated_at }}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

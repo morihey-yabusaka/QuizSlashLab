@@ -1,0 +1,70 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .item {
+    --q-color: rgba(var(--orange-rgb), 1);
+    --q-border: 70%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 80px;
+    margin-bottom: 20px;
+    padding: 0px 40px;
+    border-radius: 10000px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px #0002;
+    font-size: 1.1rem;
+
+    .q {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 1%;
+      z-index: 1;
+    }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      height: 30%;
+      width: 100%;
+
+      & > * {
+        margin: 3px 10px;
+        font-size: 0.8rem;
+
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    &:after, &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:after {
+      right: 90%;
+      background: radial-gradient(circle closest-corner at 100%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
+    }
+
+    &:before {
+      left: 90%;
+      background: radial-gradient(circle closest-corner at 0%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
+    }
+  }
+}

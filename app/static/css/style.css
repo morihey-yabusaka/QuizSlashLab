@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@900&display=swap");
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000;
+  text-decoration: none;
+}
+a:visited * {
+  text-decoration: none;
+}
+
+:root {
+  --orange: #F09A54;
+  --green: #56DC7E;
+  --dark-green: #24AD4E;
+  --green-rgb: 86, 220, 126;
+  --orange-rgb: 240, 154, 84;
+}
+
+html {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+.page > .main {
+  width: 100%;
+  flex-grow: 2;
+}
+
+.icon {
+  --color: var(--green);
+  --inner: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3%;
+  padding-top: 3%;
+  transform: rotate(45deg);
+}
+.icon.on {
+  -webkit-animation: rotate 0.8s;
+          animation: rotate 0.8s;
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+.icon .o {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color);
+  box-sizing: border-box;
+  border-radius: 100%;
+}
+.icon .o:after {
+  content: "";
+  width: 55%;
+  height: 55%;
+  border-radius: 10000px;
+  background-color: var(--inner);
+}
+.icon .q {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  width: 50%;
+  height: 23%;
+  background-color: var(--color);
+  transform: translateY(-50%);
+}
+
+.back {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  top: 0;
+  left: -3%;
+  width: 106%;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+.back .icon {
+  opacity: 0.1;
+}
+.back .line {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.back .line:nth-child(even) {
+  justify-content: space-between;
+}
+.back .line:nth-child(even) .icon:first-child, .back .line:nth-child(even) .icon:last-child {
+  opacity: 0;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: var(--green);
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 2px;
+}
+header .logo .icon {
+  --color: #fff;
+  --inner: var(--green);
+  width: 32px;
+  padding-top: 32px;
+}
+header .logo .text {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 3px;
+  height: 100%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 5px 0;
+  align-self: flex-end;
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: #444;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.list .item {
+  --q-color: rgba(var(--orange-rgb), 1);
+  --q-border: 70%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  height: 80px;
+  margin-bottom: 20px;
+  padding: 0px 40px;
+  border-radius: 10000px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 10px #0002;
+  font-size: 1.1rem;
+}
+.list .item .q {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1%;
+  z-index: 1;
+}
+.list .item .foot {
+  display: flex;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+}
+.list .item .foot > * {
+  margin: 3px 10px;
+  font-size: 0.8rem;
+}
+.list .item .foot > * i {
+  margin-right: 8px;
+}
+.list .item:after, .list .item:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.list .item:after {
+  right: 90%;
+  background: radial-gradient(circle closest-corner at 100%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
+}
+.list .item:before {
+  left: 90%;
+  background: radial-gradient(circle closest-corner at 0%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
+}/*# sourceMappingURL=style.css.map */
