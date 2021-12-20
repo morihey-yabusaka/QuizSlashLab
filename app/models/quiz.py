@@ -31,7 +31,7 @@ class Quiz(Model):
   created_at = DateTimeField(auto_now_add=True)
   updated_at = DateTimeField(auto_now=True)
 
-  n_seen = IntegerField(
+  n_encount = IntegerField(
     '会問人数',
     default=0,
     help_text='問題が出題された人数。'
@@ -61,6 +61,11 @@ class Quiz(Model):
     default=0,
     help_text='会問した人のうち，誤答した人数。'
   )
+  n_checked = IntegerField(
+    '詳細閲覧回数',
+    default=0,
+    help_text='この問題の詳細画面を確認した人数。'
+  )
   is_draft = BooleanField(
     '下書き状況',
     default=True,
@@ -86,7 +91,7 @@ class BetaMon(Model):
   user = OneToOneField(User, on_delete=CASCADE)
   created_at = DateTimeField(auto_now_add=True)
 
-class GoodQuix(Model):
+class GoodQuiz(Model):
   quiz = OneToOneField(Quiz, on_delete=CASCADE)
   user = OneToOneField(User, on_delete=CASCADE)
   created_at = DateTimeField(auto_now_add=True)

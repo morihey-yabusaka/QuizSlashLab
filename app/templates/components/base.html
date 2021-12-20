@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+{% include './head.html' %}
+
+<body>
+  <div class="page {% block class %}{% endblock class %}">
+    {% include './header.html' %}
+
+    <div class="main">
+      {% block content %}
+      content
+      {% endblock content %}
+    </div>
+
+    {% include './footer.html' %}
+  </div>
+  {% include './back.html' %}
+</body>
+</html>

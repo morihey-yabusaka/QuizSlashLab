@@ -1,11 +1,12 @@
-{% extends './parts/base.html' %}
+{% extends 'components/base.html' %}
 
+{% block class %}quiz list{% endblock class %}
 
 {% block content %}
 
   <div class="list quiz_list">
     {% for quiz in object_list %}
-      <a href="" class="item">
+      <a href="{% url 'quiz_detail' quiz.pk %}" class="item">
         <div class="q">{{ quiz.question }}</div>
         <div class="foot">
           <div class="author">

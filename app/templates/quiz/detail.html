@@ -1,0 +1,25 @@
+{% extends 'components/base.html' %}
+
+
+{% block class %}quiz detail{% endblock class %}
+
+{% block content %}
+  <div class="quiz">
+    <div class="q">
+      {% for c in quiz.question %}
+        <span>{{ c }}</span>
+      {% endfor %}
+    </div>
+    <div class="a">{{ quiz.answer }} / {{ quiz.answer_yomi }}</div>
+  </div>
+  <div class="info">
+    <div class="author">{{ quiz.author }}</div>
+    <div class="created">{{ quiz.created_at }}</div>
+    <div class="updated">{{ quiz.updated_at }}</div>
+    <div class="encount">{{ quiz.n_encount }}</div>
+    <div class="push">{{ quiz.n_push }}</div>
+    <div class="through">{{ quiz.n_through }}</div>
+    <div class="correct">{{ quiz.n_correct }}</div>
+    <div class="uncorrect">{{ quiz.n_uncorrect }}</div>
+  </div>
+{% endblock content %}
