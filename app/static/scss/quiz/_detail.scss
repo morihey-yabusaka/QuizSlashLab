@@ -1,2 +1,118 @@
-.detail {
+.page.quiz.detail {
+  .main {
+    width: 100%;
+    height: 100%;
+
+    .quiz {
+      width: 100%;
+      height: 70%;
+
+      &>.q, &>.a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50%;
+        width: 100%;
+        font-size: 2.5rem;
+        font-weight: 500;
+
+        .text {
+          z-index: 1;
+        }
+
+        .back {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          font-family: 'Poppins';
+          color: rgba(var(--orange-rgb), 0.3);
+          font-weight: 900;
+
+          .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            height: 100%;
+
+            .icon {
+              --color: var(--green);
+              width: 80%;
+              padding-top: 80%;
+              opacity: .3;
+            }
+          }
+        }
+
+      }
+
+      &>.q {
+        padding: 1% 3%;
+        z-index: 2;
+
+        .text {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+
+          .slash {
+            position: relative;
+            display: inline-block;
+            height: 1em;
+            width: 0.2em;
+            margin: 0 0.1em;
+
+            &:after {
+              content: "";
+              display: block;
+              height: 100%;
+              width: 100%;
+              background: #0001;
+              transform: rotate(10deg);
+              transition: 0.2s;
+            }
+
+            div {
+              position: absolute;
+              top: 100%;
+              right: 0;
+              height: 200px;
+              width: 200px;
+              background: #fff;
+              border: 2px solid #000;
+              opacity: 0;
+              visibility: hidden;
+              transition: .2s;
+              z-index: 1;
+            }
+
+            &.left div {
+              left: 0;
+              right: auto;
+            }
+
+            &:hover {
+
+              &:after {
+                background: #000;
+              }
+              div {
+                opacity: 1;
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .info {
+      width: 100%;
+      height: 30%;
+    }
+  }
 }

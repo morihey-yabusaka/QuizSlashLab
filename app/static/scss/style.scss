@@ -1,9 +1,9 @@
 @use 'myreset';
-@use 'root';
-@use 'icon';
-@use 'background';
-@use 'header';
-@use 'footer';
+@use 'comp/root';
+@use 'comp/icon';
+@use 'comp/background';
+@use 'comp/header';
+@use 'comp/footer';
 @use 'quiz/list';
 @use 'quiz/detail';
 

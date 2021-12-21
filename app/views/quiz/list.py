@@ -1,9 +1,11 @@
 from django.views.generic import ListView
 
-from ..models import Quiz
+from ...models import Quiz
 
 class QuizListView(ListView):
     model = Quiz
+    context_object_name = 'quizes'
+    ordering = ['-created_at']
     template_name = "../templates/quiz/list.html"
 
 
