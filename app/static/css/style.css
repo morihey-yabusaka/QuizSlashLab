@@ -285,7 +285,7 @@ footer {
   position: relative;
   display: inline-block;
   height: 1em;
-  width: 0.2em;
+  width: 0.15em;
   margin: 0 0.1em;
 }
 .page.quiz.detail .main .quiz > .q .text .slash:after {
@@ -294,7 +294,7 @@ footer {
   height: 100%;
   width: 100%;
   background: #0001;
-  transform: rotate(10deg);
+  transform: skewX(-10deg);
   transition: 0.2s;
 }
 .page.quiz.detail .main .quiz > .q .text .slash div {

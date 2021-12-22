@@ -1,21 +1,16 @@
 {% extends 'comp/base.html' %}
-
+{% load list_indexer %}
 
 {% block class %}quiz detail{% endblock class %}
 
 {% block content %}
-
-<!-- {% for n in n_start_equals %}
-  <div>{{ n }}</div>
-{% endfor %} -->
-
   <div class="quiz">
     <div class="q">
       <div class="text">
         {% for c in quiz.question %}
           <span>{{ c }}</span>
           <div class="slash">
-            <div>{{ n_start_equals.forloop.counter0 }}</div>
+            <div>{% idx n_start_equals forloop.counter0 %}</div>
           </div>
         {% endfor %}
       </div>
