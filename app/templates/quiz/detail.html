@@ -7,10 +7,16 @@
   <div class="quiz">
     <div class="q">
       <div class="text">
-        {% for c in quiz.question %}
-          <span>{{ c }}</span>
+        {% for slash in slashes %}
+          <span>{% idx quiz.question forloop.counter0 %}</span>
           <div class="slash">
-            <div>{% idx n_start_equals forloop.counter0 %}</div>
+            <div class="box">
+              <div>読み始めが一致するクイズ: {% idx n_start_equals forloop.counter0 %} 問</div>
+              <div>ボタンが押された数: {{ slash.n_push }}</div>
+              <div>正答: {{ slash.n_correct }}</div>
+              <div>誤答: {{ slash.n_uncorrect }}</div>
+              <div>正答率: {{ slash.correct_ratio }}</div>
+            </div>
           </div>
         {% endfor %}
       </div>

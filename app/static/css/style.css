@@ -297,7 +297,7 @@ footer {
   transform: skewX(-10deg);
   transition: 0.2s;
 }
-.page.quiz.detail .main .quiz > .q .text .slash div {
+.page.quiz.detail .main .quiz > .q .text .slash .box {
   position: absolute;
   top: 100%;
   right: 0;
@@ -310,14 +310,18 @@ footer {
   transition: 0.2s;
   z-index: 1;
 }
-.page.quiz.detail .main .quiz > .q .text .slash.left div {
+.page.quiz.detail .main .quiz > .q .text .slash .box div {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.page.quiz.detail .main .quiz > .q .text .slash.left .box {
   left: 0;
   right: auto;
 }
 .page.quiz.detail .main .quiz > .q .text .slash:hover:after {
   background: #000;
 }
-.page.quiz.detail .main .quiz > .q .text .slash:hover div {
+.page.quiz.detail .main .quiz > .q .text .slash:hover .box {
   opacity: 1;
   visibility: visible;
 }
