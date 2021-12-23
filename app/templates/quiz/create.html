@@ -1,0 +1,13 @@
+{% extends 'comp/base.html' %}
+
+{% block class %}create{% endblock class %}
+
+{% block content %}
+<div class="form">
+  <form action="{% url 'quiz_create' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value='保存'>
+  </form>
+</div>
+{% endblock content %}

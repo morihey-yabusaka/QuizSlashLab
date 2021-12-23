@@ -18,11 +18,11 @@ class SlashInline(admin.TabularInline):
         }),
     )
     readonly_fields = (
-      'slash_position',
-      'before_just',
-      'n_push',
-      'n_correct',
-      'n_uncorrect'
+        'slash_position',
+        'before_just',
+        'n_push',
+        'n_correct',
+        'n_uncorrect'
     )
     extra = 0
 
@@ -35,3 +35,8 @@ class QuizAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Quiz, QuizAdmin)
+
+class SlashAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Slash, SlashAdmin)

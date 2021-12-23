@@ -2,6 +2,7 @@ from django.db.models import *
 from django.core.validators import *
 
 import json
+from model_utils import FieldTracker
 
 from users.models import User
 
@@ -84,6 +85,8 @@ class Quiz(Model):
     help_text='選択しているなら，公式問題です。'
   )
 
+  question_tracker = FieldTracker(fields=['question'])
+
   def __str__(self) -> str:
       return "A: " + self.answer + " - Q: " + self.question
 
@@ -91,7 +94,7 @@ class Quiz(Model):
     super().save(*args, **kwargs)
 
     slashes = Slash.objects.filter(quiz=self)
-    if slashes.count() != len(self.question):
+    if self.question_tracker.changed():
       for i in range(len(self.question)):
         Slash.objects.create(
           quiz=self,
@@ -99,6 +102,8 @@ class Quiz(Model):
           before_all=self.question[:i+1],
           before_just=self.question[i]
         )
+      for slash in slashes:
+        slash.delete()
 
 
 class BetaMon(Model):
@@ -146,3 +151,6 @@ class Slash(Model):
     default=0,
     help_text='このスラッシュでボタンを押した人のうち，誤答した人数。'
   )
+
+  def __str__(self):
+    return str(self.quiz) + '-' + str(self.slash_position) + ' ' + self.before_just

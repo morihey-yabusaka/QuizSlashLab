@@ -1,8 +1,9 @@
 footer {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 5px 0;
+  height: var(--footer-height);
   align-self: flex-end;
   font-size: 0.9rem;
   letter-spacing: 3px;

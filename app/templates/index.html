@@ -1,8 +1,11 @@
 {% extends 'comp/base.html' %}
 
 
+{% block class %}index{% endblock class %}
+
 {% block content %}
   <div class="menu">
     <a href="{% url 'quiz_list' %}">quiz list</a>
+    <a href="{% url 'quiz_create' %}">quiz create</a>
   </div>
 {% endblock content %}

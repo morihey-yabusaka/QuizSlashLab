@@ -6,6 +6,8 @@
   --dark-green: #24AD4E;
   --green-rgb: 86, 220, 126;
   --orange-rgb: 240, 154, 84;
+  --header-height: 50px;
+  --footer-height: 30px;
 }
 
 html {
@@ -20,6 +22,7 @@ html {
 
   &>.main {
     width: 100%;
+    min-height: calc(100% - var(--header-height) - var(--footer-height));
     flex-grow: 2;
   }
 }

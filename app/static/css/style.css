@@ -18,6 +18,8 @@ a:visited * {
   --dark-green: #24AD4E;
   --green-rgb: 86, 220, 126;
   --orange-rgb: 240, 154, 84;
+  --header-height: 50px;
+  --footer-height: 30px;
 }
 
 html {
@@ -32,6 +34,7 @@ html {
 }
 .page > .main {
   width: 100%;
+  min-height: calc(100% - var(--header-height) - var(--footer-height));
   flex-grow: 2;
 }
 
@@ -125,7 +128,7 @@ body > .back .line:nth-child(even) .icon:first-child, body > .back .line:nth-chi
 
 header {
   width: 100%;
-  height: 50px;
+  height: var(--header-height);
   background-color: var(--green);
 }
 header .logo {
@@ -154,8 +157,9 @@ header .logo .text {
 footer {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 5px 0;
+  height: var(--footer-height);
   align-self: flex-end;
   font-size: 0.9rem;
   letter-spacing: 3px;
@@ -164,15 +168,16 @@ footer {
   background-color: var(--green);
 }
 
-.list {
+.main > .list {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding-top: 20px;
 }
-.list .item {
+.main > .list .item {
   --q-color: rgba(var(--orange-rgb), 1);
   --q-border: 70%;
   position: relative;
@@ -189,7 +194,7 @@ footer {
   box-shadow: 0 0 10px #0002;
   font-size: 1.1rem;
 }
-.list .item .q {
+.main > .list .item .q {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,30 +204,30 @@ footer {
   padding: 1%;
   z-index: 1;
 }
-.list .item .foot {
+.main > .list .item .foot {
   display: flex;
   align-items: center;
   height: 30%;
   width: 100%;
 }
-.list .item .foot > * {
+.main > .list .item .foot > * {
   margin: 3px 10px;
   font-size: 0.8rem;
 }
-.list .item .foot > * i {
+.main > .list .item .foot > * i {
   margin-right: 8px;
 }
-.list .item:after, .list .item:before {
+.main > .list .item:after, .main > .list .item:before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
 }
-.list .item:after {
+.main > .list .item:after {
   right: 90%;
   background: radial-gradient(circle closest-corner at 100%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
 }
-.list .item:before {
+.main > .list .item:before {
   left: 90%;
   background: radial-gradient(circle closest-corner at 0%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
 }
