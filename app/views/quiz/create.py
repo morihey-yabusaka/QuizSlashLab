@@ -6,7 +6,7 @@ from ...models import Quiz
 
 class QuizCreateView(CreateView):
   model = Quiz
-  template_name = '../templates/quiz/create.html'
+  template_name = 'quiz/create.html'
   fields = ['question', 'answer', 'answer_yomi', 'author']
 
   def get_success_url(self):

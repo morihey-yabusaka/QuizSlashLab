@@ -1,0 +1,8 @@
+<div class="user_create">
+  <div class="title">ユーザー作成</div>
+  <form action="{% url 'create_user' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="作成">
+  </form>
+</div>

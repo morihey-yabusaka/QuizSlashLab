@@ -5,7 +5,7 @@ from ...models import Quiz, Slash
 
 class QuizDetailView(DetailView):
   model = Quiz
-  template_name = "../templates/quiz/detail.html"
+  template_name = "quiz/detail.html"
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
