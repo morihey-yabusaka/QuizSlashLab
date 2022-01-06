@@ -1,20 +1,26 @@
 from django.views.generic import CreateView
-from django.views.generic.base import TemplateView
+from django.views.generic import TemplateView
+from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import User
 
-class UserCreateView(CreateView):
+class SignupView(CreateView):
   model = User
-  template_name = 'create.html'
+  template_name = 'signup.html'
   fields = ('username', 'password')
 
-user_create_view = UserCreateView.as_view()
+  def get_success_url(self):
+    pass
+
+signup_view = SignupView.as_view()
 
 
-class LoginView(TemplateView):
-  pass
+class LogInView(LoginView):
+  template_name = "login.html"
 
-login_view = LoginView.as_view()
+login_view = LogInView.as_view()
 
-class LogoutView:
-  pass
+class LogOutView(LogoutView):
+  template_name = "logout.html"
+
+logout_view = LogOutView.as_view()
