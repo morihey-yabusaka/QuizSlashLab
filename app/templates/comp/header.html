@@ -3,4 +3,28 @@
     {% include './icon.html' %}
     <div class="text">uiz/lab</div>
   </a>
+  <nav>nav</nav>
+  <div class="user">
+    {% if user.is_authenticated %}
+      <a href="{% url 'users:logout'%}?next={{ request.path }}?state=logout">
+        <span class="material-icons-outlined">
+          logout
+        </span>
+        ログアウト
+      </a>
+    {% else %}
+      <a href="{% url 'users:signup' %}?next={{ request.path }}?state=login" class="signup">
+        <span class="material-icons-outlined">
+          account_circle
+        </span>
+        新規登録
+      </a>
+      <a href="{% url 'users:login'%}?next={{ request.path }}?state=login">
+        <span class="material-icons-outlined">
+          login
+        </span>
+        ログイン
+      </a>
+    {% endif %}
+  </div>
 </header>

@@ -127,9 +127,12 @@ body > .back .line:nth-child(even) .icon:first-child, body > .back .line:nth-chi
 }
 
 header {
+  display: flex;
+  align-items: center;
   width: 100%;
   height: var(--header-height);
   background-color: var(--green);
+  color: #fff;
 }
 header .logo {
   display: flex;
@@ -152,6 +155,44 @@ header .logo .text {
   align-items: flex-end;
   margin-left: 3px;
   height: 100%;
+}
+header nav {
+  flex-grow: 2;
+}
+header .user {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+header .user a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+}
+header .user a:not(:first-child) {
+  margin-left: 20px;
+}
+header .user a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 0;
+  height: 3px;
+  background-color: #fff;
+  transition: 0.2s;
+}
+header .user a:hover:before {
+  width: 100%;
+}
+header .user a span {
+  margin-right: 5px;
 }
 
 footer {
