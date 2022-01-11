@@ -5,8 +5,8 @@
 
 {% block content %}
   <div class="menu">
-    <a href="{% url 'quiz_list' %}">quiz list</a>
-    <a href="{% url 'quiz_create' %}">quiz create</a>
+    <a href="{% url 'app:quiz_list' %}">quiz list</a>
+    <a href="{% url 'app:quiz_create' %}">quiz create</a>
     <a href="{% url 'users:signup' %}?next={{ request.path }}?state=login">user create</a>
     {% if user.is_authenticated %}
       <a href="{% url 'users:logout'%}?next={{ request.path }}?state=logout">logout</a>

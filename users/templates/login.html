@@ -1,9 +1,28 @@
-<div class="login">
-  <div class="title">ログイン</div>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">login</button>
-    <input type="hidden" name="next" value="{{ next }}"/>
-  </form>
-</div>
+{% extends 'comp/base.html' %}
+
+{% block class %}login{% endblock class %}
+
+
+{% block content %}
+  <div class="login">
+    <div class="title">ログイン</div>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">login</button>
+      <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+  </div>
+
+
+  {% for field in form %}
+    <div class="form_item {{ field.html_name }}">
+      {{ field.label_tag }}
+      {{ field }}
+      {{ field.id_for_label }}
+      {{ field.value }}
+      {{ field.html_name }}
+    </div>
+  {% endfor %}
+
+{% endblock content %}
