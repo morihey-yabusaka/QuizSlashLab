@@ -5,6 +5,7 @@ from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView, LogoutView, SuccessURLAllowedHostsMixin
 
 from .models import User
+from .forms import LoginForm
 
 REDIRECT_FIELD_NAME = 'next'
 
@@ -51,6 +52,7 @@ signup_view = SignupView.as_view()
 
 class LogInView(LoginView):
   template_name = "login.html"
+  form_class = LoginForm
 
 login_view = LogInView.as_view()
 

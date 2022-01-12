@@ -19,8 +19,7 @@ header {
     .icon {
       --color: #fff;
       --inner: var(--green);
-      width: 32px;
-      padding-top: 32px;
+      --size: 32px;
     }
     .text {
       display: flex;

@@ -1,28 +1,50 @@
 {% extends 'comp/base.html' %}
 
-{% block class %}login{% endblock class %}
+{% block class %}login form{% endblock class %}
 
 
 {% block content %}
-  <div class="login">
+  <div class="login form">
     <div class="title">ログイン</div>
+    <div class="text">
+      {% include 'comp/icon.html' %}
+      あなたのユーザ名とパスワードは何でしょう？
+    </div>
     <form method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">login</button>
+
+      {% if form.errors %}
+        <div class="error_list">
+          {% include 'comp/x.html' %}
+          {% for errors in form.errors.values %}
+            {% for error in errors %}
+              <div class="error">
+                {{ error }}
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% for field in form %}
+        <div class="form_item {{ field.html_name }}">
+          {{ field }}
+          {{ field.label_tag }}
+          {% if field.help_text %}
+            <div class="help_text">
+              {{ field.help_text }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <div class="form_buttons">
+        <button type="submit">ログイン</button>
+        <button type="reset">リセット</button>
+      </div>
       <input type="hidden" name="next" value="{{ next }}"/>
     </form>
   </div>
 
 
-  {% for field in form %}
-    <div class="form_item {{ field.html_name }}">
-      {{ field.label_tag }}
-      {{ field }}
-      {{ field.id_for_label }}
-      {{ field.value }}
-      {{ field.html_name }}
-    </div>
-  {% endfor %}
 
 {% endblock content %}

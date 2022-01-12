@@ -40,7 +40,7 @@
     <div class="through">{{ quiz.n_through }}</div>
     <div class="correct">{{ quiz.n_correct }}</div>
     <div class="uncorrect">{{ quiz.n_uncorrect }}</div>
-    <a href="{% url 'quiz_update' quiz.pk %}" class="update">編集する</a>
+    <a href="{% url 'app:quiz_update' quiz.pk %}" class="update">編集する</a>
   </div>
 {% endblock content %}
 

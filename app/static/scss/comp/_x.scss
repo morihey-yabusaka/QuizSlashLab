@@ -1,0 +1,23 @@
+.x {
+  --size: 32px;
+  --color: var(--blue);
+  --width: calc(var(--size) * 0.3);
+  position: relative;
+  width: var(--size);
+  height: var((--size));
+  display: flex;
+  align-items: center;
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    height: var(--width);
+    width: 100%;
+    background: var(--color);
+    transform: rotate(45deg);
+  }
+
+  &:before {
+    transform: rotate(-45deg);
+  }
+}

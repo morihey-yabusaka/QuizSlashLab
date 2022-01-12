@@ -1,3 +1,51 @@
+{% extends 'comp/base.html' %}
+
+{% block class %}login form{% endblock class %}
+
+
+{% block content %}
+  <div class="signup form">
+    <div class="title">ユーザー登録</div>
+    <div class="text">
+      {% include 'comp/icon.html' %}
+      あなたのユーザ名とパスワードは何でしょう？
+    </div>
+    <form action="{% url 'users:signup' %}" method="POST">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <div class="error_list">
+          {% include 'comp/x.html' %}
+          {% for errors in form.errors.values %}
+            {% for error in errors %}
+              <div class="error">
+                {{ error }}
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% for field in form %}
+        <div class="form_item {{ field.html_name }}">
+          {{ field }}
+          {{ field.label_tag }}
+          {% if field.help_text %}
+            <div class="help_text">
+              {{ field.help_text }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <div class="form_buttons">
+        <button type="submit">新規登録</button>
+        <button type="reset">リセット</button>
+      </div>
+      <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+  </div>
+{% endblock content %}
+
 <div class="signup">
   <div class="title">ユーザー作成</div>
   <form action="{% url 'users:signup' %}" method="POST">

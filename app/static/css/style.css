@@ -15,9 +15,12 @@ a:visited * {
 :root {
   --orange: #F09A54;
   --green: #56DC7E;
+  --red: #F25E5E;
+  --blue: #4985E6;
   --dark-green: #24AD4E;
   --green-rgb: 86, 220, 126;
   --orange-rgb: 240, 154, 84;
+  --blue-rgb: 73, 133, 230;
   --header-height: 50px;
   --footer-height: 30px;
 }
@@ -41,12 +44,14 @@ html {
 .icon {
   --color: var(--green);
   --inner: #fff;
+  --size: 32px;
+  --width: calc(var(--size) * 0.225);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3%;
-  padding-top: 3%;
+  width: var(--size);
+  padding-top: var(--size);
   transform: rotate(45deg);
 }
 .icon.on {
@@ -77,16 +82,9 @@ html {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: var(--color);
   box-sizing: border-box;
   border-radius: 100%;
-}
-.icon .o:after {
-  content: "";
-  width: 55%;
-  height: 55%;
-  border-radius: 10000px;
-  background-color: var(--inner);
+  border: var(--width) solid var(--color);
 }
 .icon .q {
   position: absolute;
@@ -96,6 +94,28 @@ html {
   height: 23%;
   background-color: var(--color);
   transform: translateY(-50%);
+}
+
+.x {
+  --size: 32px;
+  --color: var(--blue);
+  --width: calc(var(--size) * 0.3);
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+}
+.x:after, .x:before {
+  content: "";
+  position: absolute;
+  height: var(--width);
+  width: 100%;
+  background: var(--color);
+  transform: rotate(45deg);
+}
+.x:before {
+  transform: rotate(-45deg);
 }
 
 body > .back {
@@ -112,6 +132,7 @@ body > .back {
   pointer-events: none;
 }
 body > .back .icon {
+  --size: 40px;
   opacity: 0.1;
 }
 body > .back .line {
@@ -147,8 +168,7 @@ header .logo {
 header .logo .icon {
   --color: #fff;
   --inner: var(--green);
-  width: 32px;
-  padding-top: 32px;
+  --size: 32px;
 }
 header .logo .text {
   display: flex;
@@ -374,4 +394,146 @@ footer {
 .page.quiz.detail .main .info {
   width: 100%;
   height: 30%;
+}
+
+.page.form.login .main, .page.form.signup .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page.form.login .main .form, .page.form.signup .main .form {
+  width: 350px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 5px rgba(var(--green-rgb), 0.2);
+}
+.page.form.login .main .form .title, .page.form.signup .main .form .title {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.page.form.login .main .form .text, .page.form.signup .main .form .text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.page.form.login .main .form .text .icon, .page.form.signup .main .form .text .icon {
+  --size: 50px;
+  margin-bottom: 15px;
+}
+.page.form.login .main .form .error_list, .page.form.signup .main .form .error_list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1rem;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  background-color: rgba(var(--blue-rgb), 0.1);
+}
+.page.form.login .main .form .error_list .x, .page.form.signup .main .form .error_list .x {
+  --size: 50px;
+  margin-bottom: 10px;
+}
+.page.form.login .main .form form, .page.form.signup .main .form form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.2rem;
+  margin: 0 30px;
+}
+.page.form.login .main .form form .form_item, .page.form.signup .main .form form .form_item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.page.form.login .main .form form .form_item label, .page.form.signup .main .form form .form_item label {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  padding: 0 2px;
+  font-size: 1rem;
+  transition: 0.2s bottom;
+}
+.page.form.login .main .form form .form_item input, .page.form.signup .main .form form .form_item input {
+  border: 2px solid #eee;
+  padding: 5px;
+  transition: 0.2s;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.page.form.login .main .form form .form_item input::-moz-placeholder, .page.form.signup .main .form form .form_item input::-moz-placeholder {
+  color: transparent;
+}
+.page.form.login .main .form form .form_item input:-ms-input-placeholder, .page.form.signup .main .form form .form_item input:-ms-input-placeholder {
+  color: transparent;
+}
+.page.form.login .main .form form .form_item input::placeholder, .page.form.signup .main .form form .form_item input::placeholder {
+  color: transparent;
+}
+.page.form.login .main .form form .form_item input:focus, .page.form.signup .main .form form .form_item input:focus {
+  outline: none;
+  border: 2px solid var(--orange);
+}
+.page.form.login .main .form form .form_item input:focus + label, .page.form.signup .main .form form .form_item input:focus + label {
+  top: auto;
+  bottom: 75%;
+  background: #fff;
+}
+.page.form.login .main .form form .form_item input:not(:-moz-placeholder-shown) + label, .page.form.signup .main .form form .form_item input:not(:-moz-placeholder-shown) + label {
+  top: auto;
+  bottom: 75%;
+  background: #fff;
+}
+.page.form.login .main .form form .form_item input:not(:-ms-input-placeholder) + label, .page.form.signup .main .form form .form_item input:not(:-ms-input-placeholder) + label {
+  top: auto;
+  bottom: 75%;
+  background: #fff;
+}
+.page.form.login .main .form form .form_item input:not(:placeholder-shown) + label, .page.form.signup .main .form form .form_item input:not(:placeholder-shown) + label {
+  top: auto;
+  bottom: 75%;
+  background: #fff;
+}
+.page.form.login .main .form form .form_buttons, .page.form.signup .main .form form .form_buttons {
+  margin-top: 50px;
+}
+.page.form.login .main .form form .form_buttons button, .page.form.signup .main .form form .form_buttons button {
+  cursor: pointer;
+  padding: 7px 20px;
+  border-radius: 1000px;
+}
+.page.form.login .main .form form .form_buttons button[type=submit], .page.form.signup .main .form form .form_buttons button[type=submit] {
+  background: var(--orange);
+  border: 2px solid var(--orange);
+  color: #fff;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.page.form.login .main .form form .form_buttons button[type=submit]:hover, .page.form.signup .main .form form .form_buttons button[type=submit]:hover {
+  background: #fff;
+  color: var(--orange);
+}
+.page.form.login .main .form form .form_buttons button:not([type=submit]), .page.form.signup .main .form form .form_buttons button:not([type=submit]) {
+  background-color: #eee;
+  border: solid 2px #ddd;
+  color: #777;
+  transition: 0.2s;
+}
+.page.form.login .main .form form .form_buttons button:not([type=submit]):hover, .page.form.signup .main .form form .form_buttons button:not([type=submit]):hover {
+  background-color: #fff;
 }/*# sourceMappingURL=style.css.map */

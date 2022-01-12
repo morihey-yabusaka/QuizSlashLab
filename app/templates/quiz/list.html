@@ -6,7 +6,7 @@
 
   <div class="list quiz_list">
     {% for quiz in quizes %}
-      <a href="{% url 'quiz_detail' quiz.pk %}" class="item">
+      <a href="{% url 'app:quiz_detail' quiz.pk %}" class="item">
         <div class="q">{{ quiz.question }}</div>
         <div class="foot">
           <div class="author">
