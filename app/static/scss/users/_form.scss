@@ -61,51 +61,57 @@
           margin: 0 30px;
 
           .form_item {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
             margin: 10px 0;
 
-            label {
+            .input {
+              position: relative;
               display: flex;
-              align-items: center;
-              position: absolute;
-              left: 5px;
-              top: 0;
-              bottom: 0;
-              padding: 0 2px;
-              font-size: 1rem;
-              transition: .2s bottom;
-            }
+              justify-content: center;
+              flex-direction: column;
 
-            input {
-              border: 2px solid #eee;
-              padding: 5px;
-              transition: .2s;
-              box-sizing: border-box;
-              border-radius: 5px;
-
-              &::placeholder {
-                color: transparent;
+              label {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                left: 5px;
+                padding: 0 2px;
+                font-size: 1rem;
+                transition: .2s;
               }
 
-              &:focus {
-                outline: none;
-                border: 2px solid var(--orange);
+              input {
+                border: 2px solid #eee;
+                padding: 5px;
+                transition: .2s;
+                box-sizing: border-box;
+                border-radius: 5px;
 
-                &+label {
+                &::placeholder {
+                  color: transparent;
+                }
+
+                &:focus {
+                  outline: none;
+                  border: 2px solid var(--orange);
+
+                  &+label {
+                    transform: translateY(-100%);
+                    background: #fff;
+                  }
+                }
+
+                &:not(:placeholder-shown) + label {
                   top: auto;
                   bottom: 75%;
                   background: #fff;
                 }
               }
+            }
 
-              &:not(:placeholder-shown) + label {
-                top: auto;
-                bottom: 75%;
-                background: #fff;
-              }
+            .help_text {
+              font-size: .9rem;
+              padding-left: 5px;
+              color: #aaa;
             }
           }
 

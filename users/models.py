@@ -1,19 +1,47 @@
+from django.contrib.auth.base_user import BaseUserManager
 from django.utils import timezone
 from django.db.models import *
 from django.contrib.auth.validators import UnicodeUsernameValidator
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
 from uuid import uuid4
+
+
+class UserManager(BaseUserManager):
+  '''
+  参考:
+  Django の認証方法のカスタマイズ | Django ドキュメント | Django
+  https://docs.djangoproject.com/ja/4.0/topics/auth/customizing/#a-full-example
+  Django AbstractBaseUserでカスタムユーザー作成
+  https://noumenon-th.net/programming/2019/12/13/abstractbaseuser/
+  '''
+  def create_user(self, username, password=None):
+    if not username:
+      raise ValueError('Users must have an username')
+
+    user = self.model(username=username)
+    user.set_password(password)
+    user.save()
+    return user
+
+  def create_superuser(self, username, password=None):
+    user = self.create_user(
+      username=username,
+      password=password
+    )
+    user.is_staff = True
+    user.save()
+    return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):
   username_validater = UnicodeUsernameValidator()
 
-  username = TextField(
+  username = CharField(
     "ユーザ名",
-    max_length=32,
+    max_length=16,
     unique=True,
-    help_text="32文字以下の英数字、@/./+/-/_のみ使用できます。",
+    help_text="16文字以下の英数字、@/./+/-/_のみ使用できます。",
     validators=[username_validater],
     error_messages={
       "unique": "このユーザー名は既に使用されています。",
@@ -30,6 +58,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     "Eメールアドレス",
     blank=True,
     unique=True,
+    null=True,
     error_messages={
       "unique": "このメールアドレスは既に使用されています。"
     }
@@ -56,7 +85,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
   EMAIL_FIELD = 'email'
   USERNAME_FIELD = 'username'
-  REQUIRED_FIELD = ['email', ]
+  REQUIRED_FIELD = ['username', ]
 
   class Meta:
     verbose_name = 'ユーザ'

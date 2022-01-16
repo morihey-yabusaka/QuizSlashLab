@@ -5,15 +5,16 @@ from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView, LogoutView, SuccessURLAllowedHostsMixin
 
 from .models import User
-from .forms import LoginForm
+from .forms import SignupForm, LoginForm
 
 REDIRECT_FIELD_NAME = 'next'
 
 class SignupView(SuccessURLAllowedHostsMixin, CreateView):
   model = User
   template_name = 'signup.html'
-  fields = ('username', 'password', 'email')
+  # fields = ('username', 'password', 'email')
   success_url = '/'
+  form_class = SignupForm
 
   redirect_field_name = REDIRECT_FIELD_NAME
 
