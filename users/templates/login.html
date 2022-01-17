@@ -28,8 +28,10 @@
 
       {% for field in form %}
         <div class="form_item {{ field.html_name }}">
-          {{ field }}
-          {{ field.label_tag }}
+          <div class="input">
+            {{ field }}
+            {{ field.label_tag }}
+          </div>
           {% if field.help_text %}
             <div class="help_text">
               {{ field.help_text }}

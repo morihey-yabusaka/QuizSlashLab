@@ -7,7 +7,9 @@
   <div class="list quiz_list">
     {% for quiz in quizes %}
       <a href="{% url 'app:quiz_detail' quiz.pk %}" class="item">
-        <div class="q">{{ quiz.question }}</div>
+        <div class="q">
+          {{ quiz.question }}
+        </div>
         <div class="foot">
           <div class="author">
             <i class="fas fa-user"></i>
@@ -17,6 +19,9 @@
             <i class="fas fa-history"></i>
             {{ quiz.updated_at }}
           </div>
+        </div>
+        <div class="icon_wrap">
+          {% include 'comp/icon.html' %}
         </div>
       </a>
     {% endfor %}

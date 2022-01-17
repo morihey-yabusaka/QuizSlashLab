@@ -41,12 +41,14 @@ header {
     font-weight: 600;
     font-size: 1.1rem;
 
-    a {
+    .useritem {
       position: relative;
       display: flex;
       align-items: center;
       height: 100%;
+      padding: 0 10px;
       color: #fff;
+      cursor: pointer;
 
       &:not(:first-child) {
         margin-left: 20px;
@@ -70,8 +72,15 @@ header {
         }
       }
 
+      a {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        width: max-content;
+      }
+
       span {
-        margin-right: 5px;
+        margin-right: 10px;
       }
 
     }

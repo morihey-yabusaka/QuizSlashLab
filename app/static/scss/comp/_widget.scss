@@ -1,0 +1,20 @@
+.widget_parent {
+  position: relative;
+
+  .widget {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s opacity;
+  }
+
+  &:hover {
+    .widget {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

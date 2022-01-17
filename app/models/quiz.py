@@ -94,7 +94,7 @@ class Quiz(Model):
     super().save(*args, **kwargs)
 
     slashes = Slash.objects.filter(quiz=self)
-    if self.question_tracker.changed():
+    if self.question_tracker.changed() or slashes.count() == 0:
       for i in range(len(self.question)):
         Slash.objects.create(
           quiz=self,
@@ -102,8 +102,9 @@ class Quiz(Model):
           before_all=self.question[:i+1],
           before_just=self.question[i]
         )
-      for slash in slashes:
-        slash.delete()
+      if self.question_tracker.changed():
+        for slash in slashes:
+          slash.delete()
 
 
 class BetaMon(Model):

@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="form">
-  <form action="{% url 'quiz_update' quiz.pk %}" method="POST">
+  <form action="{% url 'app:quiz_update' quiz.pk %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value='保存'>

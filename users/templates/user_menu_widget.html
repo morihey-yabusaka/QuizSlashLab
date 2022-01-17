@@ -1,0 +1,12 @@
+<div class="user_menu widget menu">
+  {% block menuitems %}
+  {% endblock menuitems %}
+  <div class="menuitem logout">
+    <a href="{% url 'users:logout'%}?next={{ request.path }}?state=logout">
+      <span class="material-icons-outlined">
+        logout
+      </span>
+      ログアウト
+    </a>
+  </div>
+</div>

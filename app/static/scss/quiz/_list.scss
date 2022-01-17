@@ -1,71 +1,57 @@
-.main > .list {
+.quiz.list .main {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding-top: 20px;
+  overflow-y: scroll;
 
-  .item {
-    --q-color: rgba(var(--orange-rgb), 1);
-    --q-border: 70%;
-    position: relative;
+  &> .list {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 400px;
-    height: 80px;
-    margin-bottom: 20px;
-    padding: 0px 40px;
-    border-radius: 10000px;
-    overflow: hidden;
+    width: 60%;
+    height: fit-content;
+    padding: 50px 30px;
     background-color: #fff;
-    box-shadow: 0 0 10px #0002;
-    font-size: 1.1rem;
 
-    .q {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 70%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding: 1%;
-      z-index: 1;
-    }
-
-    .foot {
-      display: flex;
-      align-items: center;
-      height: 30%;
+    .item {
+      position: relative;
       width: 100%;
+      height: fit-content;
+      min-height: 135px;
+      padding: 20px 5px;
+      border-bottom: 3px solid rgba(var(--orange-rgb), .5);
 
-      & > * {
-        margin: 3px 10px;
-        font-size: 0.8rem;
+      .icon_wrap {
+        --size: 60px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: .2;
 
-        i {
-          margin-right: 8px;
+        .icon {
+          --size: 100px;
         }
       }
-    }
 
-    &:after, &:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
+      &>.q {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        padding: 20px 10px;
+      }
 
-    &:after {
-      right: 90%;
-      background: radial-gradient(circle closest-corner at 100%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
-    }
+      .foot {
+        display: flex;
+        color: #888;
+        padding: 0 20px;
 
-    &:before {
-      left: 90%;
-      background: radial-gradient(circle closest-corner at 0%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
+        *:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
     }
   }
 }

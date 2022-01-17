@@ -187,17 +187,19 @@ header .user {
   font-weight: 600;
   font-size: 1.1rem;
 }
-header .user a {
+header .user .useritem {
   position: relative;
   display: flex;
   align-items: center;
   height: 100%;
+  padding: 0 10px;
   color: #fff;
+  cursor: pointer;
 }
-header .user a:not(:first-child) {
+header .user .useritem:not(:first-child) {
   margin-left: 20px;
 }
-header .user a:before {
+header .user .useritem:before {
   content: "";
   display: block;
   position: absolute;
@@ -208,11 +210,19 @@ header .user a:before {
   background-color: #fff;
   transition: 0.2s;
 }
-header .user a:hover:before {
+header .user .useritem:hover:before {
   width: 100%;
 }
-header .user a span {
-  margin-right: 5px;
+header .user .useritem a {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+header .user .useritem span {
+  margin-right: 10px;
 }
 
 footer {
@@ -229,68 +239,76 @@ footer {
   background-color: var(--green);
 }
 
-.main > .list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding-top: 20px;
-}
-.main > .list .item {
-  --q-color: rgba(var(--orange-rgb), 1);
-  --q-border: 70%;
+.widget_parent {
   position: relative;
+}
+.widget_parent .widget {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s opacity;
+}
+.widget_parent:hover .widget {
+  opacity: 1;
+  visibility: visible;
+}
+
+.quiz.list .main {
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+}
+.quiz.list .main > .list {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 400px;
-  height: 80px;
-  margin-bottom: 20px;
-  padding: 0px 40px;
-  border-radius: 10000px;
-  overflow: hidden;
+  width: 60%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 50px 30px;
   background-color: #fff;
-  box-shadow: 0 0 10px #0002;
-  font-size: 1.1rem;
 }
-.main > .list .item .q {
+.quiz.list .main > .list .item {
+  position: relative;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 135px;
+  padding: 20px 5px;
+  border-bottom: 3px solid rgba(var(--orange-rgb), 0.5);
+}
+.quiz.list .main > .list .item .icon_wrap {
+  --size: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 1%;
-  z-index: 1;
+  opacity: 0.2;
 }
-.main > .list .item .foot {
+.quiz.list .main > .list .item .icon_wrap .icon {
+  --size: 100px;
+}
+.quiz.list .main > .list .item > .q {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  padding: 20px 10px;
+}
+.quiz.list .main > .list .item .foot {
   display: flex;
-  align-items: center;
-  height: 30%;
-  width: 100%;
+  color: #888;
+  padding: 0 20px;
 }
-.main > .list .item .foot > * {
-  margin: 3px 10px;
-  font-size: 0.8rem;
-}
-.main > .list .item .foot > * i {
-  margin-right: 8px;
-}
-.main > .list .item:after, .main > .list .item:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.main > .list .item:after {
-  right: 90%;
-  background: radial-gradient(circle closest-corner at 100%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
-}
-.main > .list .item:before {
-  left: 90%;
-  background: radial-gradient(circle closest-corner at 0%, transparent, transparent var(--q-border), var(--q-color) var(--q-border));
+.quiz.list .main > .list .item .foot *:not(:first-child) {
+  margin-left: 10px;
 }
 
 .page.quiz.detail .main {
@@ -334,8 +352,7 @@ footer {
 }
 .page.quiz.detail .main .quiz > .q .back .wrapper .icon, .page.quiz.detail .main .quiz > .a .back .wrapper .icon {
   --color: var(--green);
-  width: 80%;
-  padding-top: 80%;
+  --size: 200px;
   opacity: 0.3;
 }
 .page.quiz.detail .main .quiz > .q {
@@ -518,7 +535,8 @@ footer {
 }
 .page.form.login .main .form form .form_buttons button, .page.form.signup .main .form form .form_buttons button {
   cursor: pointer;
-  padding: 7px 20px;
+  padding: 7px 10px;
+  font-size: 1rem;
   border-radius: 1000px;
 }
 .page.form.login .main .form form .form_buttons button[type=submit], .page.form.signup .main .form form .form_buttons button[type=submit] {
