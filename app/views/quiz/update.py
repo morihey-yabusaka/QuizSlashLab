@@ -2,9 +2,9 @@ from django.urls import reverse
 from django.views.generic import UpdateView
 
 from ...models import Quiz
+from ...mixins import AuthorOnlyEditableMixin
 
-
-class QuizUpdateView(UpdateView):
+class QuizUpdateView(AuthorOnlyEditableMixin, UpdateView):
   model = Quiz
   template_name = 'quiz/update.html'
   fields = ['question', 'answer', 'answer_yomi']
