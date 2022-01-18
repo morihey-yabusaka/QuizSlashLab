@@ -256,6 +256,21 @@ footer {
   visibility: visible;
 }
 
+.btn {
+  --color1: #555;
+  --color2: #fff;
+  cursor: pointer;
+  background-color: var(--color2);
+  border: solid 2px var(--color1);
+  color: var(--color1);
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+.btn:hover {
+  background-color: var(--color1);
+  color: var(--color2);
+}
+
 .quiz.list .main {
   display: flex;
   justify-content: center;
@@ -311,15 +326,15 @@ footer {
   margin-left: 10px;
 }
 
-.page.quiz.detail .main {
+.page.quiz.detail .main, .page.quiz.delete .main, .page.quiz.create .main {
   width: 100%;
   height: 100%;
 }
-.page.quiz.detail .main .quiz {
+.page.quiz.detail .main .quiz, .page.quiz.delete .main .quiz, .page.quiz.create .main .quiz {
   width: 100%;
   height: 70%;
 }
-.page.quiz.detail .main .quiz > .q, .page.quiz.detail .main .quiz > .a {
+.page.quiz.detail .main .quiz > .q, .page.quiz.detail .main .quiz > .a, .page.quiz.delete .main .quiz > .q, .page.quiz.delete .main .quiz > .a, .page.quiz.create .main .quiz > .q, .page.quiz.create .main .quiz > .a {
   position: relative;
   display: flex;
   justify-content: center;
@@ -329,10 +344,10 @@ footer {
   font-size: 2.5rem;
   font-weight: 500;
 }
-.page.quiz.detail .main .quiz > .q .text, .page.quiz.detail .main .quiz > .a .text {
+.page.quiz.detail .main .quiz > .q .text, .page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .q .text, .page.quiz.create .main .quiz > .a .text {
   z-index: 1;
 }
-.page.quiz.detail .main .quiz > .q .back, .page.quiz.detail .main .quiz > .a .back {
+.page.quiz.detail .main .quiz > .q .back, .page.quiz.detail .main .quiz > .a .back, .page.quiz.delete .main .quiz > .q .back, .page.quiz.delete .main .quiz > .a .back, .page.quiz.create .main .quiz > .q .back, .page.quiz.create .main .quiz > .a .back {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,35 +358,49 @@ footer {
   color: rgba(var(--orange-rgb), 0.3);
   font-weight: 900;
 }
-.page.quiz.detail .main .quiz > .q .back .wrapper, .page.quiz.detail .main .quiz > .a .back .wrapper {
+.page.quiz.detail .main .quiz > .q .back .wrapper, .page.quiz.detail .main .quiz > .a .back .wrapper, .page.quiz.delete .main .quiz > .q .back .wrapper, .page.quiz.delete .main .quiz > .a .back .wrapper, .page.quiz.create .main .quiz > .q .back .wrapper, .page.quiz.create .main .quiz > .a .back .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   height: 100%;
 }
-.page.quiz.detail .main .quiz > .q .back .wrapper .icon, .page.quiz.detail .main .quiz > .a .back .wrapper .icon {
+.page.quiz.detail .main .quiz > .q .back .wrapper .icon, .page.quiz.detail .main .quiz > .a .back .wrapper .icon, .page.quiz.delete .main .quiz > .q .back .wrapper .icon, .page.quiz.delete .main .quiz > .a .back .wrapper .icon, .page.quiz.create .main .quiz > .q .back .wrapper .icon, .page.quiz.create .main .quiz > .a .back .wrapper .icon {
   --color: var(--green);
   --size: 200px;
   opacity: 0.3;
 }
-.page.quiz.detail .main .quiz > .q {
+.page.quiz.detail .main .quiz > .q .btn, .page.quiz.detail .main .quiz > .a .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .a .btn, .page.quiz.create .main .quiz > .q .btn, .page.quiz.create .main .quiz > .a .btn {
+  --color1: rgba(var(--orange-rgb), .5);
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  padding: 5px 20px;
+  border-radius: 5px;
+  line-height: 18px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+.page.quiz.detail .main .quiz > .q .btn span, .page.quiz.detail .main .quiz > .a .btn span, .page.quiz.delete .main .quiz > .q .btn span, .page.quiz.delete .main .quiz > .a .btn span, .page.quiz.create .main .quiz > .q .btn span, .page.quiz.create .main .quiz > .a .btn span {
+  font-size: 18px;
+}
+.page.quiz.detail .main .quiz > .q, .page.quiz.delete .main .quiz > .q, .page.quiz.create .main .quiz > .q {
   padding: 1% 3%;
   z-index: 2;
 }
-.page.quiz.detail .main .quiz > .q .text {
+.page.quiz.detail .main .quiz > .q .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.create .main .quiz > .q .text {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-.page.quiz.detail .main .quiz > .q .text .slash {
+.page.quiz.detail .main .quiz > .q .text .slash, .page.quiz.delete .main .quiz > .q .text .slash, .page.quiz.create .main .quiz > .q .text .slash {
   position: relative;
   display: inline-block;
   height: 1em;
   width: 0.15em;
   margin: 0 0.1em;
 }
-.page.quiz.detail .main .quiz > .q .text .slash:after {
+.page.quiz.detail .main .quiz > .q .text .slash:after, .page.quiz.delete .main .quiz > .q .text .slash:after, .page.quiz.create .main .quiz > .q .text .slash:after {
   content: "";
   display: block;
   height: 100%;
@@ -380,7 +409,7 @@ footer {
   transform: skewX(-10deg);
   transition: 0.2s;
 }
-.page.quiz.detail .main .quiz > .q .text .slash .box {
+.page.quiz.detail .main .quiz > .q .text .slash .box, .page.quiz.delete .main .quiz > .q .text .slash .box, .page.quiz.create .main .quiz > .q .text .slash .box {
   position: absolute;
   top: 100%;
   right: 0;
@@ -393,24 +422,82 @@ footer {
   transition: 0.2s;
   z-index: 1;
 }
-.page.quiz.detail .main .quiz > .q .text .slash .box div {
+.page.quiz.detail .main .quiz > .q .text .slash .box div, .page.quiz.delete .main .quiz > .q .text .slash .box div, .page.quiz.create .main .quiz > .q .text .slash .box div {
   font-size: 1rem;
   font-weight: 300;
 }
-.page.quiz.detail .main .quiz > .q .text .slash.left .box {
+.page.quiz.detail .main .quiz > .q .text .slash.left .box, .page.quiz.delete .main .quiz > .q .text .slash.left .box, .page.quiz.create .main .quiz > .q .text .slash.left .box {
   left: 0;
   right: auto;
 }
-.page.quiz.detail .main .quiz > .q .text .slash:hover:after {
+.page.quiz.detail .main .quiz > .q .text .slash:hover:after, .page.quiz.delete .main .quiz > .q .text .slash:hover:after, .page.quiz.create .main .quiz > .q .text .slash:hover:after {
   background: #000;
 }
-.page.quiz.detail .main .quiz > .q .text .slash:hover .box {
+.page.quiz.detail .main .quiz > .q .text .slash:hover .box, .page.quiz.delete .main .quiz > .q .text .slash:hover .box, .page.quiz.create .main .quiz > .q .text .slash:hover .box {
   opacity: 1;
   visibility: visible;
 }
-.page.quiz.detail .main .info {
+.page.quiz.detail .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.create .main .quiz > .q .btn {
+  --color1: rgba(var(--green-rgb), .5);
+}
+.page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .a .text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 3.5rem;
+  letter-spacing: 5px;
+  font-weight: 600;
+}
+.page.quiz.detail .main .quiz > .a .text div, .page.quiz.delete .main .quiz > .a .text div, .page.quiz.create .main .quiz > .a .text div {
+  position: absolute;
+  top: 100%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 0.4em;
+}
+.page.quiz.detail .main .info, .page.quiz.delete .main .info, .page.quiz.create .main .info {
   width: 100%;
   height: 30%;
+}
+
+.page.quiz.delete form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+.page.quiz.delete form .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--red);
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding: 10px 30px;
+  border: 5px solid var(--red);
+  border-radius: 10px;
+  background: #fff;
+}
+.page.quiz.delete form .text .icon {
+  --size: 60px;
+  --color: var(--red);
+  margin-right: 20px;
+}
+.page.quiz.delete form input[type=submit] {
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 1000px;
+  border: 5px solid var(--red);
+  background: var(--red);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.page.quiz.delete form input[type=submit]:hover {
+  background: #fff;
+  color: var(--red);
 }
 
 .page.form.login .main, .page.form.signup .main {

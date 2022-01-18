@@ -6,8 +6,10 @@
 @use 'comp/header';
 @use 'comp/footer';
 @use 'comp/widget';
+@use 'comp/btn';
 @use 'quiz/list';
 @use 'quiz/detail';
+@use 'quiz/delete';
 @use 'users/form';
 
 

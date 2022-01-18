@@ -25,10 +25,23 @@
           {% include 'comp/icon.html' %}
         </div>
       </div>
+      <div class="btn-copy btn" data-text="{{quiz.question}}">
+        <span class="material-icons-outlined">
+          content_copy
+        </span>
+      </div>
     </div>
     <div class="a">
-      <div class="text">{{ quiz.answer }} / {{ quiz.answer_yomi }}</div>
+      <div class="text">
+        {{ quiz.answer }}
+        <div class="ans_yomi">{{ quiz.answer_yomi }}</div>
+      </div>
       <div class="back">A</div>
+      <div class="btn-copy btn" data-text="{{quiz.answer}}">
+        <span class="material-icons-outlined">
+          content_copy
+        </span>
+      </div>
     </div>
   </div>
   <div class="info">
@@ -42,7 +55,8 @@
     <div class="uncorrect">{{ quiz.n_uncorrect }}</div>
 
     {% if user == quiz.author %}
-      <a href="{% url 'app:quiz_update' quiz.pk %}" class="update">編集する</a>
+      <a href="{% url 'app:quiz_update' quiz.pk %}" class="update">編集</a>
+      <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete">削除</a>
     {% endif %}
 
   </div>

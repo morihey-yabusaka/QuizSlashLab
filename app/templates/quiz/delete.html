@@ -4,5 +4,46 @@
 {% block class %}quiz delete{% endblock class %}
 
 {% block content %}
+<div class="quiz">
+  <div class="q">
+    <div class="text">
+      {{ quiz.question }}
+    </div>
+    <div class="back">
+      <div class="wrapper">
+        {% include 'comp/icon.html' %}
+      </div>
+    </div>
+  </div>
+  <div class="a">
+    <div class="text">
+      {{ quiz.answer }}
+      <div class="ans_yomi">{{ quiz.answer_yomi }}</div>
+    </div>
+    <div class="back">A</div>
+  </div>
+</div>
+<div class="form info">
+  <form method="post">
+    {% csrf_token %}
 
+    <div class="text">
+      {% include 'comp/icon.html' %}
+      このクイズを本当に削除しますか？
+    </div>
+    <input type="submit" value="削除">
+  </form>
+</div>
 {% endblock content %}
+
+{% block foot %}
+<script>
+  // icon size
+  var backElm = getElm(".main .quiz .q .back");
+  var iconWrapperElm = backElm.querySelector(".wrapper");
+  iconWrapperElm.style.width = backElm.clientHeight + "px";
+
+  var backElm = getElm(".main .quiz .a .back");
+  backElm.style.fontSize = backElm.clientHeight * 0.9 + "px";
+</script>
+{% endblock foot %}

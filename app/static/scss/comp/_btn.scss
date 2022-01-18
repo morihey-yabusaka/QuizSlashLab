@@ -1,0 +1,15 @@
+.btn {
+  --color1: #555;
+  --color2: #fff;
+  cursor: pointer;
+  background-color: var(--color2);
+  border: solid 2px var(--color1);
+  color: var(--color1);
+  box-sizing: border-box;
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--color1);
+    color: var(--color2);
+  }
+}
