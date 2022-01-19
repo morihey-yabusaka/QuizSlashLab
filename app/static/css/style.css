@@ -17,9 +17,11 @@ a:visited * {
   --green: #56DC7E;
   --red: #F25E5E;
   --blue: #4985E6;
+  --blue-dark: #1D65D7;
   --dark-green: #24AD4E;
-  --green-rgb: 86, 220, 126;
   --orange-rgb: 240, 154, 84;
+  --green-rgb: 86, 220, 126;
+  --red-rgb: 242, 94, 94;
   --blue-rgb: 73, 133, 230;
   --header-height: 50px;
   --footer-height: 30px;
@@ -37,7 +39,7 @@ html {
 }
 .page > .main {
   width: 100%;
-  min-height: calc(100% - var(--header-height) - var(--footer-height));
+  height: calc(100% - var(--header-height) - var(--footer-height));
   flex-grow: 2;
 }
 
@@ -94,6 +96,17 @@ html {
   height: 23%;
   background-color: var(--color);
   transform: translateY(-50%);
+}
+
+.o_icon {
+  --size: 32px;
+  --color: var(--red);
+  --width: calc(var(--size) * .3);
+  width: var(--size);
+  height: var(--size);
+  box-sizing: border-box;
+  border: var(--width) solid var(--color);
+  border-radius: 100%;
 }
 
 .x {
@@ -271,6 +284,67 @@ footer {
   color: var(--color2);
 }
 
+.notice_list {
+  position: fixed;
+  right: 0;
+  top: var(--header-height);
+  padding: 15px 10px;
+  width: 20%;
+}
+.notice_list .notice_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 8px 10px;
+  background: #fff;
+  border: 3px solid var(--red);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  -webkit-animation: slideIn 0.5s 1;
+          animation: slideIn 0.5s 1;
+}
+@-webkit-keyframes slideIn {
+  0% {
+    left: 150%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes slideIn {
+  0% {
+    left: 150%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.notice_list .notice_item.off {
+  -webkit-animation: slideOut 0.5s 1 forwards;
+          animation: slideOut 0.5s 1 forwards;
+}
+@-webkit-keyframes slideOut {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+@keyframes slideOut {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+.notice_list .notice_item .o_icon {
+  margin-right: 10px;
+}
+
 .quiz.list .main {
   display: flex;
   justify-content: center;
@@ -328,7 +402,6 @@ footer {
 
 .page.quiz.detail .main, .page.quiz.delete .main, .page.quiz.create .main {
   width: 100%;
-  height: 100%;
 }
 .page.quiz.detail .main .quiz, .page.quiz.delete .main .quiz, .page.quiz.create .main .quiz {
   width: 100%;
@@ -498,6 +571,86 @@ footer {
 .page.quiz.delete form input[type=submit]:hover {
   background: #fff;
   color: var(--red);
+}
+
+.page.quiz.create .form {
+  width: 100%;
+  height: 100%;
+}
+.page.quiz.create .form form {
+  width: 100%;
+  height: 100%;
+}
+.page.quiz.create .form form textarea, .page.quiz.create .form form input {
+  background: transparent;
+  border-color: transparent;
+  box-sizing: border-box;
+}
+.page.quiz.create .form form textarea:focus, .page.quiz.create .form form input:focus {
+  outline: none;
+}
+.page.quiz.create .form form .quiz .q .text {
+  width: 100%;
+  height: 100%;
+}
+.page.quiz.create .form form .quiz .q .text textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border-width: 5px;
+  border-bottom: 5px solid var(--green);
+}
+.page.quiz.create .form form .quiz .q .text textarea:focus {
+  border: 5px solid var(--green);
+}
+.page.quiz.create .form form .quiz .a input {
+  width: 100%;
+  height: 100%;
+  border-width: 3px;
+  border-bottom: 3px solid var(--orange);
+}
+.page.quiz.create .form form .quiz .a input:focus {
+  border: 3px solid var(--orange);
+}
+.page.quiz.create .form form .info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page.quiz.create .form form .info button {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 1000px;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.page.quiz.create .form form .info button:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: var(--blue-dark);
+  border-radius: 1000px;
+  z-index: -1;
+}
+.page.quiz.create .form form .info button:hover {
+  top: 2px;
+}
+.page.quiz.create .form form .info button:hover:before {
+  height: 98px;
+}
+.page.quiz.create .form form .info button:focus {
+  top: 10px;
+}
+.page.quiz.create .form form .info button:focus:before {
+  height: 90px;
 }
 
 .page.form.login .main, .page.form.signup .main {

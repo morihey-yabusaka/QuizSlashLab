@@ -5,9 +5,11 @@
   --green: #56DC7E;
   --red: #F25E5E;
   --blue: #4985E6;
+  --blue-dark: #1D65D7;
   --dark-green: #24AD4E;
-  --green-rgb: 86, 220, 126;
   --orange-rgb: 240, 154, 84;
+  --green-rgb: 86, 220, 126;
+  --red-rgb: 242, 94, 94;
   --blue-rgb: 73, 133, 230;
   --header-height: 50px;
   --footer-height: 30px;
@@ -25,7 +27,7 @@ html {
 
   &>.main {
     width: 100%;
-    min-height: calc(100% - var(--header-height) - var(--footer-height));
+    height: calc(100% - var(--header-height) - var(--footer-height));
     flex-grow: 2;
   }
 }

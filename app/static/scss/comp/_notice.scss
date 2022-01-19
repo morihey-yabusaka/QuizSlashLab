@@ -1,0 +1,47 @@
+.notice_list {
+  position: fixed;
+  right: 0;
+  top: var(--header-height);
+  padding: 15px 10px;
+  width: 20%;
+
+  .notice_item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 8px 10px;
+    background: #fff;
+    border: 3px solid var(--red);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    animation: slideIn .5s 1;
+
+    @keyframes slideIn {
+      0% {
+        left: 150%;
+      }
+      100% {
+        left: 0%;
+      }
+    }
+
+    &.off {
+      animation: slideOut .5s 1 forwards;
+
+      @keyframes slideOut {
+        0% {
+          left: 0%;
+        }
+        100% {
+          left: 150%;
+        }
+      }
+    }
+
+    .o_icon {
+      margin-right: 10px;
+    }
+  }
+}

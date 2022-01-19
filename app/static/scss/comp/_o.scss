@@ -1,0 +1,10 @@
+.o_icon {
+  --size: 32px;
+  --color: var(--red);
+  --width: calc(var(--size) * .3);
+  width: var(--size);
+  height: var(--size);
+  box-sizing: border-box;
+  border: var(--width) solid var(--color);
+  border-radius: 100%;
+}

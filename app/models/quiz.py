@@ -71,7 +71,7 @@ class Quiz(Model):
   )
   is_draft = BooleanField(
     '下書き状況',
-    default=True,
+    default=False,
     help_text='選択しているなら，下書きです。'
   )
   is_publish = BooleanField(

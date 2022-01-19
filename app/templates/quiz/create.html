@@ -1,13 +1,46 @@
 {% extends 'comp/base.html' %}
 
-{% block class %}create{% endblock class %}
+{% block class %}quiz create{% endblock class %}
 
 {% block content %}
 <div class="form">
   <form action="{% url 'app:quiz_create' %}" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value='保存'>
+    <div class="quiz">
+      <div class="q">
+        <div class="text">
+          {{ form.question }}
+        </div>
+        <div class="back">
+          <div class="wrapper">
+            {% include 'comp/icon.html' %}
+          </div>
+        </div>
+      </div>
+      <div class="a">
+        <div class="text">
+          {{ form.answer }}
+          <div class="ans_yomi">{{ form.answer_yomi }}</div>
+        </div>
+        <div class="back">A</div>
+      </div>
+    </div>
+    <div class="info">
+      <button name='save'>保存</button>
+      <button name="draft">下書き</button>
+    </div>
   </form>
 </div>
 {% endblock content %}
+
+{% block foot %}
+<script>
+  // icon size
+  var backElm = getElm(".main .quiz .q .back");
+  var iconWrapperElm = backElm.querySelector(".wrapper");
+  iconWrapperElm.style.width = backElm.clientHeight + "px";
+
+  var backElm = getElm(".main .quiz .a .back");
+  backElm.style.fontSize = backElm.clientHeight * 0.9 + "px";
+</script>
+{% endblock foot %}

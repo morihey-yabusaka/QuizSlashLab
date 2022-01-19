@@ -1,15 +1,18 @@
 @use 'myreset';
 @use 'comp/root';
 @use 'comp/icon';
+@use 'comp/o';
 @use 'comp/x';
 @use 'comp/background';
 @use 'comp/header';
 @use 'comp/footer';
 @use 'comp/widget';
 @use 'comp/btn';
+@use 'comp/notice';
 @use 'quiz/list';
 @use 'quiz/detail';
 @use 'quiz/delete';
+@use 'quiz/create';
 @use 'users/form';
 
 
