@@ -47,7 +47,8 @@
         }
 
         .btn {
-          --color1: rgba(var(--orange-rgb), .5);
+          --size: 48px;
+          --color1: rgba(var(--orange-rgb));
           position: absolute;
           bottom: 0;
           right: 5%;
@@ -129,7 +130,7 @@
         }
 
         .btn {
-          --color1: rgba(var(--green-rgb), .5);
+          --color1: rgba(var(--green-rgb));
         }
       }
 
@@ -156,6 +157,10 @@
     .info {
       width: 100%;
       height: 30%;
+
+      .sns {
+        display: flex;
+      }
     }
   }
 }

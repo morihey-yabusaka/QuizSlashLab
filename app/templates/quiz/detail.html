@@ -59,6 +59,11 @@
       <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete">削除</a>
     {% endif %}
 
+    <div class="sns">
+      <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
+      <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>
+    </div>
+
   </div>
 {% endblock content %}
 
@@ -81,6 +86,18 @@
       slashElm.classList.add("left")
     } else {
       slashElm.classList.add("right")
+    }
+  }
+
+  // sns share
+  var snsBtnElms = getElms(".sns .share")
+  const URL = location.href
+  const Q =  "{{ quiz.question }}"
+  for(var snsBtnElm of snsBtnElms) {
+    if ("twitter" == snsBtnElm.id) {
+      snsBtnElm.setAttribute("href", createSNSURL(snsBtnElm.id, URL, Q))
+    } else if ("line" == snsBtnElm.id) {
+      snsBtnElm.setAttribute("href", createSNSURL(snsBtnElm.id, URL, Q))
     }
   }
 </script>

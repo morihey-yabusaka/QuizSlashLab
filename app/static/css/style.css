@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@900&display=swap");
 a {
   color: #000;
@@ -270,18 +271,75 @@ footer {
 }
 
 .btn {
-  --color1: #555;
+  --size: 64px;
+  --color1: var(--red);
   --color2: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  color: var(--color2);
   cursor: pointer;
-  background-color: var(--color2);
-  border: solid 2px var(--color1);
-  color: var(--color1);
-  box-sizing: border-box;
-  transition: 0.2s;
+  font-size: 32px;
+}
+.btn:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color1);
+  border-radius: 100000px;
+  z-index: -1;
+}
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-color: var(--color1);
+  filter: brightness(0.9);
+  border-radius: 100000px;
+  z-index: -2;
 }
 .btn:hover {
-  background-color: var(--color1);
-  color: var(--color2);
+  transform: translateY(2%);
+}
+.btn:hover:before {
+  height: 118%;
+}
+.btn:active {
+  transform: translateY(10%);
+}
+.btn:active:before {
+  height: 110%;
+}
+.btn#twitter {
+  --color1: #00acee;
+}
+.btn#twitter:after {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Font Awesome 5 Brands";
+  color: #fff;
+}
+.btn#line {
+  --color1: #06c755;
+}
+.btn#line:after {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Font Awesome 5 Brands";
+  color: #fff;
 }
 
 .notice_list {
@@ -444,7 +502,8 @@ footer {
   opacity: 0.3;
 }
 .page.quiz.detail .main .quiz > .q .btn, .page.quiz.detail .main .quiz > .a .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .a .btn, .page.quiz.create .main .quiz > .q .btn, .page.quiz.create .main .quiz > .a .btn {
-  --color1: rgba(var(--orange-rgb), .5);
+  --size: 48px;
+  --color1: rgba(var(--orange-rgb));
   position: absolute;
   bottom: 0;
   right: 5%;
@@ -511,7 +570,7 @@ footer {
   visibility: visible;
 }
 .page.quiz.detail .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.create .main .quiz > .q .btn {
-  --color1: rgba(var(--green-rgb), .5);
+  --color1: rgba(var(--green-rgb));
 }
 .page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .a .text {
   position: relative;
@@ -532,6 +591,9 @@ footer {
 .page.quiz.detail .main .info, .page.quiz.delete .main .info, .page.quiz.create .main .info {
   width: 100%;
   height: 30%;
+}
+.page.quiz.detail .main .info .sns, .page.quiz.delete .main .info .sns, .page.quiz.create .main .info .sns {
+  display: flex;
 }
 
 .page.quiz.delete form {
