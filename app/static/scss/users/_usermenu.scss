@@ -1,0 +1,29 @@
+.user_menu.menu {
+
+  .menuitem {
+
+    &:not(:first-child) {
+      border-top: 2px solid #ddd;
+    }
+    &:last-child {
+      border-top-color: #aaa;
+    }
+
+    a {
+      width: 100%;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      transition: .2s;
+
+      &:hover {
+        background-color: var(--green);
+        color: #fff;
+      }
+    }
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}

@@ -5,16 +5,24 @@
     position: absolute;
     top: 100%;
     right: 0;
+    width: max-content;
     background-color: #fff;
     opacity: 0;
     visibility: hidden;
     transition: .2s opacity;
+    z-index: 3;
+
+    &:hover {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &:hover {
     .widget {
       opacity: 1;
       visibility: visible;
+      transition: visibility 3s;
     }
   }
 }

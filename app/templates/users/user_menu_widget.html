@@ -2,7 +2,42 @@
 
 
 {% block menuitems %}
-  <div class="menuitem">
+<div class="menuitem">
+  <a href="">
+    <span class="material-icons-outlined">
+      account_box
+    </span>
     マイページ
-  </div>
+  </a>
+</div>
+<div class="menuitem">
+  <a href="{% url 'app:user_quiz_list' %}">
+    <span class="material-icons-outlined">
+      format_list_bulleted
+    </span>
+    作問一覧
+  </a>
+</div>
+<div class="menuitem">
+  <a href="{% url 'app:draft_list' %}">
+    <span class="material-icons-outlined">
+      format_list_bulleted
+    </span>
+    下書き一覧
+  </a>
+</div>
+<div class="menuitem">
+  <a href=""><span class="material-icons-outlined">
+      format_list_bulleted
+    </span>
+    GQ一覧
+  </a>
+</div>
+<div class="menuitem">
+  <a href=""><span class="material-icons-outlined">
+      format_list_bulleted
+    </span>
+    ベタ一覧
+  </a>
+</div>
 {% endblock menuitems %}

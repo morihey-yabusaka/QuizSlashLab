@@ -227,17 +227,6 @@ header .user .useritem:before {
 header .user .useritem:hover:before {
   width: 100%;
 }
-header .user .useritem a {
-  display: flex;
-  align-items: center;
-  padding: 5px 10px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-header .user .useritem span {
-  margin-right: 10px;
-}
 
 footer {
   display: flex;
@@ -260,14 +249,23 @@ footer {
   position: absolute;
   top: 100%;
   right: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   background-color: #fff;
   opacity: 0;
   visibility: hidden;
   transition: 0.2s opacity;
+  z-index: 3;
+}
+.widget_parent .widget:hover {
+  opacity: 1;
+  visibility: visible;
 }
 .widget_parent:hover .widget {
   opacity: 1;
   visibility: visible;
+  transition: visibility 3s;
 }
 
 .btn {
@@ -860,4 +858,25 @@ footer {
 }
 .page.form.login .main .form form .form_buttons button:not([type=submit]):hover, .page.form.signup .main .form form .form_buttons button:not([type=submit]):hover {
   background-color: #fff;
+}
+
+.user_menu.menu .menuitem:not(:first-child) {
+  border-top: 2px solid #ddd;
+}
+.user_menu.menu .menuitem:last-child {
+  border-top-color: #aaa;
+}
+.user_menu.menu .menuitem a {
+  width: 100%;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+.user_menu.menu .menuitem a:hover {
+  background-color: var(--green);
+  color: #fff;
+}
+.user_menu.menu .menuitem span {
+  margin-right: 10px;
 }/*# sourceMappingURL=style.css.map */
