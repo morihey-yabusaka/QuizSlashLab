@@ -166,8 +166,16 @@
         .update, .draft, .publish {
           --color1: var(--blue);
         }
+        .draft {
+          font-size: 17px !important;
+        }
         .sns {
           display: flex;
+        }
+
+        button {
+          border: none;
+          background: none;
         }
       }
     }

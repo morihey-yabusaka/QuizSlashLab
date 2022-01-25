@@ -634,8 +634,15 @@ footer {
 .page.quiz.detail .main .info .btns .update, .page.quiz.detail .main .info .btns .draft, .page.quiz.detail .main .info .btns .publish, .page.quiz.delete .main .info .btns .update, .page.quiz.delete .main .info .btns .draft, .page.quiz.delete .main .info .btns .publish, .page.quiz.create .main .info .btns .update, .page.quiz.create .main .info .btns .draft, .page.quiz.create .main .info .btns .publish {
   --color1: var(--blue);
 }
+.page.quiz.detail .main .info .btns .draft, .page.quiz.delete .main .info .btns .draft, .page.quiz.create .main .info .btns .draft {
+  font-size: 17px !important;
+}
 .page.quiz.detail .main .info .btns .sns, .page.quiz.delete .main .info .btns .sns, .page.quiz.create .main .info .btns .sns {
   display: flex;
+}
+.page.quiz.detail .main .info .btns button, .page.quiz.delete .main .info .btns button, .page.quiz.create .main .info .btns button {
+  border: none;
+  background: none;
 }
 
 .page.quiz.delete form {

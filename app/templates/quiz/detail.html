@@ -59,13 +59,19 @@
     <div class="btns">
       {% if user == quiz.author %}
         {% if quiz.is_draft %}
-          <div class="btn draft">
-            公開
-          </div>
+          <form method="post">
+            {% csrf_token %}
+            <button name="publish" class="btn publish">
+              公開
+            </button>
+          </form>
         {% else %}
-          <div class="btn publish">
-            非公開
-          </div>
+          <form method="post">
+            {% csrf_token %}
+            <button name="draft" class="btn draft">
+              非公開
+            </button>
+          </form>
         {% endif %}
         <a href="{% url 'app:quiz_update' quiz.pk %}" class="update btn">編集</a>
         <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete btn">削除</a>
