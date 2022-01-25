@@ -4,6 +4,7 @@
   top: var(--header-height);
   padding: 15px 10px;
   width: 20%;
+  z-index: 5;
 
   .notice_item {
     position: relative;
@@ -16,7 +17,10 @@
     border: 3px solid var(--red);
     border-radius: 10px;
     margin-bottom: 15px;
-    animation: slideIn .5s 1;
+
+    &.on {
+      animation: slideIn .5s 1;
+    }
 
     @keyframes slideIn {
       0% {
@@ -42,6 +46,15 @@
 
     .o_icon {
       margin-right: 10px;
+    }
+
+    &.copy {
+      &.q {
+        border-color: var(--green);
+      }
+      &.a {
+        border-color: var(--orange);
+      }
     }
   }
 }

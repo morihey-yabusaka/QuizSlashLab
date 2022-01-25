@@ -168,6 +168,7 @@ header {
   height: var(--header-height);
   background-color: var(--green);
   color: #fff;
+  z-index: 6;
 }
 header .logo {
   display: flex;
@@ -294,6 +295,10 @@ footer {
   height: var(--size);
   color: var(--color2);
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-size: 32px;
 }
 .btn:after {
@@ -360,6 +365,7 @@ footer {
   top: var(--header-height);
   padding: 15px 10px;
   width: 20%;
+  z-index: 5;
 }
 .notice_list .notice_item {
   position: relative;
@@ -372,6 +378,8 @@ footer {
   border: 3px solid var(--red);
   border-radius: 10px;
   margin-bottom: 15px;
+}
+.notice_list .notice_item.on {
   -webkit-animation: slideIn 0.5s 1;
           animation: slideIn 0.5s 1;
 }
@@ -413,6 +421,12 @@ footer {
 }
 .notice_list .notice_item .o_icon {
   margin-right: 10px;
+}
+.notice_list .notice_item.copy.q {
+  border-color: var(--green);
+}
+.notice_list .notice_item.copy.a {
+  border-color: var(--orange);
 }
 
 .quiz.list .main {
@@ -500,6 +514,10 @@ footer {
   font-family: "Poppins";
   color: rgba(var(--orange-rgb), 0.3);
   font-weight: 900;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .page.quiz.detail .main .quiz > .q .back .wrapper, .page.quiz.detail .main .quiz > .a .back .wrapper, .page.quiz.delete .main .quiz > .q .back .wrapper, .page.quiz.delete .main .quiz > .a .back .wrapper, .page.quiz.create .main .quiz > .q .back .wrapper, .page.quiz.create .main .quiz > .a .back .wrapper {
   display: flex;

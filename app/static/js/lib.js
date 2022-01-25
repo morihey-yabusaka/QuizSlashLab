@@ -19,21 +19,3 @@ function getCssVar(elm, varName) {
 }
 
 
-function copy2clipboard(text) {
-  if(navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(() => {
-      alert('コピーしました')
-    })
-  } else {
-    alert('お使いのブラウザは対応していません')
-  }
-}
-
-window.addEventListener('load', (e) => {
-  var copyBtns = getElms(".btn-copy")
-  for(var btn of copyBtns) {
-    btn.addEventListener('click', (event) => {
-      copy2clipboard(event.currentTarget.getAttribute("data-text"))
-    })
-  }
-})

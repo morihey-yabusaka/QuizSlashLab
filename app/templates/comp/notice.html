@@ -1,11 +1,11 @@
 <div class="notice_list">
   {% if request.GET.state == 'logout' %}
-    <div class="notice_item logout" data-live-time="5">
+    <div class="notice_item logout on" data-live-time="5">
       {% include 'comp/o.html' %}
       ログアウトしました。
     </div>
   {% elif request.GET.state == 'login' %}
-    <div class="notice_item login" data-live-time="5">
+    <div class="notice_item login on" data-live-time="5">
       {% include 'comp/o.html' %}
       ログインしました。
     </div>
@@ -13,11 +13,12 @@
 </div>
 
 <script>
-window.addEventListener("load", _ => {
+window.addEventListener("DOMcontentLoaded", _ => {
   var noticeItems = getElms(".notice_item");
   for(var noticeItem of noticeItems) {
     var liveTime = noticeItem.getAttribute('data-live-time')
     setTimeout(_ => {
+      noticeItem.classList.remove("on")
       noticeItem.classList.add("off")
     }, parseInt(liveTime) * 1000)
   }

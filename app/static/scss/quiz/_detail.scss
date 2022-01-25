@@ -30,6 +30,7 @@
           font-family: 'Poppins';
           color: rgba(var(--orange-rgb), 0.3);
           font-weight: 900;
+          user-select: none;
 
           .wrapper {
             display: flex;
