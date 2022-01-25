@@ -53,11 +53,7 @@
           position: absolute;
           bottom: 0;
           right: 5%;
-          padding: 5px 20px;
-          border-radius: 5px;
-          line-height: 18px;
           font-size: 18px;
-          box-sizing: border-box;
 
           span {
             font-size: 18px;
@@ -156,11 +152,23 @@
     }
 
     .info {
+      display: flex;
       width: 100%;
       height: 30%;
 
-      .sns {
+      .btns {
         display: flex;
+
+        .btn:not(.share) {
+          font-size: 20px;
+          font-weight: 600;
+        }
+        .update, .draft, .publish {
+          --color1: var(--blue);
+        }
+        .sns {
+          display: flex;
+        }
       }
     }
   }

@@ -45,24 +45,38 @@
     </div>
   </div>
   <div class="info">
-    <div class="author">{{ quiz.author }}</div>
-    <div class="created">{{ quiz.created_at }}</div>
-    <div class="updated">{{ quiz.updated_at }}</div>
-    <div class="encount">{{ quiz.n_encount }}</div>
-    <div class="push">{{ quiz.n_push }}</div>
-    <div class="through">{{ quiz.n_through }}</div>
-    <div class="correct">{{ quiz.n_correct }}</div>
-    <div class="uncorrect">{{ quiz.n_uncorrect }}</div>
-
-    {% if user == quiz.author %}
-      <a href="{% url 'app:quiz_update' quiz.pk %}" class="update">編集</a>
-      <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete">削除</a>
-    {% endif %}
-
-    <div class="sns">
-      <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
-      <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>
+    <div class="text">
+      <div class="author">{{ quiz.author }}</div>
+      <div class="created">{{ quiz.created_at }}</div>
+      <div class="updated">{{ quiz.updated_at }}</div>
+      <div class="encount">{{ quiz.n_encount }}</div>
+      <div class="push">{{ quiz.n_push }}</div>
+      <div class="through">{{ quiz.n_through }}</div>
+      <div class="correct">{{ quiz.n_correct }}</div>
+      <div class="uncorrect">{{ quiz.n_uncorrect }}</div>
     </div>
+
+    <div class="btns">
+      {% if user == quiz.author %}
+        {% if quiz.is_draft %}
+          <div class="btn draft">
+            公開
+          </div>
+        {% else %}
+          <div class="btn publish">
+            非公開
+          </div>
+        {% endif %}
+        <a href="{% url 'app:quiz_update' quiz.pk %}" class="update btn">編集</a>
+        <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete btn">削除</a>
+      {% endif %}
+
+      <div class="sns">
+        <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
+        <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </div>
+
 
   </div>
 {% endblock content %}
