@@ -3,15 +3,11 @@
     {% include './icon.html' %}
     <div class="text">uiz/lab</div>
   </a>
-  <nav>nav</nav>
+  <nav>
+    {% include './nav.html' %}
+  </nav>
   <div class="user">
     {% if user.is_authenticated %}
-      <!-- <a href="{% url 'users:logout'%}?next={{ request.path }}?state=logout">
-        <span class="material-icons-outlined">
-          logout
-        </span>
-        ログアウト
-      </a> -->
       <div class="widget_parent useritem">
         <span class="material-icons-outlined">
           account_circle

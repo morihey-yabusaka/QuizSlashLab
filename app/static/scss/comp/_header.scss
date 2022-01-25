@@ -31,6 +31,19 @@ header {
 
   nav {
     flex-grow: 2;
+
+    a {
+      color: #fff !important;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .2s;
+
+      &:hover {
+        color: var(--green) !important;
+        background-color: #fff;
+      }
+    }
   }
 
   .user {
@@ -64,6 +77,10 @@ header {
         height: 3px;
         background-color: #fff;
         transition: .2s;
+      }
+
+      span {
+        margin-right: 10px;
       }
 
       &:hover {

@@ -193,6 +193,17 @@ header .logo .text {
 header nav {
   flex-grow: 2;
 }
+header nav a {
+  color: #fff !important;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+header nav a:hover {
+  color: var(--green) !important;
+  background-color: #fff;
+}
 header .user {
   display: flex;
   align-items: center;
@@ -223,6 +234,9 @@ header .user .useritem:before {
   height: 3px;
   background-color: #fff;
   transition: 0.2s;
+}
+header .user .useritem span {
+  margin-right: 10px;
 }
 header .user .useritem:hover:before {
   width: 100%;
