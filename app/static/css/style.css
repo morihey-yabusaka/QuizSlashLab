@@ -489,14 +489,14 @@ footer {
   margin-left: 10px;
 }
 
-.page.quiz.detail .main, .page.quiz.delete .main, .page.quiz.create .main {
+.page.quiz.detail .main, .page.quiz.delete .main, .page.quiz.create .main, .page.quiz.update .main {
   width: 100%;
 }
-.page.quiz.detail .main .quiz, .page.quiz.delete .main .quiz, .page.quiz.create .main .quiz {
+.page.quiz.detail .main .quiz, .page.quiz.delete .main .quiz, .page.quiz.create .main .quiz, .page.quiz.update .main .quiz {
   width: 100%;
   height: 70%;
 }
-.page.quiz.detail .main .quiz > .q, .page.quiz.detail .main .quiz > .a, .page.quiz.delete .main .quiz > .q, .page.quiz.delete .main .quiz > .a, .page.quiz.create .main .quiz > .q, .page.quiz.create .main .quiz > .a {
+.page.quiz.detail .main .quiz > .q, .page.quiz.detail .main .quiz > .a, .page.quiz.delete .main .quiz > .q, .page.quiz.delete .main .quiz > .a, .page.quiz.create .main .quiz > .q, .page.quiz.create .main .quiz > .a, .page.quiz.update .main .quiz > .q, .page.quiz.update .main .quiz > .a {
   position: relative;
   display: flex;
   justify-content: center;
@@ -506,10 +506,10 @@ footer {
   font-size: 2.5rem;
   font-weight: 500;
 }
-.page.quiz.detail .main .quiz > .q .text, .page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .q .text, .page.quiz.create .main .quiz > .a .text {
+.page.quiz.detail .main .quiz > .q .text, .page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .q .text, .page.quiz.create .main .quiz > .a .text, .page.quiz.update .main .quiz > .q .text, .page.quiz.update .main .quiz > .a .text {
   z-index: 1;
 }
-.page.quiz.detail .main .quiz > .q .back, .page.quiz.detail .main .quiz > .a .back, .page.quiz.delete .main .quiz > .q .back, .page.quiz.delete .main .quiz > .a .back, .page.quiz.create .main .quiz > .q .back, .page.quiz.create .main .quiz > .a .back {
+.page.quiz.detail .main .quiz > .q .back, .page.quiz.detail .main .quiz > .a .back, .page.quiz.delete .main .quiz > .q .back, .page.quiz.delete .main .quiz > .a .back, .page.quiz.create .main .quiz > .q .back, .page.quiz.create .main .quiz > .a .back, .page.quiz.update .main .quiz > .q .back, .page.quiz.update .main .quiz > .a .back {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -524,19 +524,19 @@ footer {
       -ms-user-select: none;
           user-select: none;
 }
-.page.quiz.detail .main .quiz > .q .back .wrapper, .page.quiz.detail .main .quiz > .a .back .wrapper, .page.quiz.delete .main .quiz > .q .back .wrapper, .page.quiz.delete .main .quiz > .a .back .wrapper, .page.quiz.create .main .quiz > .q .back .wrapper, .page.quiz.create .main .quiz > .a .back .wrapper {
+.page.quiz.detail .main .quiz > .q .back .wrapper, .page.quiz.detail .main .quiz > .a .back .wrapper, .page.quiz.delete .main .quiz > .q .back .wrapper, .page.quiz.delete .main .quiz > .a .back .wrapper, .page.quiz.create .main .quiz > .q .back .wrapper, .page.quiz.create .main .quiz > .a .back .wrapper, .page.quiz.update .main .quiz > .q .back .wrapper, .page.quiz.update .main .quiz > .a .back .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   height: 100%;
 }
-.page.quiz.detail .main .quiz > .q .back .wrapper .icon, .page.quiz.detail .main .quiz > .a .back .wrapper .icon, .page.quiz.delete .main .quiz > .q .back .wrapper .icon, .page.quiz.delete .main .quiz > .a .back .wrapper .icon, .page.quiz.create .main .quiz > .q .back .wrapper .icon, .page.quiz.create .main .quiz > .a .back .wrapper .icon {
+.page.quiz.detail .main .quiz > .q .back .wrapper .icon, .page.quiz.detail .main .quiz > .a .back .wrapper .icon, .page.quiz.delete .main .quiz > .q .back .wrapper .icon, .page.quiz.delete .main .quiz > .a .back .wrapper .icon, .page.quiz.create .main .quiz > .q .back .wrapper .icon, .page.quiz.create .main .quiz > .a .back .wrapper .icon, .page.quiz.update .main .quiz > .q .back .wrapper .icon, .page.quiz.update .main .quiz > .a .back .wrapper .icon {
   --color: var(--green);
   --size: 200px;
   opacity: 0.3;
 }
-.page.quiz.detail .main .quiz > .q .btn, .page.quiz.detail .main .quiz > .a .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .a .btn, .page.quiz.create .main .quiz > .q .btn, .page.quiz.create .main .quiz > .a .btn {
+.page.quiz.detail .main .quiz > .q .btn, .page.quiz.detail .main .quiz > .a .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .a .btn, .page.quiz.create .main .quiz > .q .btn, .page.quiz.create .main .quiz > .a .btn, .page.quiz.update .main .quiz > .q .btn, .page.quiz.update .main .quiz > .a .btn {
   --size: 48px;
   --color1: rgba(var(--orange-rgb));
   position: absolute;
@@ -544,26 +544,26 @@ footer {
   right: 5%;
   font-size: 18px;
 }
-.page.quiz.detail .main .quiz > .q .btn span, .page.quiz.detail .main .quiz > .a .btn span, .page.quiz.delete .main .quiz > .q .btn span, .page.quiz.delete .main .quiz > .a .btn span, .page.quiz.create .main .quiz > .q .btn span, .page.quiz.create .main .quiz > .a .btn span {
+.page.quiz.detail .main .quiz > .q .btn span, .page.quiz.detail .main .quiz > .a .btn span, .page.quiz.delete .main .quiz > .q .btn span, .page.quiz.delete .main .quiz > .a .btn span, .page.quiz.create .main .quiz > .q .btn span, .page.quiz.create .main .quiz > .a .btn span, .page.quiz.update .main .quiz > .q .btn span, .page.quiz.update .main .quiz > .a .btn span {
   font-size: 18px;
 }
-.page.quiz.detail .main .quiz > .q, .page.quiz.delete .main .quiz > .q, .page.quiz.create .main .quiz > .q {
+.page.quiz.detail .main .quiz > .q, .page.quiz.delete .main .quiz > .q, .page.quiz.create .main .quiz > .q, .page.quiz.update .main .quiz > .q {
   padding: 1% 3%;
   z-index: 2;
 }
-.page.quiz.detail .main .quiz > .q .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.create .main .quiz > .q .text {
+.page.quiz.detail .main .quiz > .q .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.create .main .quiz > .q .text, .page.quiz.update .main .quiz > .q .text {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-.page.quiz.detail .main .quiz > .q .text .slash, .page.quiz.delete .main .quiz > .q .text .slash, .page.quiz.create .main .quiz > .q .text .slash {
+.page.quiz.detail .main .quiz > .q .text .slash, .page.quiz.delete .main .quiz > .q .text .slash, .page.quiz.create .main .quiz > .q .text .slash, .page.quiz.update .main .quiz > .q .text .slash {
   position: relative;
   display: inline-block;
   height: 1em;
   width: 0.15em;
   margin: 0 0.1em;
 }
-.page.quiz.detail .main .quiz > .q .text .slash:after, .page.quiz.delete .main .quiz > .q .text .slash:after, .page.quiz.create .main .quiz > .q .text .slash:after {
+.page.quiz.detail .main .quiz > .q .text .slash:after, .page.quiz.delete .main .quiz > .q .text .slash:after, .page.quiz.create .main .quiz > .q .text .slash:after, .page.quiz.update .main .quiz > .q .text .slash:after {
   content: "";
   display: block;
   height: 100%;
@@ -572,7 +572,7 @@ footer {
   transform: skewX(-10deg);
   transition: 0.2s;
 }
-.page.quiz.detail .main .quiz > .q .text .slash .box, .page.quiz.delete .main .quiz > .q .text .slash .box, .page.quiz.create .main .quiz > .q .text .slash .box {
+.page.quiz.detail .main .quiz > .q .text .slash .box, .page.quiz.delete .main .quiz > .q .text .slash .box, .page.quiz.create .main .quiz > .q .text .slash .box, .page.quiz.update .main .quiz > .q .text .slash .box {
   position: absolute;
   top: 100%;
   right: 0;
@@ -585,25 +585,25 @@ footer {
   transition: 0.2s;
   z-index: 1;
 }
-.page.quiz.detail .main .quiz > .q .text .slash .box div, .page.quiz.delete .main .quiz > .q .text .slash .box div, .page.quiz.create .main .quiz > .q .text .slash .box div {
+.page.quiz.detail .main .quiz > .q .text .slash .box div, .page.quiz.delete .main .quiz > .q .text .slash .box div, .page.quiz.create .main .quiz > .q .text .slash .box div, .page.quiz.update .main .quiz > .q .text .slash .box div {
   font-size: 1rem;
   font-weight: 300;
 }
-.page.quiz.detail .main .quiz > .q .text .slash.left .box, .page.quiz.delete .main .quiz > .q .text .slash.left .box, .page.quiz.create .main .quiz > .q .text .slash.left .box {
+.page.quiz.detail .main .quiz > .q .text .slash.left .box, .page.quiz.delete .main .quiz > .q .text .slash.left .box, .page.quiz.create .main .quiz > .q .text .slash.left .box, .page.quiz.update .main .quiz > .q .text .slash.left .box {
   left: 0;
   right: auto;
 }
-.page.quiz.detail .main .quiz > .q .text .slash:hover:after, .page.quiz.delete .main .quiz > .q .text .slash:hover:after, .page.quiz.create .main .quiz > .q .text .slash:hover:after {
+.page.quiz.detail .main .quiz > .q .text .slash:hover:after, .page.quiz.delete .main .quiz > .q .text .slash:hover:after, .page.quiz.create .main .quiz > .q .text .slash:hover:after, .page.quiz.update .main .quiz > .q .text .slash:hover:after {
   background: #000;
 }
-.page.quiz.detail .main .quiz > .q .text .slash:hover .box, .page.quiz.delete .main .quiz > .q .text .slash:hover .box, .page.quiz.create .main .quiz > .q .text .slash:hover .box {
+.page.quiz.detail .main .quiz > .q .text .slash:hover .box, .page.quiz.delete .main .quiz > .q .text .slash:hover .box, .page.quiz.create .main .quiz > .q .text .slash:hover .box, .page.quiz.update .main .quiz > .q .text .slash:hover .box {
   opacity: 1;
   visibility: visible;
 }
-.page.quiz.detail .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.create .main .quiz > .q .btn {
+.page.quiz.detail .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.create .main .quiz > .q .btn, .page.quiz.update .main .quiz > .q .btn {
   --color1: rgba(var(--green-rgb));
 }
-.page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .a .text {
+.page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .a .text, .page.quiz.update .main .quiz > .a .text {
   position: relative;
   display: flex;
   justify-content: center;
@@ -611,7 +611,7 @@ footer {
   letter-spacing: 5px;
   font-weight: 600;
 }
-.page.quiz.detail .main .quiz > .a .text div, .page.quiz.delete .main .quiz > .a .text div, .page.quiz.create .main .quiz > .a .text div {
+.page.quiz.detail .main .quiz > .a .text div, .page.quiz.delete .main .quiz > .a .text div, .page.quiz.create .main .quiz > .a .text div, .page.quiz.update .main .quiz > .a .text div {
   position: absolute;
   top: 100%;
   width: -webkit-max-content;
@@ -619,28 +619,28 @@ footer {
   width: max-content;
   font-size: 0.4em;
 }
-.page.quiz.detail .main .info, .page.quiz.delete .main .info, .page.quiz.create .main .info {
+.page.quiz.detail .main .info, .page.quiz.delete .main .info, .page.quiz.create .main .info, .page.quiz.update .main .info {
   display: flex;
   width: 100%;
   height: 30%;
 }
-.page.quiz.detail .main .info .btns, .page.quiz.delete .main .info .btns, .page.quiz.create .main .info .btns {
+.page.quiz.detail .main .info .btns, .page.quiz.delete .main .info .btns, .page.quiz.create .main .info .btns, .page.quiz.update .main .info .btns {
   display: flex;
 }
-.page.quiz.detail .main .info .btns .btn:not(.share), .page.quiz.delete .main .info .btns .btn:not(.share), .page.quiz.create .main .info .btns .btn:not(.share) {
+.page.quiz.detail .main .info .btns .btn:not(.share), .page.quiz.delete .main .info .btns .btn:not(.share), .page.quiz.create .main .info .btns .btn:not(.share), .page.quiz.update .main .info .btns .btn:not(.share) {
   font-size: 20px;
   font-weight: 600;
 }
-.page.quiz.detail .main .info .btns .update, .page.quiz.detail .main .info .btns .draft, .page.quiz.detail .main .info .btns .publish, .page.quiz.delete .main .info .btns .update, .page.quiz.delete .main .info .btns .draft, .page.quiz.delete .main .info .btns .publish, .page.quiz.create .main .info .btns .update, .page.quiz.create .main .info .btns .draft, .page.quiz.create .main .info .btns .publish {
+.page.quiz.detail .main .info .btns .update, .page.quiz.detail .main .info .btns .draft, .page.quiz.detail .main .info .btns .publish, .page.quiz.delete .main .info .btns .update, .page.quiz.delete .main .info .btns .draft, .page.quiz.delete .main .info .btns .publish, .page.quiz.create .main .info .btns .update, .page.quiz.create .main .info .btns .draft, .page.quiz.create .main .info .btns .publish, .page.quiz.update .main .info .btns .update, .page.quiz.update .main .info .btns .draft, .page.quiz.update .main .info .btns .publish {
   --color1: var(--blue);
 }
-.page.quiz.detail .main .info .btns .draft, .page.quiz.delete .main .info .btns .draft, .page.quiz.create .main .info .btns .draft {
+.page.quiz.detail .main .info .btns .draft, .page.quiz.delete .main .info .btns .draft, .page.quiz.create .main .info .btns .draft, .page.quiz.update .main .info .btns .draft {
   font-size: 17px !important;
 }
-.page.quiz.detail .main .info .btns .sns, .page.quiz.delete .main .info .btns .sns, .page.quiz.create .main .info .btns .sns {
+.page.quiz.detail .main .info .btns .sns, .page.quiz.delete .main .info .btns .sns, .page.quiz.create .main .info .btns .sns, .page.quiz.update .main .info .btns .sns {
   display: flex;
 }
-.page.quiz.detail .main .info .btns button, .page.quiz.delete .main .info .btns button, .page.quiz.create .main .info .btns button {
+.page.quiz.detail .main .info .btns button, .page.quiz.delete .main .info .btns button, .page.quiz.create .main .info .btns button, .page.quiz.update .main .info .btns button {
   border: none;
   background: none;
 }
@@ -684,51 +684,51 @@ footer {
   color: var(--red);
 }
 
-.page.quiz.create .form {
+.page.quiz.create .form, .page.quiz.update .form {
   width: 100%;
   height: 100%;
 }
-.page.quiz.create .form form {
+.page.quiz.create .form form, .page.quiz.update .form form {
   width: 100%;
   height: 100%;
 }
-.page.quiz.create .form form textarea, .page.quiz.create .form form input {
+.page.quiz.create .form form textarea, .page.quiz.create .form form input, .page.quiz.update .form form textarea, .page.quiz.update .form form input {
   background: transparent;
   border-color: transparent;
   box-sizing: border-box;
 }
-.page.quiz.create .form form textarea:focus, .page.quiz.create .form form input:focus {
+.page.quiz.create .form form textarea:focus, .page.quiz.create .form form input:focus, .page.quiz.update .form form textarea:focus, .page.quiz.update .form form input:focus {
   outline: none;
 }
-.page.quiz.create .form form .quiz .q .text {
+.page.quiz.create .form form .quiz .q .text, .page.quiz.update .form form .quiz .q .text {
   width: 100%;
   height: 100%;
 }
-.page.quiz.create .form form .quiz .q .text textarea {
+.page.quiz.create .form form .quiz .q .text textarea, .page.quiz.update .form form .quiz .q .text textarea {
   width: 100%;
   height: 100%;
   resize: none;
   border-width: 5px;
   border-bottom: 5px solid var(--green);
 }
-.page.quiz.create .form form .quiz .q .text textarea:focus {
+.page.quiz.create .form form .quiz .q .text textarea:focus, .page.quiz.update .form form .quiz .q .text textarea:focus {
   border: 5px solid var(--green);
 }
-.page.quiz.create .form form .quiz .a input {
+.page.quiz.create .form form .quiz .a input, .page.quiz.update .form form .quiz .a input {
   width: 100%;
   height: 100%;
   border-width: 3px;
   border-bottom: 3px solid var(--orange);
 }
-.page.quiz.create .form form .quiz .a input:focus {
+.page.quiz.create .form form .quiz .a input:focus, .page.quiz.update .form form .quiz .a input:focus {
   border: 3px solid var(--orange);
 }
-.page.quiz.create .form form .info {
+.page.quiz.create .form form .info, .page.quiz.update .form form .info {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.page.quiz.create .form form .info button {
+.page.quiz.create .form form .info button, .page.quiz.update .form form .info button {
   position: relative;
   width: 80px;
   height: 80px;
@@ -740,7 +740,7 @@ footer {
   font-weight: 600;
   cursor: pointer;
 }
-.page.quiz.create .form form .info button:before {
+.page.quiz.create .form form .info button:before, .page.quiz.update .form form .info button:before {
   content: "";
   position: absolute;
   left: 0;
@@ -751,16 +751,16 @@ footer {
   border-radius: 1000px;
   z-index: -1;
 }
-.page.quiz.create .form form .info button:hover {
+.page.quiz.create .form form .info button:hover, .page.quiz.update .form form .info button:hover {
   top: 2px;
 }
-.page.quiz.create .form form .info button:hover:before {
+.page.quiz.create .form form .info button:hover:before, .page.quiz.update .form form .info button:hover:before {
   height: 98px;
 }
-.page.quiz.create .form form .info button:focus {
+.page.quiz.create .form form .info button:focus, .page.quiz.update .form form .info button:focus {
   top: 10px;
 }
-.page.quiz.create .form form .info button:focus:before {
+.page.quiz.create .form form .info button:focus:before, .page.quiz.update .form form .info button:focus:before {
   height: 90px;
 }
 

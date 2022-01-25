@@ -1,100 +1,102 @@
-.page.quiz.create {
-  .form {
-    width: 100%;
-    height: 100%;
-
-    form {
+.page.quiz {
+  &.create, &.update {
+    .form {
       width: 100%;
       height: 100%;
 
-      textarea, input {
-        background: transparent;
-        border-color: transparent;
-        box-sizing: border-box;
+      form {
+        width: 100%;
+        height: 100%;
 
-        &:focus {
-          outline: none;
+        textarea, input {
+          background: transparent;
+          border-color: transparent;
+          box-sizing: border-box;
+
+          &:focus {
+            outline: none;
+          }
         }
-      }
 
-      .quiz {
-        .q {
-          .text {
-            width: 100%;
-            height: 100%;
-
-            textarea {
+        .quiz {
+          .q {
+            .text {
               width: 100%;
               height: 100%;
-              resize: none;
-              border-width: 5px;
-              border-bottom: 5px solid var(--green);
+
+              textarea {
+                width: 100%;
+                height: 100%;
+                resize: none;
+                border-width: 5px;
+                border-bottom: 5px solid var(--green);
+
+                &:focus {
+                  border: 5px solid var(--green);
+                }
+              }
+            }
+          }
+
+          .a {
+            .text {
+            }
+            input {
+              width: 100%;
+              height: 100%;
+              border-width: 3px;
+              border-bottom: 3px solid var(--orange);
 
               &:focus {
-                border: 5px solid var(--green);
+                border: 3px solid var(--orange);
               }
             }
           }
         }
 
-        .a {
-          .text {
-          }
-          input {
-            width: 100%;
-            height: 100%;
-            border-width: 3px;
-            border-bottom: 3px solid var(--orange);
+        .info {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          button {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 1000px;
+            border: none;
+            font-size: 1.8rem;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100px;
+              background-color: var(--blue-dark);
+              border-radius: 1000px;
+              z-index: -1;
+            }
+
+            &:hover {
+              top: 2px;
+
+              &:before {
+                height: 98px;
+              }
+            }
 
             &:focus {
-              border: 3px solid var(--orange);
-            }
-          }
-        }
-      }
+              top: 10px;
 
-      .info {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        button {
-          position: relative;
-          width: 80px;
-          height: 80px;
-          background: var(--blue);
-          color: #fff;
-          border-radius: 1000px;
-          border: none;
-          font-size: 1.8rem;
-          font-weight: 600;
-          cursor: pointer;
-
-          &:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100px;
-            background-color: var(--blue-dark);
-            border-radius: 1000px;
-            z-index: -1;
-          }
-
-          &:hover {
-            top: 2px;
-
-            &:before {
-              height: 98px;
-            }
-          }
-
-          &:focus {
-            top: 10px;
-
-            &:before {
-              height: 90px;
+              &:before {
+                height: 90px;
+              }
             }
           }
         }
