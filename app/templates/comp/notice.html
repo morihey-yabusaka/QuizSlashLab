@@ -17,6 +17,11 @@ window.addEventListener("DOMContentLoaded", _ => {
   var noticeItems = getElms(".notice_item");
   for(var noticeItem of noticeItems) {
     var liveTime = noticeItem.getAttribute('data-live-time')
+    noticeItem.addEventListener("animationend", e => {
+      if(noticeItem.classList.contains("off")) {
+        noticeItem.remove()
+      }
+    })
     setTimeout(_ => {
       noticeItem.classList.remove("on")
       noticeItem.classList.add("off")
