@@ -6,15 +6,15 @@
 
   <div class="list quiz_list">
     {% for quiz in quizes %}
-      <a href="{% url 'app:quiz_detail' quiz.pk %}" class="item">
-        <div class="q">
+      <div class="item">
+        <a class="q" href="{% url 'app:quiz_detail' quiz.pk %}">
           {{ quiz.question }}
-        </div>
+        </a>
         <div class="foot">
-          <div class="author">
+          <a href="{% url 'app:userpage' quiz.author %}" class="author">
             <i class="fas fa-user"></i>
             {{ quiz.author }}
-          </div>
+          </a>
           <div class="update">
             <i class="fas fa-history"></i>
             {{ quiz.updated_at }}
@@ -23,7 +23,7 @@
         <div class="icon_wrap">
           {% include 'comp/icon.html' %}
         </div>
-      </a>
+      </div>
     {% endfor %}
   </div>
 

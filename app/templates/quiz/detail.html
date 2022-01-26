@@ -46,9 +46,19 @@
   </div>
   <div class="info">
     <div class="text">
-      <div class="author">{{ quiz.author }}</div>
-      <div class="created">{{ quiz.created_at }}</div>
-      <div class="updated">{{ quiz.updated_at }}</div>
+      <a href="{% url 'app:userpage' quiz.author %}" class="author">
+        <i class="fas fa-user"></i>
+        {{ quiz.author.pk }}
+        {{ quiz.author }}
+      </a>
+      <div class="created">
+        <i class="fas fa-plus-circle"></i>
+        {{ quiz.created_at }}
+      </div>
+      <div class="updated">
+        <i class="fas fa-history"></i>
+        {{ quiz.updated_at }}
+      </div>
       <div class="encount">{{ quiz.n_encount }}</div>
       <div class="push">{{ quiz.n_push }}</div>
       <div class="through">{{ quiz.n_through }}</div>

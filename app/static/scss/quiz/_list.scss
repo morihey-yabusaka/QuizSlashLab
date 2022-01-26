@@ -38,12 +38,17 @@
       }
 
       &>.q {
+        display: block;
+        position: relative;
+        z-index: 1;
         margin-bottom: 10px;
         font-size: 1.2rem;
         padding: 20px 10px;
       }
 
       .foot {
+        position: relative;
+        z-index: 1;
         display: flex;
         color: #888;
         padding: 0 20px;
