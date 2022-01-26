@@ -2,7 +2,7 @@
   {% block menuitems %}
   {% endblock menuitems %}
   <div class="menuitem logout">
-    <a href="{% url 'users:logout'%}?next={{ request.path }}?state=logout">
+    <a href="{% url 'users:logout'%}?next={{ request.path }}">
       <i class="fas fa-sign-out-alt"></i>
       ログアウト
     </a>

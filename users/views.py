@@ -1,3 +1,5 @@
+from urllib.parse import *
+
 from django.urls import reverse_lazy
 from django.contrib.auth import login
 from django.views.generic import CreateView
@@ -82,11 +84,36 @@ class LogInView(LoginView):
   template_name = "login.html"
   form_class = LoginForm
 
+  def get_success_url(self) -> str:
+    url = super().get_success_url()
+    parsed_url = urlparse(url)
+    query_dict = parse_qs(parsed_url.query)
+    state = query_dict.get('state')
+    if state:
+      query_dict['state'].append("login")
+    else:
+      query_dict['state'] = 'login'
+
+    return urlunparse(parsed_url._replace(query=urlencode(query_dict, doseq=True)))
+
+
 login_view = LogInView.as_view()
 
 
 class LogOutView(LogoutView):
   template_name = "logout.html"
+
+  def get_next_page(self) -> str:
+    url = super().get_next_page()
+    parsed_url = urlparse(url)
+    query_dict = parse_qs(parsed_url.query)
+    state = query_dict.get('state')
+    if state:
+      query_dict['state'].append("logout")
+    else:
+      query_dict['state'] = 'logout'
+
+    return urlunparse(parsed_url._replace(query=urlencode(query_dict, doseq=True)))
 
 logout_view = LogOutView.as_view()
 

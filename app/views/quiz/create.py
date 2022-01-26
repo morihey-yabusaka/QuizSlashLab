@@ -1,10 +1,11 @@
 from django.urls import reverse
 from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from ...models import Quiz
 from ...forms import QuizForm
 
-class QuizCreateView(CreateView):
+class QuizCreateView(LoginRequiredMixin, CreateView):
   model = Quiz
   form_class = QuizForm
   template_name = 'quiz/create.html'

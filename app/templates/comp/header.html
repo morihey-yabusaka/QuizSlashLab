@@ -14,11 +14,11 @@
         {% include 'users/user_menu_widget.html' %}
       </div>
     {% else %}
-      <a href="{% url 'users:signup' %}?next={{ request.path }}?state=login" class="signup useritem">
+      <a href="{% url 'users:signup' %}?next={{ request.path }}" class="signup useritem">
         <i class="far fa-user-circle"></i>
         新規登録
       </a>
-      <a href="{% url 'users:login'%}?next={{ request.path }}?state=login" class="useritem">
+      <a href="{% url 'users:login'%}?next={{ request.path }}" class="useritem">
         <i class="fas fa-sign-in-alt"></i>
         ログイン
       </a>
