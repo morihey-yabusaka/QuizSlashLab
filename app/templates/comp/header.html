@@ -9,23 +9,17 @@
   <div class="user">
     {% if user.is_authenticated %}
       <div class="widget_parent useritem">
-        <span class="material-icons-outlined">
-          account_circle
-        </span>
+        <i class="far fa-user-circle"></i>
         {{user.username}}
         {% include 'users/user_menu_widget.html' %}
       </div>
     {% else %}
       <a href="{% url 'users:signup' %}?next={{ request.path }}?state=login" class="signup useritem">
-        <span class="material-icons-outlined">
-          account_circle
-        </span>
+        <i class="far fa-user-circle"></i>
         新規登録
       </a>
       <a href="{% url 'users:login'%}?next={{ request.path }}?state=login" class="useritem">
-        <span class="material-icons-outlined">
-          login
-        </span>
+        <i class="fas fa-sign-in-alt"></i>
         ログイン
       </a>
     {% endif %}

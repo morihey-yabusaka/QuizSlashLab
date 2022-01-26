@@ -6,4 +6,11 @@
 
 {% block content %}
   userpage
+
+  {% if request.user == user_ %}
+    <i class="fas fa-cog"></i>
+    設定
+    <a href="{% url 'users:password_change' %}">パスワード変更</a>
+  {% endif %}
+
 {% endblock content %}

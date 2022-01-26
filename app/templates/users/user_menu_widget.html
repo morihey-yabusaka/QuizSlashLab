@@ -3,40 +3,36 @@
 
 {% block menuitems %}
 <div class="menuitem">
-  <a href="">
-    <span class="material-icons-outlined">
-      account_box
-    </span>
-    マイページ
-  </a>
+
+  {% if request.user.username %}
+    <a href="{% url 'app:userpage' request.user.username %}">
+      <i class="far fa-address-card"></i>
+      マイページ
+    </a>
+  {% endif %}
+
 </div>
 <div class="menuitem">
   <a href="{% url 'app:user_quiz_list' %}">
-    <span class="material-icons-outlined">
-      format_list_bulleted
-    </span>
+    <i class="fas fa-list-ul"></i>
     作問一覧
   </a>
 </div>
 <div class="menuitem">
   <a href="{% url 'app:draft_list' %}">
-    <span class="material-icons-outlined">
-      format_list_bulleted
-    </span>
+    <i class="fas fa-list-ul"></i>
     下書き一覧
   </a>
 </div>
 <div class="menuitem">
-  <a href=""><span class="material-icons-outlined">
-      format_list_bulleted
-    </span>
+  <a href="">
+    <i class="fas fa-list-ul"></i>
     GQ一覧
   </a>
 </div>
 <div class="menuitem">
-  <a href=""><span class="material-icons-outlined">
-      format_list_bulleted
-    </span>
+  <a href="">
+    <i class="fas fa-list-ul"></i>
     ベタ一覧
   </a>
 </div>
