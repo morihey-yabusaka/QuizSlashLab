@@ -156,8 +156,8 @@ class PassWordResetView(PasswordResetView):
   template_name = 'password_reset.html'
   success_url = reverse_lazy('users:password_reset_done')
   form_class = PassWordResetForm
-  subject_template_name = 'mail/regestration/password_reset_subject.txt'
-  email_template_name = 'mail/regestration/password_reset_message.txt'
+  subject_template_name = 'mail/registration/password_reset_subject.txt'
+  email_template_name = 'mail/registration/password_reset_message.html'
 
 password_reset_view = PassWordResetView.as_view()
 
@@ -165,17 +165,17 @@ password_reset_view = PassWordResetView.as_view()
 class PassWordResetDoneView(PasswordResetDoneView):
   template_name = 'password_reset_done.html'
 
-password_reset_done_view = PasswordResetDoneView.as_view()
+password_reset_done_view = PassWordResetDoneView.as_view()
 
 
 class PassWordResetConfirmView(PasswordResetConfirmView):
   template_name = 'password_reset_confirm.html'
   success_url = reverse_lazy('users:password_reset_complete')
 
-password_reset_confirm_view = PasswordResetConfirmView.as_view()
+password_reset_confirm_view = PassWordResetConfirmView.as_view()
 
 
 class PassWordResetCompleteView(PasswordResetCompleteView):
   template_name = 'password_reset_complete.html'
 
-password_reset_complete_view = PasswordResetCompleteView.as_view()
+password_reset_complete_view = PassWordResetCompleteView.as_view()

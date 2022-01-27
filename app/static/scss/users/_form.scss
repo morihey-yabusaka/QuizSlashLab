@@ -29,6 +29,11 @@
           font-size: 1.2rem;
           margin-bottom: 20px;
 
+          .subtext {
+            font-size: .7em;
+            color: #888;
+          }
+
           .icon {
             --size: 50px;
             margin-bottom: 15px;
@@ -112,6 +117,16 @@
               font-size: .9rem;
               padding-left: 5px;
               color: #aaa;
+
+              ul {
+                padding-left: 2em;
+              }
+            }
+
+            .password_forget {
+              font-size: 0.7rem;
+              color: var(--green);
+              margin-left: 10px;
             }
           }
 
