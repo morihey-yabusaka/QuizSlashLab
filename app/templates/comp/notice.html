@@ -1,15 +1,23 @@
 <div class="notice_list">
-  {% if request.GET.state == 'logout' %}
+  {% if 'logout' in request.GET.state%}
     <div class="notice_item logout on" data-live-time="5">
       {% include 'comp/o.html' %}
       ログアウトしました。
     </div>
-  {% elif request.GET.state == 'login' %}
+  {% elif 'login' in request.GET.state %}
     <div class="notice_item login on" data-live-time="5">
       {% include 'comp/o.html' %}
       ログインしました。
     </div>
   {% endif %}
+
+  {% if 'password_change' in request.GET.state %}
+  <div class="notice_item password_change on" data-live-time="5">
+    {% include 'comp/o.html' %}
+    パスワードを変更しました。
+  </div>
+  {% endif %}
+
 </div>
 
 <script>
