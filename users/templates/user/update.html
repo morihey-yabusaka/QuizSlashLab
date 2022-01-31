@@ -1,0 +1,17 @@
+{% extends 'comp/base.html' %}
+
+
+{% block class %}user update{% endblock class %}
+
+
+{% block content %}
+  <div class="form">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.username }}
+      {{ form.email }}
+      <a href="{% url 'users:password_change' %}">パスワードの変更はこちら</a>
+      <button class="btn">保存</button>
+    </form>
+  </div>
+{% endblock content %}
