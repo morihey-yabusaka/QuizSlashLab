@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView, UpdateView, DeleteView
 
@@ -25,5 +26,8 @@ class UserUpdateView(OnlyMeMixin, LoginRequiredMixin, UpdateView):
   slug_field = 'username'
   context_object_name = 'user_'
   form_class = UserUpdateForm
+
+  def get_success_url(self):
+    return reverse('users:user_detail', kwargs={'slug': self.object.username})
 
 user_update_view = UserUpdateView.as_view()

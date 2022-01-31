@@ -10,7 +10,6 @@
       {% csrf_token %}
       {{ form.username }}
       {{ form.email }}
-      <a href="{% url 'users:password_change' %}">パスワードの変更はこちら</a>
       <button class="btn">保存</button>
     </form>
   </div>

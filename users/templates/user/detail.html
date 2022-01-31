@@ -7,4 +7,6 @@
 {% block content %}
   {{ user_.username }}
   {{ user_.email }}
+  <a href="{% url 'users:password_change' %}">パスワードの変更はこちら</a>
+  <a href="{% url 'users:user_update' user.username %}">登録情報変更</a>
 {% endblock content %}

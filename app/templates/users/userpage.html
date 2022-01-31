@@ -11,6 +11,8 @@
     <i class="fas fa-cog"></i>
     設定
     <a href="{% url 'users:password_change' %}">パスワード変更</a>
+    <a href="{% url 'users:user_detail' user.username %}">登録情報確認</a>
+    <a href="{% url 'users:user_update' user.username %}">登録情報変更</a>
   {% endif %}
 
 {% endblock content %}

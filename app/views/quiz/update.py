@@ -11,6 +11,6 @@ class QuizUpdateView(AuthorOnlyEditableMixin, UpdateView):
   template_name = 'quiz/update.html'
 
   def get_success_url(self):
-      return reverse('app:quiz_detail', kwargs={'pk': self.object.pk})
+    return reverse('app:quiz_detail', kwargs={'pk': self.object.pk})
 
 quiz_update_view = QuizUpdateView.as_view()
