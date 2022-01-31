@@ -4,6 +4,17 @@
 
 {% block content %}
 
+  <div class="left">
+    <form action="" method="get">
+      問題文
+      <input name="question" value="{{ request.GET.question }}" type="text"><br>
+      解答
+      <input name="answer" value="{{ request.GET.answer }}" type="text">
+      <button class="btn" type="submit">検索</button>
+      <button class="btn" type="button" clear>クリア</button>
+    </form>
+  </div>
+
   <div class="list quiz_list">
     {% for quiz in quizes %}
       <div class="item">
@@ -26,5 +37,7 @@
       </div>
     {% endfor %}
   </div>
+
+  <div class="right"></div>
 
 {% endblock content %}

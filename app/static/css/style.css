@@ -13,6 +13,11 @@ a:visited * {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 :root {
   --orange: #F09A54;
   --green: #56DC7E;
@@ -302,7 +307,8 @@ footer {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-size: 32px;
+  font-size: 20px;
+  font-weight: 500;
 }
 .btn:after {
   content: "";
@@ -493,6 +499,18 @@ footer {
 }
 .quiz.list .main > .list .item .foot *:not(:first-child) {
   margin-left: 10px;
+}
+.quiz.list .main .left {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 20%;
+}
+.quiz.list .main .right {
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  width: 20%;
 }
 
 .page.quiz.detail .main, .page.quiz.delete .main, .page.quiz.create .main, .page.quiz.update .main {

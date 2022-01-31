@@ -59,4 +59,17 @@
       }
     }
   }
+
+  .left {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 20%;
+  }
+  .right {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    width: 20%;
+  }
 }
