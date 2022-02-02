@@ -1,5 +1,5 @@
 @use 'myreset';
-@use 'comp/root';
+@use 'root';
 @use 'comp/icon';
 @use 'comp/o';
 @use 'comp/x';
@@ -8,6 +8,7 @@
 @use 'comp/footer';
 @use 'comp/widget';
 @use 'comp/btn';
+@use 'comp/light';
 @use 'comp/notice';
 @use 'quiz/list';
 @use 'quiz/detail';

@@ -4,57 +4,7 @@
 
 {% block content %}
 
-  <div class="left">
-    <form action="" method="get">
-      <label>
-        問題文
-        <textarea name="question">{{request.GET.question}}</textarea>
-      </label>
-      <label>
-        先頭検索
-        <input type="checkbox" name="is_start" {{ is_start }}>
-      </label>
-      <div class="radio question">
-        問題文検索方法
-        <label>
-          OR検索
-          <input type="radio" name="q" value="or" {{ q_or }}>
-        </label>
-        <label>
-          AND検索
-          <input type="radio" name="q" value="and" {{ q_and }}>
-        </label>
-      </div>
-      <label>
-        解答
-        <textarea name="answer">{{request.GET.answer}}</textarea>
-      </label>
-      <div class="radio answer">
-        解答検索方法
-        <label>
-          OR検索
-          <input type="radio" name="a" value="or" {{ a_or }}>
-        </label>
-        <label>
-          AND検索
-          <input type="radio" name="a" value="and" {{ a_and }}>
-        </label>
-      </div>
-      <div class="radio qa">
-        問題文解答検索方法
-        <label>
-          OR検索
-          <input type="radio" name="qa" value="or" {{ qa_or }}>
-        </label>
-        <label>
-          AND検索
-          <input type="radio" name="qa" value="and" {{ qa_and }}>
-        </label>
-      </div>
-      <button class="btn" type="submit">検索</button>
-      <button class="btn" type="button" clear>クリア</button>
-    </form>
-  </div>
+  <div class="left"></div>
 
   <div class="list quiz_list">
     {% for quiz in quizes %}
@@ -79,6 +29,73 @@
     {% endfor %}
   </div>
 
-  <div class="right"></div>
+  <div class="right">
+    <div class="quiz_search">
+      クイズを検索
+      <form action="" method="get">
+        <div class="form_item text">
+          <label>
+            問題文
+            <textarea name="question">{{request.GET.question}}</textarea>
+          </label>
+        </div>
+        <div class="form_item">
+          <input type="checkbox" id="is_start" name="is_start" {{ is_start }}>
+          <label for="is_start">
+            <div class="light"></div>先頭検索
+          </label>
+        </div>
+        <div class="form_item">
+          問題文検索方法
+          <div class="radio_button">
+            <input type="radio" name="q" id="q_or" value="or" {{ q_or }}>
+            <label for="q_or">
+              <div class="light"></div>OR検索
+            </label>
+            <input type="radio" name="q" id="q_and" value="and" {{ q_and }}>
+            <label for="q_and">
+              <div class="light"></div>AND検索
+            </label>
+          </div>
+        </div>
+        <div class="form_item text">
+          <label>
+            解答
+            <textarea name="answer">{{request.GET.answer}}</textarea>
+          </label>
+        </div>
+        <div class="form_item">
+          解答検索方法
+          <div class="radio_button">
+            <input type="radio" name="a" id="a_or" value="or" {{ a_or }}>
+            <label for="a_or">
+              <div class="light"></div>OR検索
+            </label>
+            <input type="radio" name="a" id="a_and" value="and" {{ a_and }}>
+            <label for="a_and">
+              <div class="light"></div>AND検索
+            </label>
+          </div>
+        </div>
+        <div class="form_item">
+          問題文解答検索方法
+          <div class="radio_button">
+            <input type="radio" name="qa" id="qa_or" value="or" {{ qa_or }}>
+            <label for="qa_or">
+              <div class="light"></div>OR検索
+            </label>
+            <input type="radio" name="qa" id="qa_and" value="and" {{ qa_and }}>
+            <label for="qa_and">
+              <div class="light"></div>AND検索
+            </label>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn" type="submit">検索</button>
+          <button class="btn" type="button" clear>クリア</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
 {% endblock content %}

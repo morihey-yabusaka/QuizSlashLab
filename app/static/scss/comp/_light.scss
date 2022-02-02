@@ -1,0 +1,57 @@
+.light {
+  --color: var(--red);
+  --size: 64px;
+  --ratio: 0.6;
+  position: relative;
+  width: calc(var(--size) * var(--ratio));
+  height: var(--size);
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color);
+    opacity: .5;
+    border-radius: 10000px;
+    filter: saturate(.3);
+    transition: .1s;
+  }
+
+  &:after {
+    height: 100%;
+  }
+
+  &:before {
+    height: calc(var(--size) * var(--ratio));
+  }
+
+  &.on {
+    filter: drop-shadow(0 0 3px var(--color));
+    &:after, &:before {
+      opacity: .5;
+      filter: saturate(1);
+    }
+  }
+}
+
+input[type=checkbox], input[type=radio] {
+  display: none;
+
+  & + label {
+    cursor: pointer;
+  }
+
+  &:checked + label {
+    .light {
+      filter: drop-shadow(0 0 3px var(--color));
+
+      &:after, &:before {
+        opacity: .5;
+        filter: saturate(1);
+      }
+    }
+  }
+
+}
