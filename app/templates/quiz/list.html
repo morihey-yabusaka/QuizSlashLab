@@ -6,10 +6,51 @@
 
   <div class="left">
     <form action="" method="get">
-      問題文
-      <input name="question" value="{{ request.GET.question }}" type="text"><br>
-      解答
-      <input name="answer" value="{{ request.GET.answer }}" type="text">
+      <label>
+        問題文
+        <textarea name="question">{{request.GET.question}}</textarea>
+      </label>
+      <label>
+        先頭検索
+        <input type="checkbox" name="is_start" {{ is_start }}>
+      </label>
+      <div class="radio question">
+        問題文検索方法
+        <label>
+          OR検索
+          <input type="radio" name="q" value="or" {{ q_or }}>
+        </label>
+        <label>
+          AND検索
+          <input type="radio" name="q" value="and" {{ q_and }}>
+        </label>
+      </div>
+      <label>
+        解答
+        <textarea name="answer">{{request.GET.answer}}</textarea>
+      </label>
+      <div class="radio answer">
+        解答検索方法
+        <label>
+          OR検索
+          <input type="radio" name="a" value="or" {{ a_or }}>
+        </label>
+        <label>
+          AND検索
+          <input type="radio" name="a" value="and" {{ a_and }}>
+        </label>
+      </div>
+      <div class="radio qa">
+        問題文解答検索方法
+        <label>
+          OR検索
+          <input type="radio" name="qa" value="or" {{ qa_or }}>
+        </label>
+        <label>
+          AND検索
+          <input type="radio" name="qa" value="and" {{ qa_and }}>
+        </label>
+      </div>
       <button class="btn" type="submit">検索</button>
       <button class="btn" type="button" clear>クリア</button>
     </form>

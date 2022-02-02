@@ -10,7 +10,6 @@
     width: 60%;
     height: fit-content;
     padding: 50px 30px;
-    background-color: #fff;
 
     .item {
       position: relative;
@@ -18,7 +17,13 @@
       height: fit-content;
       min-height: 135px;
       padding: 20px 5px;
-      border-bottom: 3px solid rgba(var(--orange-rgb), .5);
+      background-color: #fffa;
+      border: solid 5px var(--orange);
+      border-radius: 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
 
       .icon_wrap {
         --size: 60px;

@@ -455,7 +455,6 @@ footer {
   height: -moz-fit-content;
   height: fit-content;
   padding: 50px 30px;
-  background-color: #fff;
 }
 .quiz.list .main > .list .item {
   position: relative;
@@ -465,7 +464,12 @@ footer {
   height: fit-content;
   min-height: 135px;
   padding: 20px 5px;
-  border-bottom: 3px solid rgba(var(--orange-rgb), 0.5);
+  background-color: #fffa;
+  border: solid 5px var(--orange);
+  border-radius: 10px;
+}
+.quiz.list .main > .list .item:not(:last-child) {
+  margin-bottom: 20px;
 }
 .quiz.list .main > .list .item .icon_wrap {
   --size: 60px;
