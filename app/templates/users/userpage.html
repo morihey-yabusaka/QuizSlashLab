@@ -5,7 +5,23 @@
 
 
 {% block content %}
-  userpage
+  {{ user.username }}
+
+  <div class="updated">
+    {% for u in updated %}
+    <div class="item">
+      <a href="{% url 'app:quiz_detail' u.pk %}" class="q">
+        {{ u.question }}
+      </a>
+      <div class="foot">
+        <div class="update">
+          <i class="fas fa-history"></i>
+          {{ u.updated_at }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
   {% if request.user == user_ %}
     <i class="fas fa-cog"></i>

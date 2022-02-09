@@ -249,6 +249,22 @@ header .user .useritem i {
 header .user .useritem:hover:before {
   width: 100%;
 }
+header .user .useritem .user_menu {
+  background-color: var(--green);
+}
+header .user .useritem .user_menu .menuitem a {
+  color: #fff;
+}
+header .user .useritem .user_menu .menuitem:not(:first-child) {
+  border-top-color: #fff;
+}
+header .user .useritem .user_menu .menuitem:last-child {
+  border-top-width: 3px;
+}
+header .user .useritem .user_menu .menuitem:hover a {
+  color: var(--green);
+  background-color: #fff;
+}
 
 footer {
   display: flex;
@@ -598,7 +614,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   align-items: center;
 }
 .quiz.list .main .quiz_search form input[type=checkbox] + label .light, .quiz.list .main .quiz_search form input[type=radio] + label .light {
-  --size: 30px;
+  --size: 20px;
   --ratio: .7;
   margin-right: 5px;
 }
