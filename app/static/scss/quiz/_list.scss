@@ -58,11 +58,15 @@
 
         .gq, .beta {
           color: #aaa;
-          font-weight: 600;
           font-size: 1rem;
+          font-weight: 600;
           cursor: pointer;
           user-select: none;
           transition: .1s;
+
+          .cnt {
+            margin-left: 2em;
+          }
 
           &.on {
             color: var(--orange);

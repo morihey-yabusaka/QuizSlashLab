@@ -565,14 +565,17 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .quiz.list .main > .list .item .foot .gq, .quiz.list .main > .list .item .foot .beta {
   color: #aaa;
-  font-weight: 600;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   transition: 0.1s;
+}
+.quiz.list .main > .list .item .foot .gq .cnt, .quiz.list .main > .list .item .foot .beta .cnt {
+  margin-left: 2em;
 }
 .quiz.list .main > .list .item .foot .gq.on, .quiz.list .main > .list .item .foot .beta.on {
   color: var(--orange);

@@ -1,3 +1,4 @@
-<div class="gq" onclick="good_quiz(this, {{ pk }})">
+<div class="gq {{ btn }}" onclick="action_button(this, 'gq', '{{ user.username }}', {{ pk }})">
   GQ
+  <span class="cnt">{{ cnt }}</span>
 </div>

@@ -48,7 +48,6 @@
     <div class="text">
       <a href="{% url 'app:userpage' quiz.author %}" class="author">
         <i class="fas fa-user"></i>
-        {{ quiz.author.pk }}
         {{ quiz.author }}
       </a>
       <div class="created">
@@ -58,6 +57,9 @@
       <div class="updated">
         <i class="fas fa-history"></i>
         {{ quiz.updated_at }}
+      </div>
+      <div class="goodquiz">
+        GQ: {{ quiz.good_quiz.count }}
       </div>
       <div class="encount">{{ quiz.n_encount }}</div>
       <div class="push">{{ quiz.n_push }}</div>
@@ -87,6 +89,7 @@
         <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete btn">削除</a>
       {% endif %}
 
+      {% include 'quiz/goodquiz.html' with pk=quiz.pk btn='btn' %}
       <div class="sns">
         <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
         <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>

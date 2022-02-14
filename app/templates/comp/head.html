@@ -10,7 +10,12 @@
   <!-- google fonts icon all -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round|Material+Icons+Two+Tone">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    var good_quiz_url = "{% url 'app:good_quiz' 123456789 'username' %}"
+    var betamon_url = "{% url 'app:betamon' 123456789 'username' %}"
+  </script>
   <script src="{% static 'js/lib.js' %}"></script>
+  <script src="{% static 'js/csrftoken.js' %}"></script>
   <script src="{% static 'js/notice.js' %}"></script>
   <script src="{% static 'js/copy-btn.js' %}"></script>
   <script src="{% static 'js/sns.js' %}"></script>

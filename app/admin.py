@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Quiz, Slash
+from .models import Quiz, Slash, GoodQuiz
 
 
 class SlashInline(admin.TabularInline):
@@ -40,3 +40,9 @@ class SlashAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(Slash, SlashAdmin)
+
+
+class GoodQuizAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(GoodQuiz, GoodQuizAdmin)
