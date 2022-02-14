@@ -108,14 +108,14 @@ class Quiz(Model):
 
 
 class BetaMon(Model):
-  quiz = OneToOneField(Quiz, on_delete=CASCADE)
-  user = OneToOneField(User, on_delete=CASCADE)
+  quiz = ForeignKey(Quiz, on_delete=CASCADE, related_name='betamon')
+  user = ForeignKey(User, on_delete=CASCADE, related_name='betamon')
   created_at = DateTimeField(auto_now_add=True)
 
 
 class GoodQuiz(Model):
-  quiz = OneToOneField(Quiz, on_delete=CASCADE)
-  user = OneToOneField(User, on_delete=CASCADE)
+  quiz = ForeignKey(Quiz, on_delete=CASCADE, related_name='good_quiz')
+  user = ForeignKey(User, on_delete=CASCADE, related_name='good_quiz')
   created_at = DateTimeField(auto_now_add=True)
 
 

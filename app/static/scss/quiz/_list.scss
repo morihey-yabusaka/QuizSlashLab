@@ -18,11 +18,9 @@
       min-height: 135px;
       padding: 20px 5px;
       background-color: #fffa;
-      border: solid 5px var(--orange);
-      border-radius: 10px;
 
       &:not(:last-child) {
-        margin-bottom: 20px;
+        border-bottom: 3px solid #0003;
       }
 
       .icon_wrap {
@@ -57,6 +55,19 @@
         display: flex;
         color: #888;
         padding: 0 20px;
+
+        .gq, .beta {
+          color: #aaa;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          user-select: none;
+          transition: .1s;
+
+          &.on {
+            color: var(--orange);
+          }
+        }
 
         *:not(:first-child) {
           margin-left: 10px;

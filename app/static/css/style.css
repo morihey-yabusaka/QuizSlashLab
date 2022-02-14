@@ -529,11 +529,9 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   min-height: 135px;
   padding: 20px 5px;
   background-color: #fffa;
-  border: solid 5px var(--orange);
-  border-radius: 10px;
 }
 .quiz.list .main > .list .item:not(:last-child) {
-  margin-bottom: 20px;
+  border-bottom: 3px solid #0003;
 }
 .quiz.list .main > .list .item .icon_wrap {
   --size: 60px;
@@ -564,6 +562,20 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   display: flex;
   color: #888;
   padding: 0 20px;
+}
+.quiz.list .main > .list .item .foot .gq, .quiz.list .main > .list .item .foot .beta {
+  color: #aaa;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: 0.1s;
+}
+.quiz.list .main > .list .item .foot .gq.on, .quiz.list .main > .list .item .foot .beta.on {
+  color: var(--orange);
 }
 .quiz.list .main > .list .item .foot *:not(:first-child) {
   margin-left: 10px;

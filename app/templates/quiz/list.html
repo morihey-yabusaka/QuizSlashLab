@@ -13,6 +13,8 @@
           {{ quiz.question }}
         </a>
         <div class="foot">
+          {% include 'quiz/goodquiz.html' with pk=quiz.pk %}
+          {% include 'quiz/betamon.html' with pk=quiz.pk %}
           <a href="{% url 'app:userpage' quiz.author %}" class="author">
             <i class="fas fa-user"></i>
             {{ quiz.author }}
