@@ -1,4 +1,7 @@
-<div class="gq {{ btn }}" onclick="action_button(this, 'gq', '{{ user.username }}', {{ pk }})">
+<div
+  class="gq {{ btn }} {% if quiz in user.good_quiz.quiz %}on{% endif %}"
+  onclick="action_button(this, 'gq', '{{ user.username }}', {{ quiz.pk }})"
+>
   GQ
-  <span class="cnt">{{ cnt }}</span>
+  <span class="cnt">{{ quiz.good_quiz.count }}</span>
 </div>

@@ -1,3 +1,4 @@
+from argparse import Action
 from django.db.models import *
 from django.core.validators import *
 
@@ -107,6 +108,12 @@ class Quiz(Model):
           slash.delete()
 
 
+class ActionManager(Manager):
+
+  def quiz(self):
+    return [gq.quiz for gq in self.get_queryset()]
+
+
 class BetaMon(Model):
   quiz = ForeignKey(Quiz, on_delete=CASCADE, related_name='betamon')
   user = ForeignKey(User, on_delete=CASCADE, related_name='betamon')
@@ -117,6 +124,7 @@ class GoodQuiz(Model):
   quiz = ForeignKey(Quiz, on_delete=CASCADE, related_name='good_quiz')
   user = ForeignKey(User, on_delete=CASCADE, related_name='good_quiz')
   created_at = DateTimeField(auto_now_add=True)
+  objects = ActionManager()
 
 
 class Slash(Model):
