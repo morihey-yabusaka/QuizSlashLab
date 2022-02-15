@@ -11,7 +11,7 @@ class QuizListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        # queryset.filter(is_draft=False, is_publish=True
+        queryset = queryset.filter(is_draft=False, is_publish=True)
         get = self.request.GET # type(self.request.GET) == dict
         question_query = get.get('question')
         question_oa_query = get.get('q')

@@ -32,8 +32,8 @@ class Quiz(Model):
     )]
   )
 
-  created_at = DateTimeField(auto_now_add=True)
-  updated_at = DateTimeField(auto_now=True)
+  created_at = DateTimeField('作成日時', auto_now_add=True)
+  updated_at = DateTimeField('更新日時', auto_now=True)
 
   n_encount = PositiveIntegerField(
     '会問人数',
@@ -71,17 +71,17 @@ class Quiz(Model):
     help_text='この問題の詳細画面を確認した人数。'
   )
   is_draft = BooleanField(
-    '下書き状況',
+    '下書き',
     default=False,
     help_text='選択しているなら，下書きです。'
   )
   is_publish = BooleanField(
-    '公開状況',
-    default=False,
-    help_text='選択しているなら，公開されています。'
+    '公開',
+    default=True,
+    help_text='選択しているなら，公開されています。管理者のみ変更可能。強制的に非公開に変更する場合にチェックを外す。'
   )
   is_official = BooleanField(
-    '公式状況',
+    '公式',
     default=False,
     help_text='選択しているなら，公式問題です。'
   )
