@@ -580,11 +580,28 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 .quiz.list .main > .list .item .foot .gq.on, .quiz.list .main > .list .item .foot .beta.on {
   color: var(--orange);
 }
+.quiz.list .main > .list .item .foot .beta.on {
+  color: var(--blue);
+}
 .quiz.list .main > .list .item .foot *:not(:first-child) {
   margin-left: 10px;
 }
 .quiz.list .main .left, .quiz.list .main .right {
   width: 20%;
+}
+.quiz.list .main .left {
+  padding: 2em 1em;
+}
+.quiz.list .main .left .title {
+  line-height: 2em;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+.quiz.list .main .left .title span {
+  font-size: 2em;
+  font-weight: 900;
+  color: var(--orange);
 }
 .quiz.list .main .quiz_search {
   display: flex;

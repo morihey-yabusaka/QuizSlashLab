@@ -11,8 +11,10 @@ urlpatterns = [
   path('quiz/detail/<int:pk>', quiz_detail_view, name='quiz_detail'),
   path('quiz/delete/<int:pk>', quiz_delete_view, name='quiz_delete'),
   path('quiz/GoodQuiz/<int:quiz_pk>/<slug:slug>', good_quiz_view, name='good_quiz'),
-  path('quiz/betamon/<int:quiz_pk>/<slug:slug>', betamon_view, name='betamon'),
+  path('quiz/BetaMon/<int:quiz_pk>/<slug:slug>', betamon_view, name='betamon'),
   path('quiz/user/draft/list', draft_list_view, name='draft_list'),
   path('quiz/user/quiz/list', user_quiz_list_view, name='user_quiz_list'),
+  path('quiz/user/<slug:slug>/GoodQuiz', good_quiz_quiz_list, name='good_quiz_quiz_list'),
+  path('quiz/user/<slug:slug>/BetaMon', betamon_quiz_list, name='betamon_quiz_list'),
   path('quiz/user/<slug:slug>', user_page_view, name='userpage'),
 ]

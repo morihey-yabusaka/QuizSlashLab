@@ -61,6 +61,9 @@
       <div class="goodquiz">
         GQ: {{ quiz.good_quiz.count }}
       </div>
+      <div class="betamon">
+        ベタ問: {{ quiz.betamon.count }}
+      </div>
       <div class="encount">{{ quiz.n_encount }}</div>
       <div class="push">{{ quiz.n_push }}</div>
       <div class="through">{{ quiz.n_through }}</div>
@@ -74,14 +77,14 @@
           <form method="post">
             {% csrf_token %}
             <button name="publish" class="btn publish">
-              公開
+              出題
             </button>
           </form>
         {% else %}
           <form method="post">
             {% csrf_token %}
             <button name="draft" class="btn draft">
-              非公開
+              下書き
             </button>
           </form>
         {% endif %}
@@ -89,7 +92,8 @@
         <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete btn">削除</a>
       {% endif %}
 
-      {% include 'quiz/goodquiz.html' with pk=quiz.pk btn='btn' %}
+      {% include 'quiz/goodquiz.html' with quiz=quiz class='btn' %}
+      {% include 'quiz/betamon.html' with quiz=quiz class='btn' %}
       <div class="sns">
         <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
         <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>

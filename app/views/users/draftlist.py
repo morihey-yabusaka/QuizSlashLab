@@ -14,4 +14,15 @@ class DraftListView(ListView):
     queryset = queryset.filter(is_draft=True, author=self.request.user)
     return queryset
 
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+
+    context['title'] = [
+      {'text': self.request.user.username + 'の', 's': False},
+      {'text': '下', 's': True},
+      {'text': '書き', 's': False},
+    ]
+
+    return context
+
 draft_list_view = DraftListView.as_view()

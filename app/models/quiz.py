@@ -109,15 +109,33 @@ class Quiz(Model):
 
 
 class ActionManager(Manager):
+  """
+  add chain to goodquiz and betamon objects
+  ex)
+  gq_quiz_list = GoodQuiz.objects.quiz()
+  beta_user_list = BetaMon.objects.user()
+  """
 
   def quiz(self):
+    """
+    return:
+      list of quiz object
+    """
     return [gq.quiz for gq in self.get_queryset()]
+
+  def user(self):
+    """
+    return:
+      list of user object
+    """
+    return [gq.user for gq in self.get_queryset()]
 
 
 class BetaMon(Model):
   quiz = ForeignKey(Quiz, on_delete=CASCADE, related_name='betamon')
   user = ForeignKey(User, on_delete=CASCADE, related_name='betamon')
   created_at = DateTimeField(auto_now_add=True)
+  objects = ActionManager()
 
 
 class GoodQuiz(Model):

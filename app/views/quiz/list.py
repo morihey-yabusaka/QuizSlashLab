@@ -63,6 +63,13 @@ class QuizListView(ListView):
 
     def get_context_data(self):
         context = super().get_context_data()
+
+        context['title'] = [
+            {'text': '最近更新された', 's': False},
+            {'text': 'ク', 's': True},
+            {'text': 'イズ', 's': False},
+        ]
+
         get = self.request.GET
         question_oa_query = get.get('q')
         is_start_query = get.get('is_start')

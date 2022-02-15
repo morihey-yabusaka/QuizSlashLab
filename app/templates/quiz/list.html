@@ -4,7 +4,18 @@
 
 {% block content %}
 
-  <div class="left"></div>
+  <div class="left">
+    <div class="title">
+      {% for t in title %}
+        {% if t.s %}
+          <span>{{ t.text }}</span>
+        {% else %}
+          {{ t.text }}<br>
+        {% endif %}
+      {% endfor %}
+      一覧
+    </div>
+  </div>
 
   <div class="list quiz_list">
     {% for quiz in quizes %}
@@ -14,7 +25,7 @@
         </a>
         <div class="foot">
           {% include 'quiz/goodquiz.html' with quiz=quiz %}
-          {% include 'quiz/betamon.html' with pk=quiz.pk cnt=quiz.betamon.count %}
+          {% include 'quiz/betamon.html' with quiz=quiz %}
           <a href="{% url 'app:userpage' quiz.author %}" class="author">
             <i class="fas fa-user"></i>
             {{ quiz.author }}

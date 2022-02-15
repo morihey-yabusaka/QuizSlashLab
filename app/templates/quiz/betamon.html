@@ -1,4 +1,7 @@
-<div class="beta" onclick="betamon({{ pk }})">
+<div
+  class="beta {{ class }} {% if quiz in user.betamon.quiz %}on{% endif %}"
+  onclick="action_button(this, 'betamon', '{{ user.username }}', {{ quiz.pk }})"
+>
   ベタ問
-  <span class="cnt">{{ cnt }}</span>
+  <span class="cnt">{{ quiz.betamon.count }}</span>
 </div>

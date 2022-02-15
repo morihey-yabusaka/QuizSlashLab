@@ -73,6 +73,12 @@
           }
         }
 
+        .beta {
+          &.on {
+            color: var(--blue);
+          }
+        }
+
         *:not(:first-child) {
           margin-left: 10px;
         }
@@ -82,6 +88,23 @@
 
   .left, .right {
     width: 20%;
+  }
+
+  .left {
+    padding: 2em 1em;
+
+    .title {
+      line-height: 2em;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+
+      span {
+        font-size: 2em;
+        font-weight: 900;
+        color: var(--orange);
+      }
+    }
   }
 
   .quiz_search {
