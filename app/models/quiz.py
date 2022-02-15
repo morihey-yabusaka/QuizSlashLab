@@ -1,14 +1,25 @@
-from argparse import Action
 from django.db.models import *
 from django.core.validators import *
 
-import json
 from model_utils import FieldTracker
 
 from users.models import User
 
+
+class QuizQuerySet(QuerySet):
+  def publish(self):
+    return self.filter(is_publish=True)
+
+  def todays(self):
+    return self.filter(is_todays_question=True)
+
+  def not_todays(self):
+    return self.filter(is_todays_question=False)
+
+
 class Quiz(Model):
   author = ForeignKey(User, on_delete=SET_DEFAULT,  default='QUIZ MAN')
+  #THINK: max_length=255 妥当？
   question = TextField(
     '問題文',
     max_length=255,
@@ -32,6 +43,8 @@ class Quiz(Model):
     )]
   )
 
+
+  # THINK: updated_at auto_now -> 問題内容が変更された時のみ更新 auto_now:下書きから出題された時も更新される
   created_at = DateTimeField('作成日時', auto_now_add=True)
   updated_at = DateTimeField('更新日時', auto_now=True)
 
@@ -53,17 +66,17 @@ class Quiz(Model):
   n_stolen = PositiveIntegerField(
     '埋答人数',
     default=0,
-    help_text='出題時のルールで定められた回答の権利が埋まり，ボタンを押す権利を無くした人数。'
+    help_text='出題時のルールで定められた回答の権利が埋まり、ボタンを押す権利を無くした人数。'
   )
   n_correct = PositiveIntegerField(
     '正答人数',
     default=0,
-    help_text='会問した人のうち，正答した人数。'
+    help_text='会問した人のうち、正答した人数。'
   )
   n_uncorrect = PositiveIntegerField(
     '誤答人数',
     default=0,
-    help_text='会問した人のうち，誤答した人数。'
+    help_text='会問した人のうち、誤答した人数。'
   )
   n_checked = PositiveIntegerField(
     '詳細閲覧回数',
@@ -73,20 +86,28 @@ class Quiz(Model):
   is_draft = BooleanField(
     '下書き',
     default=False,
-    help_text='選択しているなら，下書きです。'
+    help_text='選択しているなら、下書きです。'
   )
   is_publish = BooleanField(
     '公開',
     default=True,
-    help_text='選択しているなら，公開されています。管理者のみ変更可能。強制的に非公開に変更する場合にチェックを外す。'
+    help_text='選択しているなら、公開されています。管理者のみ変更可能。強制的に非公開に変更する場合にチェックを外す。'
   )
   is_official = BooleanField(
     '公式',
     default=False,
-    help_text='選択しているなら，公式問題です。'
+    help_text='選択しているなら、公式問題です。'
   )
 
-  question_tracker = FieldTracker(fields=['question'])
+  is_todays_question = BooleanField(
+    '今日の一問',
+    default=False,
+    help_text='選択されていたら、今日の一問に表示されます。複数選択されていても、indexでは一問のみ表示されます。'
+  )
+
+  objects = QuizQuerySet.as_manager()
+
+  question_tracker = FieldTracker(fields=['question']) # questionの変更を検知する
 
   def __str__(self) -> str:
       return "A: " + self.answer + " - Q: " + self.question
@@ -171,12 +192,12 @@ class Slash(Model):
   n_correct = PositiveIntegerField(
     '正答人数',
     default=0,
-    help_text='このスラッシュでボタンを押した人のうち，正答した人数。'
+    help_text='このスラッシュでボタンを押した人のうち、正答した人数。'
   )
   n_uncorrect = PositiveIntegerField(
     '誤答人数',
     default=0,
-    help_text='このスラッシュでボタンを押した人のうち，誤答した人数。'
+    help_text='このスラッシュでボタンを押した人のうち、誤答した人数。'
   )
 
   def __str__(self):

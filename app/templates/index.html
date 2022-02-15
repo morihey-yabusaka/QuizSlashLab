@@ -4,5 +4,12 @@
 {% block class %}index{% endblock class %}
 
 {% block content %}
-{{ state }}
+  <div class="todays">
+    <div class="title">
+      今日の一問<span>today's <span>Q</span>uestion</span>
+    </div>
+    <a href="{% url 'app:quiz_detail' todays.pk %}" class="q">
+      {{ todays.question }}
+    </a>
+  </div>
 {% endblock content %}

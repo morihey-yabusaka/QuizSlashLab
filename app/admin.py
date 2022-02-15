@@ -33,7 +33,7 @@ class QuizAdmin(admin.ModelAdmin):
     list_display = ('is_publish', 'is_draft', 'is_official' , 'answer', 'question', 'author', 'updated_at', 'created_at')
     list_display_links = ('answer', 'question')
     list_editable = ('is_publish', 'is_draft', 'is_official')
-    list_filter = ('is_publish', 'is_draft')
+    list_filter = ('is_publish', 'is_draft', 'is_todays_question')
     search_fields = ('answer', 'question', 'author')
     inlines = [SlashInline]
 
