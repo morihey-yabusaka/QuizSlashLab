@@ -1,0 +1,50 @@
+.page.index {
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .todays {
+      font-size: 2rem;
+      width: 50%;
+
+      .title {
+        font-weight: 600;
+        display: flex;
+        align-items: flex-end;
+
+        & > span {
+          display: inline-flex;
+          align-items: baseline;
+          font-size: 0.7em;
+          letter-spacing: 0.1em;
+          margin-left: 1em;
+          flex-grow: 1;
+          font-weight: 300;
+
+          &:after {
+            content: "";
+            position: relative;
+            bottom: 0.3em;
+            flex-grow: 1;
+            height: 0.1em;
+            margin-left: 1em;
+            background: var(--green);
+          }
+
+          .icon {
+            --size: 1.4em;
+            margin: 0 0.5em;
+          }
+
+          span {
+            font-size: 1.2em;
+            margin: 0 0.2em;
+            font-weight: 500;
+            color: var(--green);
+          }
+        }
+      }
+    }
+  }
+}
