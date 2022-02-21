@@ -19,12 +19,14 @@ button {
 }
 
 :root {
+  --green-dark: #08C495;
+  --green: #3FF3A5;
+  --green-light: #92FCC2;
+  --green-white: #D2FEE7;
   --orange: #F09A54;
-  --green: #56DC7E;
   --red: #F25E5E;
   --blue: #4985E6;
   --purple: #9B66CC;
-  --green-dark: #24AD4E;
   --blue-dark: #1D65D7;
   --orange-rgb: 240, 154, 84;
   --green-rgb: 86, 220, 126;
@@ -191,12 +193,12 @@ body > .back {
   left: -3%;
   width: 106%;
   height: 100vh;
-  z-index: -1;
+  z-index: -10;
   pointer-events: none;
 }
 body > .back .icon {
   --size: 40px;
-  opacity: 0.1;
+  --color: var(--green-white);
 }
 body > .back .line {
   display: flex;
@@ -215,7 +217,7 @@ header {
   align-items: center;
   width: 100%;
   height: var(--header-height);
-  background-color: var(--green);
+  background-color: var(--green-dark);
   color: #fff;
   z-index: 6;
 }
@@ -232,7 +234,6 @@ header .logo {
 }
 header .logo .icon {
   --color: #fff;
-  --inner: var(--green);
   --size: 32px;
 }
 header .logo .text {
@@ -278,7 +279,7 @@ header nav a:before {
   z-index: -1;
 }
 header nav a:hover {
-  color: var(--green) !important;
+  color: var(--green-dark) !important;
 }
 header nav a:hover:before {
   background-color: #fff;
@@ -322,7 +323,7 @@ header .user .useritem:hover:before {
   width: 100%;
 }
 header .user .useritem .user_menu {
-  background-color: var(--green);
+  background-color: var(--green-dark);
 }
 header .user .useritem .user_menu .menuitem a {
   color: #fff;
@@ -334,7 +335,7 @@ header .user .useritem .user_menu .menuitem:last-child {
   border-top-width: 3px;
 }
 header .user .useritem .user_menu .menuitem:hover a {
-  color: var(--green);
+  color: var(--green-dark);
   background-color: #fff;
 }
 
@@ -349,7 +350,7 @@ footer {
   letter-spacing: 3px;
   font-weight: bold;
   color: #fff;
-  background-color: var(--green);
+  background-color: var(--green-dark);
 }
 
 .widget_parent {
@@ -594,16 +595,20 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .quiz.list .main > .list .item {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   min-height: 135px;
-  padding: 20px 5px;
-  background-color: #fffa;
+  padding: 2em 2em 1em 2em;
+  background-color: #fff;
+  box-shadow: 0 0 50px -35px var(--green);
+  z-index: 2;
 }
 .quiz.list .main > .list .item:not(:last-child) {
-  border-bottom: 3px solid #0003;
+  margin-bottom: 1em;
 }
 .quiz.list .main > .list .item .icon_wrap {
   --size: 60px;
@@ -615,7 +620,8 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.2;
+  opacity: 0.15;
+  z-index: -1;
 }
 .quiz.list .main > .list .item .icon_wrap .icon {
   --size: 100px;
@@ -624,16 +630,17 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   display: block;
   position: relative;
   z-index: 1;
-  margin-bottom: 10px;
+  padding: 1em 0;
+  margin-bottom: 1em;
   font-size: 1.2rem;
-  padding: 20px 10px;
+  letter-spacing: 0.08em;
+  flex-grow: 2;
 }
 .quiz.list .main > .list .item .foot {
   position: relative;
   z-index: 1;
   display: flex;
   color: #888;
-  padding: 0 20px;
 }
 .quiz.list .main > .list .item .foot .gq, .quiz.list .main > .list .item .foot .beta {
   color: #aaa;
@@ -656,7 +663,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   color: var(--blue);
 }
 .quiz.list .main > .list .item .foot *:not(:first-child) {
-  margin-left: 10px;
+  margin-left: 2em;
 }
 .quiz.list .main .left, .quiz.list .main .right {
   width: 20%;

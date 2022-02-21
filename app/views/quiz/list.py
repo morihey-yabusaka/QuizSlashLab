@@ -61,17 +61,17 @@ class QuizListView(ListView):
             q &= qq & aq
 
         queryset = queryset.filter(q)
-        queryset = queryset \
-                    .annotate(
-                        gq=Count(
-                            'good_quiz',
-                            filter=Q(created_at__range=[
-                                    datetime.datetime.now() - rd(days=+1),
-                                    datetime.datetime.now()])
-                            )
-                        ) \
-                    .order_by('-updated_at') \
-                    .order_by('-gq')
+        # queryset = queryset \
+        #             .annotate(
+        #                 gq=Count(
+        #                     'good_quiz',
+        #                     filter=Q(created_at__range=[
+        #                             datetime.datetime.now() - rd(days=+1),
+        #                             datetime.datetime.now()])
+        #                     )
+        #                 ) \
+        #             .order_by('-updated_at') \
+        #             .order_by('-gq')
 
         return queryset
 

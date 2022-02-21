@@ -8,12 +8,12 @@ body > .back {
   left: -3%;
   width: 106%;
   height: 100vh;
-  z-index: -1;
+  z-index: -10;
   pointer-events: none;
 
   .icon {
     --size: 40px;
-    opacity: .1;
+    --color: var(--green-white);
   }
 
   .line {

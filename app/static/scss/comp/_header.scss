@@ -3,7 +3,7 @@ header {
   align-items: center;
   width: 100%;
   height: var(--header-height);
-  background-color: var(--green);
+  background-color: var(--green-dark);
   color: #fff;
   z-index: 6;
 
@@ -20,7 +20,6 @@ header {
 
     .icon {
       --color: #fff;
-      --inner: var(--green);
       --size: 32px;
     }
     .text {
@@ -71,7 +70,7 @@ header {
       }
 
       &:hover {
-        color: var(--green) !important;
+        color: var(--green-dark) !important;
 
         &:before {
           background-color: #fff;
@@ -125,7 +124,7 @@ header {
       }
 
       .user_menu {
-        background-color: var(--green);
+        background-color: var(--green-dark);
 
         .menuitem {
 
@@ -143,7 +142,7 @@ header {
           &:hover {
 
             a {
-              color: var(--green);
+              color: var(--green-dark);
               background-color: #fff;
             }
           }

@@ -13,14 +13,19 @@
 
     .item {
       position: relative;
+      display: flex;
+      flex-direction: column;
       width: 100%;
       height: fit-content;
       min-height: 135px;
-      padding: 20px 5px;
-      background-color: #fffa;
+      padding: 2em 2em 1em 2em;
+      background-color: #fff;
+      box-shadow: 0 0 50px -35px var(--green);
+      z-index: 2;
 
       &:not(:last-child) {
-        border-bottom: 3px solid #0003;
+        // border-bottom: 3px solid var(--green-white);
+        margin-bottom: 1em;
       }
 
       .icon_wrap {
@@ -33,7 +38,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: .2;
+        opacity: .15;
+        z-index: -1;
 
         .icon {
           --size: 100px;
@@ -44,9 +50,11 @@
         display: block;
         position: relative;
         z-index: 1;
-        margin-bottom: 10px;
+        padding: 1em 0;
+        margin-bottom: 1em;
         font-size: 1.2rem;
-        padding: 20px 10px;
+        letter-spacing: .08em;
+        flex-grow: 2;
       }
 
       .foot {
@@ -54,7 +62,6 @@
         z-index: 1;
         display: flex;
         color: #888;
-        padding: 0 20px;
 
         .gq, .beta {
           color: #aaa;
@@ -80,7 +87,7 @@
         }
 
         *:not(:first-child) {
-          margin-left: 10px;
+          margin-left: 2em;
         }
       }
     }
