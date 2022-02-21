@@ -1,5 +1,8 @@
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.views.generic import ListView
+
+import datetime
+from dateutil.relativedelta import relativedelta as rd
 
 from ...models import Quiz
 
@@ -58,6 +61,17 @@ class QuizListView(ListView):
             q &= qq & aq
 
         queryset = queryset.filter(q)
+        queryset = queryset \
+                    .annotate(
+                        gq=Count(
+                            'good_quiz',
+                            filter=Q(created_at__range=[
+                                    datetime.datetime.now() - rd(days=+1),
+                                    datetime.datetime.now()])
+                            )
+                        ) \
+                    .order_by('-updated_at') \
+                    .order_by('-gq')
 
         return queryset
 

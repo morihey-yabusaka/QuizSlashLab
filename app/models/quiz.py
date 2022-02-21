@@ -1,6 +1,8 @@
 from django.db.models import *
 from django.core.validators import *
 
+import datetime
+from dateutil.relativedelta import relativedelta as rd
 from model_utils import FieldTracker
 
 from users.models import User
@@ -15,6 +17,26 @@ class QuizQuerySet(QuerySet):
 
   def not_todays(self):
     return self.filter(is_todays_question=False)
+
+  def order_gq(self, before, after=datetime.datetime.now()):
+    return self.annotate(
+      gq = Count(
+        'good_quiz',
+        filter=Q(created_at__range=[before, after])
+      )
+    )
+
+  def order_gq_day(self):
+    return self.order_gq(datetime.datetime.now() - rd(days=+1))
+
+  def order_gq_week(self):
+    return self.order_gq(datetime.datetime.now() - rd(weeks=+1))
+
+  def order_gq_month(self):
+    return self.order_gq(datetime.datetime.now() - rd(months=+1))
+
+  def order_gq_year(self):
+    return self.order_gq(datetime.datetime.now() - rd(years=+1))
 
 
 class Quiz(Model):
@@ -129,7 +151,8 @@ class Quiz(Model):
           slash.delete()
 
 
-class ActionManager(Manager):
+
+class ActionQuerySet(QuerySet):
   """
   add chain to goodquiz and betamon objects
   ex)
@@ -142,14 +165,33 @@ class ActionManager(Manager):
     return:
       list of quiz object
     """
-    return [gq.quiz for gq in self.get_queryset()]
+    return [gq.quiz for gq in self]
 
   def user(self):
     """
     return:
       list of user object
     """
-    return [gq.user for gq in self.get_queryset()]
+    return [gq.user for gq in self]
+
+  def date_range(self, before, after=datetime.datetime.now()):
+    return self.filter(created_at__range=[before, after])
+
+  def day(self):
+    return self.date_range(datetime.datetime.now() - datetime.timedelta(days=1))
+
+  def week(self):
+    return self.date_range(datetime.datetime.now() - datetime.timedelta(weeks=1))
+
+  def month(self):
+    return self.date_range(datetime.datetime.now() - rd(months=+1))
+
+  def year(self):
+    return self.date_range(datetime.datetime.now() - rd(years=+1))
+
+
+class ActionManager(Manager.from_queryset(ActionQuerySet)):
+  pass
 
 
 class BetaMon(Model):

@@ -47,6 +47,16 @@ admin.site.register(Slash, SlashAdmin)
 
 
 class GoodQuizAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = (
+        (None, {
+            'fields': (
+                'user',
+                'quiz',
+                'created_at',
+            ),
+        }),
+    )
+    readonly_fields = ('user', 'quiz', 'created_at')
+    list_display = ('user', 'quiz', 'created_at')
 
 admin.site.register(GoodQuiz, GoodQuizAdmin)
