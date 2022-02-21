@@ -6,10 +6,15 @@
 {% block content %}
   <div class="todays">
     <div class="title">
-      今日の一問<span>today's {% include 'comp/icon.html' %} uestion</span>
+      今日の一問<span>today's <span>Q</span> uestion</span>
     </div>
-    <a href="{% url 'app:quiz_detail' todays.pk %}" class="q">
+    <div class="q">
       {{ todays.question }}
-    </a>
+    </div>
+    <div class="foot">
+      <a href="{% url 'app:quiz_detail' todays.pk %}" class="under">
+        解答
+      </a>
+    </div>
   </div>
 {% endblock content %}

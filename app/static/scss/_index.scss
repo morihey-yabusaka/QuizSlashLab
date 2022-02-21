@@ -5,13 +5,20 @@
     justify-content: center;
 
     .todays {
+      position: relative;
       font-size: 2rem;
       width: 50%;
+      background: #fff;
+      box-shadow: 0 0 50px -35px var(--green);
+      padding: 1em 1em .5em 1em;
 
       .title {
-        font-weight: 600;
+        position: absolute;
+        top: -0.8em;
+        font-weight: 300;
         display: flex;
         align-items: flex-end;
+        text-shadow: .05em .05em 0 #fff;
 
         & > span {
           display: inline-flex;
@@ -22,27 +29,32 @@
           flex-grow: 1;
           font-weight: 300;
 
-          &:after {
-            content: "";
-            position: relative;
-            bottom: 0.3em;
-            flex-grow: 1;
-            height: 0.1em;
-            margin-left: 1em;
-            background: var(--green);
-          }
-
-          .icon {
-            --size: 1.4em;
-            margin: 0 0.5em;
-          }
-
           span {
-            font-size: 1.2em;
-            margin: 0 0.2em;
-            font-weight: 500;
+            font-size: 1.4em;
+            margin: 0 0.1em 0 .5em;
+            font-weight: 600;
             color: var(--green);
+            font-family: "Poppins";
           }
+        }
+      }
+
+      .q {
+        margin-bottom: 2em;
+        font-size: 0.7em;
+        letter-spacing: .08em;
+      }
+
+      .foot {
+        font-size: .6em;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+          color: var(--green-dark);
+          letter-spacing: .1em;
+          padding-bottom: .1em;
         }
       }
     }

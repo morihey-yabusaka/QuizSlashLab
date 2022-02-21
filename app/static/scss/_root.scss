@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
   --green-dark: #08C495;
@@ -9,10 +9,9 @@
   --red: #F25E5E;
   --blue: #4985E6;
   --purple: #9B66CC;
-  // --green-dark: #24AD4E;
   --blue-dark: #1D65D7;
+  --green-rgb: 63, 243, 165;
   --orange-rgb: 240, 154, 84;
-  --green-rgb: 86, 220, 126;
   --red-rgb: 242, 94, 94;
   --blue-rgb: 73, 133, 230;
   --header-height: 50px;
@@ -33,5 +32,37 @@ html {
     width: 100%;
     height: calc(100% - var(--header-height) - var(--footer-height));
     flex-grow: 2;
+
+    a:not([class]) {
+      transition: .2s;
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    a.under {
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 0.1em;
+        transform-origin: right center;
+        transform: scale(0, 1);
+        background-color: var(--green-dark);
+        transition: transform .3s;
+      }
+
+      &:hover {
+        &:before {
+          transform-origin: left center;
+          transform: scale(1,1);
+        }
+      }
+    }
   }
 }

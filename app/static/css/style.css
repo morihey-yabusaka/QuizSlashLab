@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 a {
   color: #000;
   text-decoration: none;
@@ -28,8 +28,8 @@ button {
   --blue: #4985E6;
   --purple: #9B66CC;
   --blue-dark: #1D65D7;
+  --green-rgb: 63, 243, 165;
   --orange-rgb: 240, 154, 84;
-  --green-rgb: 86, 220, 126;
   --red-rgb: 242, 94, 94;
   --blue-rgb: 73, 133, 230;
   --header-height: 50px;
@@ -51,6 +51,32 @@ html {
   height: calc(100% - var(--header-height) - var(--footer-height));
   flex-grow: 2;
 }
+.page > .main a:not([class]) {
+  transition: 0.2s;
+}
+.page > .main a:not([class]):hover {
+  opacity: 0.8;
+}
+.page > .main a.under {
+  position: relative;
+}
+.page > .main a.under:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 0.1em;
+  transform-origin: right center;
+  transform: scale(0, 1);
+  background-color: var(--green-dark);
+  transition: transform 0.3s;
+}
+.page > .main a.under:hover:before {
+  transform-origin: left center;
+  transform: scale(1, 1);
+}
 
 .page.index .main {
   display: flex;
@@ -58,13 +84,20 @@ html {
   justify-content: center;
 }
 .page.index .main .todays {
+  position: relative;
   font-size: 2rem;
   width: 50%;
+  background: #fff;
+  box-shadow: 0 0 50px -35px var(--green);
+  padding: 1em 1em 0.5em 1em;
 }
 .page.index .main .todays .title {
-  font-weight: 600;
+  position: absolute;
+  top: -0.8em;
+  font-weight: 300;
   display: flex;
   align-items: flex-end;
+  text-shadow: 0.05em 0.05em 0 #fff;
 }
 .page.index .main .todays .title > span {
   display: inline-flex;
@@ -75,24 +108,28 @@ html {
   flex-grow: 1;
   font-weight: 300;
 }
-.page.index .main .todays .title > span:after {
-  content: "";
-  position: relative;
-  bottom: 0.3em;
-  flex-grow: 1;
-  height: 0.1em;
-  margin-left: 1em;
-  background: var(--green);
-}
-.page.index .main .todays .title > span .icon {
-  --size: 1.4em;
-  margin: 0 0.5em;
-}
 .page.index .main .todays .title > span span {
-  font-size: 1.2em;
-  margin: 0 0.2em;
-  font-weight: 500;
+  font-size: 1.4em;
+  margin: 0 0.1em 0 0.5em;
+  font-weight: 600;
   color: var(--green);
+  font-family: "Poppins";
+}
+.page.index .main .todays .q {
+  margin-bottom: 2em;
+  font-size: 0.7em;
+  letter-spacing: 0.08em;
+}
+.page.index .main .todays .foot {
+  font-size: 0.6em;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.page.index .main .todays .foot a {
+  color: var(--green-dark);
+  letter-spacing: 0.1em;
+  padding-bottom: 0.1em;
 }
 
 .icon {
@@ -265,6 +302,7 @@ header nav a {
   width: auto;
   color: #fff !important;
   font-weight: 600;
+  letter-spacing: 0.15em;
   transition: 0.2s;
 }
 header nav a:before {
