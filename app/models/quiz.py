@@ -129,16 +129,17 @@ class Quiz(Model):
 
   objects = QuizQuerySet.as_manager()
 
-  question_tracker = FieldTracker(fields=['question']) # questionの変更を検知する
+  tracker = FieldTracker() # questionの変更を検知する
 
   def __str__(self) -> str:
       return "A: " + self.answer + " - Q: " + self.question
 
   def save(self, *args, **kwargs):
-    super().save(*args, **kwargs)
-
-    slashes = Slash.objects.filter(quiz=self)
-    if self.question_tracker.changed() or slashes.count() == 0:
+    slashes = self.slash.all()
+    if self.tracker.has_changed('question') or slashes.count() == 0:
+      if self.tracker.has_changed('question'):
+        for slash in slashes:
+          slash.delete()
       for i in range(len(self.question)):
         Slash.objects.create(
           quiz=self,
@@ -146,10 +147,8 @@ class Quiz(Model):
           before_all=self.question[:i+1],
           before_just=self.question[i]
         )
-      if self.question_tracker.changed():
-        for slash in slashes:
-          slash.delete()
 
+    super().save(*args, **kwargs)
 
 
 class ActionQuerySet(QuerySet):
@@ -245,10 +244,12 @@ class Slash(Model):
 
   @property
   def n_start_equals(self):
+    "読み始めが一致するクイズの数"
     return Quiz.objects.filter(question__istartswith=self.before_all).count()-1
 
   @property
   def correct_ratio(self):
+    "正答率"
     if self.n_push:
       return self.n_correct / self.n_push * 100
     else:

@@ -36,6 +36,7 @@ class QuizAdmin(admin.ModelAdmin):
     list_filter = ('is_publish', 'is_draft', 'is_todays_question')
     search_fields = ('answer', 'question', 'author')
     inlines = [SlashInline]
+    save_on_top = True
 
 
 admin.site.register(Quiz, QuizAdmin)
