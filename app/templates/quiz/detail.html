@@ -1,5 +1,6 @@
 {% extends 'comp/base.html' %}
 {% load list_indexer %}
+{% load add_get_query %}
 
 {% block class %}quiz detail{% endblock class %}
 
@@ -7,15 +8,28 @@
   <div class="quiz">
     <div class="q">
       <div class="text">
-        {% for slash in slashes %}
-          <span>{% idx quiz.question forloop.counter0 %}</span>
+        {% for slash in quiz.slash.all %}
+          <span>{{ slash.before_just }}</span>
           <div class="slash">
             <div class="box">
-              <div>読み始めが一致するクイズ: {% idx n_start_equals forloop.counter0 %} 問</div>
-              <div>ボタンが押された数: {{ slash.n_push }}</div>
+
+              <div>読み始めが一致するクイズ: {{ slash.n_start_equals }} 問</div>
+              <a href="{% url 'app:quiz_list' %}?{% get request question=slash.before_all is_start='on' qa='and' %}">
+                この読み出しで始まるクイズ
+              </a>
+
+              <!-- <div>ボタンが押された数: {{ slash.n_push }}</div>
               <div>正答: {{ slash.n_correct }}</div>
               <div>誤答: {{ slash.n_uncorrect }}</div>
-              <div>正答率: {{ slash.correct_ratio }}</div>
+              <div>
+                正答率:
+                {% if slash.correct_ratio %}
+                  {{ slash.correct_ratio|floatformat:"0" }}
+                {% else %}
+                  -
+                {% endif %}
+                %
+              </div> -->
             </div>
           </div>
         {% endfor %}

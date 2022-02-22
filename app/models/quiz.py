@@ -212,6 +212,7 @@ class Slash(Model):
   quiz = ForeignKey(
     Quiz,
     on_delete=CASCADE,
+    related_name='slash'
   )
   slash_position = PositiveSmallIntegerField(
     'スラッシュ箇所',
@@ -241,6 +242,17 @@ class Slash(Model):
     default=0,
     help_text='このスラッシュでボタンを押した人のうち、誤答した人数。'
   )
+
+  @property
+  def n_start_equals(self):
+    return Quiz.objects.filter(question__istartswith=self.before_all).count()-1
+
+  @property
+  def correct_ratio(self):
+    if self.n_push:
+      return self.n_correct / self.n_push * 100
+    else:
+      return None
 
   def __str__(self):
     return str(self.quiz) + '-' + str(self.slash_position) + ' ' + self.before_just

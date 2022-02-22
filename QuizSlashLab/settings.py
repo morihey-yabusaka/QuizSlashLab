@@ -75,6 +75,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'add_get_query': 'app.templatetags.add_get_query',
+            },
         },
     },
 ]

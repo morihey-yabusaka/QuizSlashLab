@@ -878,14 +878,15 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   right: 0;
   height: 200px;
   width: 200px;
-  background: #fff;
-  border: 2px solid #000;
+  background: #fffd;
   opacity: 0;
   visibility: hidden;
   transition: 0.2s;
   z-index: 1;
+  font-size: 1rem;
+  box-shadow: 0 0 50px -35px var(--green);
 }
-.page.quiz.detail .main .quiz > .q .text .slash .box div, .page.quiz.delete .main .quiz > .q .text .slash .box div, .page.quiz.create .main .quiz > .q .text .slash .box div, .page.quiz.update .main .quiz > .q .text .slash .box div {
+.page.quiz.detail .main .quiz > .q .text .slash .box *, .page.quiz.delete .main .quiz > .q .text .slash .box *, .page.quiz.create .main .quiz > .q .text .slash .box *, .page.quiz.update .main .quiz > .q .text .slash .box * {
   font-size: 1rem;
   font-weight: 300;
 }
