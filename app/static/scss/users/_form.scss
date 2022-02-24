@@ -4,13 +4,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow-y: scroll;
+      min-height: calc(100% - var(--header-height) - var(--footer-height));
+      height: fit-content;
 
       .form {
         width: 350px;
         padding: 20px;
         background: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 20px 5px rgba(var(--green-rgb), .2);
+        border-radius: 10px;
+        box-shadow: 0 0 50px -35px #000;
 
         .title {
           margin-bottom: 10px;
@@ -131,7 +134,7 @@
           }
 
           .form_buttons {
-            margin-top: 50px;
+            margin-top: 30px;
 
             button {
               cursor: pointer;

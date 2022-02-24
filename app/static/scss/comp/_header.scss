@@ -13,20 +13,21 @@ header {
     height: 100%;
     padding: 0 20px;
     color: #fff;
-    font-size: 30px;
+    font-size: 26px;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 0.03em;
     transition: .2s;
 
     .icon {
       --color: #fff;
-      --size: 32px;
+      --size: 28px;
     }
     .text {
       display: flex;
-      align-items: flex-end;
+      align-items: baseline;
       margin-left: 3px;
-      height: 100%;
+      height: 90%;
     }
 
     &:hover {

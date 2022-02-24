@@ -5,8 +5,9 @@ footer {
   width: 100%;
   height: var(--footer-height);
   align-self: flex-end;
-  font-size: 0.9rem;
-  letter-spacing: 3px;
+  font-size: 10px;
+  line-height: var(--footer-height);
+  letter-spacing: .7em;
   font-weight: 300;
   color: #fff;
   background-color: transparent;

@@ -68,7 +68,7 @@
           width: 95%;
           background: #fff;
           border-radius: 10px;
-          z-index: 2;
+          z-index: 3;
 
           .text {
             display: flex;
@@ -98,13 +98,14 @@
                 right: 0;
                 width: max-content;
                 padding: 1em 2em;
-                background: #fffc;
+                background: #fffa;
                 opacity: 0;
                 visibility: hidden;
                 transition: .2s;
                 z-index: 1;
                 font-size: 1rem;
-                box-shadow: 0 0 50px -35px var(--green);
+                box-shadow: 0 0 30px -15px rgba(var(--green-rgb), .5);
+                border-radius: 10px;
 
                 &:hover {
                   background: #fff;
@@ -113,7 +114,10 @@
                 * {
                   font-size: 1rem;
                   font-weight: 300;
-                  padding: .2em 0;
+
+                  &:not(:first-child) {
+                    margin-top: .2em;
+                  }
                 }
 
                 a {
@@ -141,7 +145,7 @@
           }
 
           .btn {
-            --color1: var(--green-dark);
+            --color1: var(--green);
           }
         }
 

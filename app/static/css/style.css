@@ -30,8 +30,8 @@ button {
   --orange-rgb: 240, 154, 84;
   --red-rgb: 242, 94, 94;
   --blue-rgb: 73, 133, 230;
-  --header-height: 50px;
-  --footer-height: 30px;
+  --header-height: 40px;
+  --footer-height: 20px;
 }
 
 html {
@@ -270,20 +270,21 @@ header .logo {
   height: 100%;
   padding: 0 20px;
   color: #fff;
-  font-size: 30px;
+  font-size: 26px;
+  font-weight: 600;
   font-family: "Poppins", sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 0.03em;
   transition: 0.2s;
 }
 header .logo .icon {
   --color: #fff;
-  --size: 32px;
+  --size: 28px;
 }
 header .logo .text {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   margin-left: 3px;
-  height: 100%;
+  height: 90%;
 }
 header .logo:hover {
   opacity: 0.7;
@@ -390,8 +391,9 @@ footer {
   width: 100%;
   height: var(--footer-height);
   align-self: flex-end;
-  font-size: 0.9rem;
-  letter-spacing: 3px;
+  font-size: 10px;
+  line-height: var(--footer-height);
+  letter-spacing: 0.7em;
   font-weight: 300;
   color: #fff;
   background-color: transparent;
@@ -860,7 +862,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   width: 95%;
   background: #fff;
   border-radius: 10px;
-  z-index: 2;
+  z-index: 3;
 }
 .page.quiz.detail .main .quiz > .q .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.create .main .quiz > .q .text, .page.quiz.update .main .quiz > .q .text {
   display: flex;
@@ -891,13 +893,14 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   width: -moz-max-content;
   width: max-content;
   padding: 1em 2em;
-  background: #fffc;
+  background: #fffa;
   opacity: 0;
   visibility: hidden;
   transition: 0.2s;
   z-index: 1;
   font-size: 1rem;
-  box-shadow: 0 0 50px -35px var(--green);
+  box-shadow: 0 0 30px -15px rgba(var(--green-rgb), 0.5);
+  border-radius: 10px;
 }
 .page.quiz.detail .main .quiz > .q .text .slash .box:hover, .page.quiz.delete .main .quiz > .q .text .slash .box:hover, .page.quiz.create .main .quiz > .q .text .slash .box:hover, .page.quiz.update .main .quiz > .q .text .slash .box:hover {
   background: #fff;
@@ -905,7 +908,9 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 .page.quiz.detail .main .quiz > .q .text .slash .box *, .page.quiz.delete .main .quiz > .q .text .slash .box *, .page.quiz.create .main .quiz > .q .text .slash .box *, .page.quiz.update .main .quiz > .q .text .slash .box * {
   font-size: 1rem;
   font-weight: 300;
-  padding: 0.2em 0;
+}
+.page.quiz.detail .main .quiz > .q .text .slash .box *:not(:first-child), .page.quiz.delete .main .quiz > .q .text .slash .box *:not(:first-child), .page.quiz.create .main .quiz > .q .text .slash .box *:not(:first-child), .page.quiz.update .main .quiz > .q .text .slash .box *:not(:first-child) {
+  margin-top: 0.2em;
 }
 .page.quiz.detail .main .quiz > .q .text .slash .box a, .page.quiz.delete .main .quiz > .q .text .slash .box a, .page.quiz.create .main .quiz > .q .text .slash .box a, .page.quiz.update .main .quiz > .q .text .slash .box a {
   display: inline;
@@ -923,7 +928,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   visibility: visible;
 }
 .page.quiz.detail .main .quiz > .q .btn, .page.quiz.delete .main .quiz > .q .btn, .page.quiz.create .main .quiz > .q .btn, .page.quiz.update .main .quiz > .q .btn {
-  --color1: var(--green-dark);
+  --color1: var(--green);
 }
 .page.quiz.detail .main .quiz > .a, .page.quiz.delete .main .quiz > .a, .page.quiz.create .main .quiz > .a, .page.quiz.update .main .quiz > .a {
   width: 95%;
@@ -1076,13 +1081,18 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
+  min-height: calc(100% - var(--header-height) - var(--footer-height));
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .page.form.login .main .form, .page.form.signup .main .form, .page.form.password_change .main .form {
   width: 350px;
   padding: 20px;
   background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 20px 5px rgba(var(--green-rgb), 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 50px -35px #000;
 }
 .page.form.login .main .form .title, .page.form.signup .main .form .title, .page.form.password_change .main .form .title {
   margin-bottom: 10px;
@@ -1202,7 +1212,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   margin-left: 10px;
 }
 .page.form.login .main .form form .form_buttons, .page.form.signup .main .form form .form_buttons, .page.form.password_change .main .form form .form_buttons {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .page.form.login .main .form form .form_buttons button, .page.form.signup .main .form form .form_buttons button, .page.form.password_change .main .form form .form_buttons button {
   cursor: pointer;

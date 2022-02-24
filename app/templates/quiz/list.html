@@ -24,8 +24,8 @@
           {{ quiz.question }}
         </a>
         <div class="foot">
-          {% include 'quiz/goodquiz.html' with quiz=quiz %}
-          {% include 'quiz/betamon.html' with quiz=quiz %}
+          {% include 'quiz/goodquiz.html' with quiz=quiz cnt=True %}
+          {% include 'quiz/betamon.html' with quiz=quiz cnt=True %}
           <a href="{% url 'app:userpage' quiz.author %}" class="author">
             <i class="fas fa-user"></i>
             {{ quiz.author }}
