@@ -2,20 +2,27 @@
   position: fixed;
   right: 0;
   top: var(--header-height);
-  padding: 15px 10px;
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: .5em 1em;
+  width: fit-content;
   z-index: 5;
 
   .notice_item {
+    --color: var(--red);
     position: relative;
     display: flex;
     align-items: center;
+    width: max-content;
     font-size: 1.2rem;
     font-weight: 600;
-    padding: 8px 10px;
-    background: #fff;
-    border: 3px solid var(--red);
-    border-radius: 10px;
+    padding: .5em 1em;
+    background: #fffc;
+    border-radius: 5px;
+    box-shadow: 0 0 15px -7px var(--color);
+    transform-origin: top center;
     margin-bottom: 15px;
 
     &.on {
@@ -45,15 +52,26 @@
     }
 
     .o_icon {
-      margin-right: 10px;
+      margin-right: 1em;
     }
 
     &.copy {
+      &.q, &.a {
+        span {
+          margin-right: 1em;
+        }
+      }
       &.q {
-        border-color: var(--green);
+        --color: var(--green);
+        span {
+          color: var(--green);
+        }
       }
       &.a {
-        border-color: var(--orange);
+        --color: var(--orange);
+        span {
+          color: var(--orange);
+        }
       }
     }
   }

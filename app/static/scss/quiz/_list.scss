@@ -9,7 +9,7 @@
     flex-direction: column;
     width: 60%;
     height: fit-content;
-    padding: 50px 10px;
+    padding: 20px 10px;
 
     .item {
       position: relative;
@@ -95,10 +95,13 @@
 
   .left, .right {
     width: 20%;
+    margin: 20px 10px;
+    padding: .5em 1em;
+    background-color: #fff;
+    border-radius: 10px;
   }
 
   .left {
-    padding: 2em 1em;
 
     .title {
       line-height: 2em;
@@ -120,7 +123,6 @@
     align-items: center;
     font-size: 1.5rem;
     font-weight: 600;
-    padding: 20px 5px;
     height: 100%;
 
     form {

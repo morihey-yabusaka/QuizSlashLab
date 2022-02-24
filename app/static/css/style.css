@@ -56,6 +56,7 @@ html {
   opacity: 0.8;
 }
 .page > .main a.under {
+  --border-color: var(--green-dark);
   position: relative;
 }
 .page > .main a.under:before {
@@ -68,7 +69,7 @@ html {
   height: 0.1em;
   transform-origin: right center;
   transform: scale(0, 1);
-  background-color: var(--green-dark);
+  background-color: var(--border-color);
   transition: transform 0.3s;
 }
 .page > .main a.under:hover:before {
@@ -131,10 +132,19 @@ html {
   display: flex;
   justify-content: flex-end;
 }
+.page.index .main .todays .foot:before {
+  content: "";
+  height: 1px;
+  background-color: var(--green);
+  flex-grow: 1;
+  align-self: center;
+}
 .page.index .main .todays .foot a {
-  color: var(--green-dark);
+  --border-color: var(--orange);
+  color: var(--orange);
   letter-spacing: 0.1em;
   padding-bottom: 0.1em;
+  margin-left: 1em;
 }
 
 .icon {
@@ -559,20 +569,31 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   position: fixed;
   right: 0;
   top: var(--header-height);
-  padding: 15px 10px;
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.5em 1em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   z-index: 5;
 }
 .notice_list .notice_item {
+  --color: var(--red);
   position: relative;
   display: flex;
   align-items: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   font-size: 1.2rem;
   font-weight: 600;
-  padding: 8px 10px;
-  background: #fff;
-  border: 3px solid var(--red);
-  border-radius: 10px;
+  padding: 0.5em 1em;
+  background: #fffc;
+  border-radius: 5px;
+  box-shadow: 0 0 15px -7px var(--color);
+  transform-origin: top center;
   margin-bottom: 15px;
 }
 .notice_list .notice_item.on {
@@ -616,13 +637,22 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   }
 }
 .notice_list .notice_item .o_icon {
-  margin-right: 10px;
+  margin-right: 1em;
+}
+.notice_list .notice_item.copy.q span, .notice_list .notice_item.copy.a span {
+  margin-right: 1em;
 }
 .notice_list .notice_item.copy.q {
-  border-color: var(--green);
+  --color: var(--green);
+}
+.notice_list .notice_item.copy.q span {
+  color: var(--green);
 }
 .notice_list .notice_item.copy.a {
-  border-color: var(--orange);
+  --color: var(--orange);
+}
+.notice_list .notice_item.copy.a span {
+  color: var(--orange);
 }
 
 .quiz.list .main {
@@ -638,7 +668,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  padding: 50px 10px;
+  padding: 20px 10px;
 }
 .quiz.list .main > .list .item {
   position: relative;
@@ -715,9 +745,10 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .quiz.list .main .left, .quiz.list .main .right {
   width: 20%;
-}
-.quiz.list .main .left {
-  padding: 2em 1em;
+  margin: 20px 10px;
+  padding: 0.5em 1em;
+  background-color: #fff;
+  border-radius: 10px;
 }
 .quiz.list .main .left .title {
   line-height: 2em;
@@ -736,7 +767,6 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   align-items: center;
   font-size: 1.5rem;
   font-weight: 600;
-  padding: 20px 5px;
   height: 100%;
 }
 .quiz.list .main .quiz_search form {
@@ -1260,6 +1290,26 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .user_menu.menu .menuitem span {
   margin-right: 10px;
+}
+
+.page.userpage .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page.userpage .main .inner {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  height: 95%;
+  padding: 1em 2em;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 50px -35px #000;
+}
+.page.userpage .main .inner .left, .page.userpage .main .inner .right {
+  width: 49%;
+  height: 100%;
 }
 
 .page.password_reset_done .main, .page.password_reset_complete .main {

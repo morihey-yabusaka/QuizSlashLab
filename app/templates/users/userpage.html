@@ -5,30 +5,41 @@
 
 
 {% block content %}
-  {{ user.username }}
-
-  <div class="updated">
-    {% for u in updated %}
-    <div class="item">
-      <a href="{% url 'app:quiz_detail' u.pk %}" class="q">
-        {{ u.question }}
-      </a>
-      <div class="foot">
-        <div class="update">
-          <i class="fas fa-history"></i>
-          {{ u.updated_at }}
+  <div class="inner">
+    <div class="left">
+      <div class="username">
+        {{ user.username }}
+      </div>
+      <div class="setting">
+        {% if request.user == user_ %}
+          <i class="fas fa-cog"></i>
+          設定
+          <a href="{% url 'users:password_change' %}">パスワード変更</a>
+          <a href="{% url 'users:user_detail' user.username %}">登録情報確認</a>
+          <a href="{% url 'users:user_update' user.username %}">登録情報変更</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="right">
+      <div class="quiz">
+        <div class="updated">
+          {% for u in updated %}
+          <div class="item">
+            <a href="{% url 'app:quiz_detail' u.pk %}" class="q">
+              {{ u.question }}
+            </a>
+            <div class="foot">
+              <div class="update">
+                <i class="fas fa-history"></i>
+                {{ u.updated_at }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-    {% endfor %}
-  </div>
 
-  {% if request.user == user_ %}
-    <i class="fas fa-cog"></i>
-    設定
-    <a href="{% url 'users:password_change' %}">パスワード変更</a>
-    <a href="{% url 'users:user_detail' user.username %}">登録情報確認</a>
-    <a href="{% url 'users:user_update' user.username %}">登録情報変更</a>
-  {% endif %}
+  </div>
 
 {% endblock content %}

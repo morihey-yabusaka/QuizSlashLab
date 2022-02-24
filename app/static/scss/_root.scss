@@ -41,6 +41,7 @@ html {
     }
 
     a.under {
+      --border-color: var(--green-dark);
       position: relative;
 
       &:before {
@@ -53,7 +54,7 @@ html {
         height: 0.1em;
         transform-origin: right center;
         transform: scale(0, 1);
-        background-color: var(--green-dark);
+        background-color: var(--border-color);
         transition: transform .3s;
       }
 

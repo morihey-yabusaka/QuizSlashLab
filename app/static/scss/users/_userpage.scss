@@ -1,0 +1,23 @@
+.page.userpage {
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .inner {
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      height: 95%;
+      padding: 1em 2em;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 50px -35px #000;
+
+      .left, .right {
+        width: 49%;
+        height: 100%;
+      }
+    }
+  }
+}

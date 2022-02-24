@@ -59,10 +59,20 @@
         display: flex;
         justify-content: flex-end;
 
+        &:before {
+          content: "";
+          height: 1px;
+          background-color: var(--green);
+          flex-grow: 1;
+          align-self: center;
+        }
+
         a {
-          color: var(--green-dark);
+          --border-color: var(--orange);
+          color: var(--orange);
           letter-spacing: .1em;
           padding-bottom: .1em;
+          margin-left: 1em;
         }
       }
     }

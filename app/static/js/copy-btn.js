@@ -3,7 +3,7 @@ function copy2clipboard(text, type) {
     navigator.clipboard.writeText(text).then(() => {
       notice(
         ["copy", type],
-        "コピーしました。"
+        "<span class='material-icons-outlined'>content_copy</span>コピーしました。"
       )
     })
   } else {
