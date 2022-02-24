@@ -26,8 +26,8 @@
       </div>
     </div>
     <div class="info">
-      <button name='save'>公開</button>
-      <button name="draft">下書き</button>
+      <button class="btn" name='save'>公開</button>
+      <button class="btn" name="draft">下書き</button>
     </div>
   </form>
 </div>
@@ -37,8 +37,8 @@
 <script>
   // icon size
   var backElm = getElm(".main .quiz .q .back");
-  var iconWrapperElm = backElm.querySelector(".wrapper");
-  iconWrapperElm.style.width = backElm.clientHeight + "px";
+  var iconElm = backElm.querySelector(".wrapper .icon");
+  setCssVar(iconElm, "--size", backElm.clientHeight * 0.9 + "px");
 
   var backElm = getElm(".main .quiz .a .back");
   backElm.style.fontSize = backElm.clientHeight * 0.9 + "px";

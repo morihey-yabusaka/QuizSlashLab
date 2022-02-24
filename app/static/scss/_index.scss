@@ -9,29 +9,36 @@
       font-size: 2rem;
       width: 50%;
       background: #fff;
-      box-shadow: 0 0 50px -35px var(--green);
-      padding: 1em 1em .5em 1em;
+      box-shadow: 0 0 50px -25px #000;
+      padding: .5em 1em;
+      border-radius: 10px;
 
       .title {
-        position: absolute;
-        top: -0.8em;
+        position: relative;
         font-weight: 300;
         display: flex;
         align-items: flex-end;
-        text-shadow: .05em .05em 0 #fff;
+        margin-bottom: .5em;
+
+        &:after {
+          content: "";
+          height: 1px;
+          background-color: var(--green);
+          flex-grow: 1;
+          align-self: center;
+        }
 
         & > span {
           display: inline-flex;
           align-items: baseline;
-          font-size: 0.7em;
+          font-size: 0.6em;
           letter-spacing: 0.1em;
-          margin-left: 1em;
-          flex-grow: 1;
+          margin: 0 1em;
           font-weight: 300;
 
           span {
-            font-size: 1.4em;
-            margin: 0 0.1em 0 .5em;
+            font-size: 1.2em;
+            margin-left: .5em;
             font-weight: 600;
             color: var(--green);
             font-family: "Poppins";
@@ -40,6 +47,7 @@
       }
 
       .q {
+        padding: 0 .5em;
         margin-bottom: 2em;
         font-size: 0.7em;
         letter-spacing: .08em;

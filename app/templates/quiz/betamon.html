@@ -3,5 +3,8 @@
   onclick="action_button(this, 'betamon', '{{ user.username }}', {{ quiz.pk }})"
 >
   ベタ問
-  <span class="cnt">{{ quiz.betamon.count }}</span>
+
+  {% if cnt %}
+    <span class="cnt">{{ quiz.betamon.count }}</span>
+  {% endif %}
 </div>

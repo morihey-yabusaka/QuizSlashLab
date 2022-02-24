@@ -18,4 +18,6 @@ function getCssVar(elm, varName) {
   return window.getComputedStyle(elm, null).getPropertyValue(varName);
 }
 
-
+function setCssVar(elm, varName, value) {
+  elm.style.setProperty(varName, value)
+}

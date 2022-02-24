@@ -13,12 +13,13 @@
           <div class="slash">
             <div class="box">
 
-              <div>読み始めが一致するクイズ: {{ slash.n_start_equals }} 問</div>
-              <a href="{% url 'app:quiz_list' %}?{% get request question=slash.before_all is_start='on' qa='and' %}">
+              <div>読始一致クイズ: {{ slash.n_start_equals }} 問</div>
+              <a href="{% url 'app:quiz_list' %}?{% get request question=slash.before_all is_start='on' qa='and' %}" class="under">
                 この読み出しで始まるクイズ
               </a>
 
-              <!-- <div>ボタンが押された数: {{ slash.n_push }}</div>
+              {% comment %}
+              <div>ボタンが押された数: {{ slash.n_push }}</div>
               <div>正答: {{ slash.n_correct }}</div>
               <div>誤答: {{ slash.n_uncorrect }}</div>
               <div>
@@ -29,7 +30,8 @@
                   -
                 {% endif %}
                 %
-              </div> -->
+              </div>
+              {% endcomment %}
             </div>
           </div>
         {% endfor %}
@@ -66,11 +68,11 @@
       </a>
       <div class="created">
         <i class="fas fa-plus-circle"></i>
-        {{ quiz.created_at }}
+        {{ quiz.created_at|date:"Y/m/d H:i" }}
       </div>
       <div class="updated">
         <i class="fas fa-history"></i>
-        {{ quiz.updated_at }}
+        {{ quiz.updated_at|date:"Y/m/d H:i" }}
       </div>
       <div class="goodquiz">
         GQ: {{ quiz.good_quiz.count }}
@@ -78,11 +80,15 @@
       <div class="betamon">
         ベタ問: {{ quiz.betamon.count }}
       </div>
-      <div class="encount">{{ quiz.n_encount }}</div>
-      <div class="push">{{ quiz.n_push }}</div>
-      <div class="through">{{ quiz.n_through }}</div>
-      <div class="correct">{{ quiz.n_correct }}</div>
-      <div class="uncorrect">{{ quiz.n_uncorrect }}</div>
+
+      {% comment %}
+        <div class="encount">{{ quiz.n_encount }}</div>
+        <div class="push">{{ quiz.n_push }}</div>
+        <div class="through">{{ quiz.n_through }}</div>
+        <div class="correct">{{ quiz.n_correct }}</div>
+        <div class="uncorrect">{{ quiz.n_uncorrect }}</div>
+      {% endcomment %}
+
     </div>
 
     <div class="btns">
@@ -106,8 +112,8 @@
         <a href="{% url 'app:quiz_delete' quiz.pk %}" class="delete btn">削除</a>
       {% endif %}
 
-      {% include 'quiz/goodquiz.html' with quiz=quiz class='btn' %}
-      {% include 'quiz/betamon.html' with quiz=quiz class='btn' %}
+      {% include 'quiz/goodquiz.html' with quiz=quiz class='btn' cnt=False %}
+      {% include 'quiz/betamon.html' with quiz=quiz class='btn' cnt=False %}
       <div class="sns">
         <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
         <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>
@@ -122,8 +128,8 @@
 <script>
   // icon size
   var backElm = getElm(".main .quiz .q .back");
-  var iconWrapperElm = backElm.querySelector(".wrapper");
-  iconWrapperElm.style.width = backElm.clientHeight + "px";
+  var iconElm = backElm.querySelector(".wrapper .icon");
+  setCssVar(iconElm, "--size", backElm.clientHeight * 0.9 + "px");
 
   var backElm = getElm(".main .quiz .a .back");
   backElm.style.fontSize = backElm.clientHeight * 0.9 + "px";

@@ -3,7 +3,7 @@ header {
   align-items: center;
   width: 100%;
   height: var(--header-height);
-  background-color: var(--green-dark);
+  background-color: transparent;
   color: #fff;
   z-index: 6;
 
@@ -108,7 +108,7 @@ header {
         left: 0;
         bottom: 0px;
         width: 0;
-        height: 3px;
+        height: 2px;
         background-color: #fff;
         transition: .2s;
       }

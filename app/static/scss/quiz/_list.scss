@@ -20,16 +20,15 @@
       min-height: 135px;
       padding: 2em 2em 1em 2em;
       background-color: #fff;
-      box-shadow: 0 0 50px -35px var(--green);
+      box-shadow: 0 0 50px -35px #000;
       z-index: 2;
+      border-radius: 10px;
 
       &:not(:last-child) {
-        // border-bottom: 3px solid var(--green-white);
         margin-bottom: 1em;
       }
 
       .icon_wrap {
-        --size: 60px;
         position: absolute;
         top: 0;
         left: 0;
@@ -43,6 +42,7 @@
 
         .icon {
           --size: 100px;
+          --color: var(--green-light);
         }
       }
 
