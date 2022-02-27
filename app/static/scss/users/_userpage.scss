@@ -18,6 +18,69 @@
         width: 49%;
         height: 100%;
       }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        padding: .5em 1em;
+
+        .head {
+          display: flex;
+          font-size: 1.4rem;
+          font-weight: 500;
+
+          & > *{
+            padding: .1em 1em;
+            border: 2px solid #ddd;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            transition: .2s;
+
+            &.on {
+              background-color: var(--green);
+              border-color: var(--green);
+              color: #fff;
+            }
+          }
+        }
+
+        .list {
+          flex-grow: 1;
+          background: var(--green);
+          border-radius: 0 0 5px 5px;
+          padding: .5em 1em;
+
+          & > * {
+            display: none;
+
+            &.on {
+              display: block;
+            }
+          }
+
+          .item {
+            border-radius: 5px;
+            background: #fff;
+            padding: .5em 1em;
+            font-size: 1.1rem;
+
+            &:not(:first-child) {
+              margin-top: .5em;
+            }
+
+            .foot {
+              margin-top: .5em;
+              font-size: 0.9em;
+              color: #aaa;
+
+              i {
+                margin-right: 1em;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

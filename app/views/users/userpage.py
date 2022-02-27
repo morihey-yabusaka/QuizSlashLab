@@ -13,8 +13,12 @@ class UserPageView(DetailView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     user = self.get_object()
-    updated = Quiz.objects.filter(author=user, is_draft=False).order_by('updated_at')[:5]
+    updated = user.quiz.publish().order_by('-updated_at')[:5]
     context['updated'] = updated
+    gq = user.good_quiz.quiz().publish()[:5]
+    context['goodquiz'] = gq
+    betamon = user.betamon.quiz().publish()[:5]
+    context['betamon'] = betamon
 
     return context
 

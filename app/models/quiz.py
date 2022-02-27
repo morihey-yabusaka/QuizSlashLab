@@ -40,7 +40,7 @@ class QuizQuerySet(QuerySet):
 
 
 class Quiz(Model):
-  author = ForeignKey(User, on_delete=SET_DEFAULT,  default='QUIZ MAN')
+  author = ForeignKey(User, on_delete=SET_DEFAULT,  default='QUIZ MAN', related_name="quiz")
   #THINK: max_length=255 妥当？
   question = TextField(
     '問題文',
@@ -164,14 +164,16 @@ class ActionQuerySet(QuerySet):
     return:
       list of quiz object
     """
-    return [gq.quiz for gq in self]
+    list_ = [gq.quiz.pk for gq in self]
+    return Quiz.objects.filter(pk__in=list_)
 
   def user(self):
     """
     return:
       list of user object
     """
-    return [gq.user for gq in self]
+    list_ = [gq.user.pk for gq in self]
+    return User.objects.filter(pk__in=list_)
 
   def date_range(self, before, after=datetime.datetime.now()):
     return self.filter(created_at__range=[before, after])

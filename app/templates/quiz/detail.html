@@ -74,9 +74,11 @@
         <i class="fas fa-history"></i>
         {{ quiz.updated_at|date:"Y/m/d H:i" }}
       </div>
+      <!-- TODO: このクイズをgqしている人一覧 -->
       <div class="goodquiz">
         GQ: {{ quiz.good_quiz.count }}
       </div>
+      <!-- TODO: このクイズをbetamonしている人一覧 -->
       <div class="betamon">
         ベタ問: {{ quiz.betamon.count }}
       </div>

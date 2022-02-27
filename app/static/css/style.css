@@ -1311,6 +1311,58 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   width: 49%;
   height: 100%;
 }
+.page.userpage .main .inner .right {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 1em;
+}
+.page.userpage .main .inner .right .head {
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.page.userpage .main .inner .right .head > * {
+  padding: 0.1em 1em;
+  border: 2px solid #ddd;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.page.userpage .main .inner .right .head > *.on {
+  background-color: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.page.userpage .main .inner .right .list {
+  flex-grow: 1;
+  background: var(--green);
+  border-radius: 0 0 5px 5px;
+  padding: 0.5em 1em;
+}
+.page.userpage .main .inner .right .list > * {
+  display: none;
+}
+.page.userpage .main .inner .right .list > *.on {
+  display: block;
+}
+.page.userpage .main .inner .right .list .item {
+  border-radius: 5px;
+  background: #fff;
+  padding: 0.5em 1em;
+  font-size: 1.1rem;
+}
+.page.userpage .main .inner .right .list .item:not(:first-child) {
+  margin-top: 0.5em;
+}
+.page.userpage .main .inner .right .list .item .foot {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  color: #aaa;
+}
+.page.userpage .main .inner .right .list .item .foot i {
+  margin-right: 1em;
+}
 
 .page.password_reset_done .main, .page.password_reset_complete .main {
   display: flex;

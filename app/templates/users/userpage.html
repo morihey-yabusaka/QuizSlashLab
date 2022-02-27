@@ -21,17 +21,52 @@
       </div>
     </div>
     <div class="right">
-      <div class="quiz">
-        <div class="updated">
-          {% for u in updated %}
+      <div class="head">
+        <div id="quiz" class="on">作問</div>
+        <div id="gq">GQ</div>
+        <div id="beta">ベタ問</div>
+      </div>
+      <div class="list">
+        <div class="on" id="quiz">
+          {% for quiz in updated %}
           <div class="item">
-            <a href="{% url 'app:quiz_detail' u.pk %}" class="q">
-              {{ u.question }}
+            <a href="{% url 'app:quiz_detail' quiz.pk %}" class="q">
+              {{ quiz.question }}
             </a>
             <div class="foot">
               <div class="update">
                 <i class="fas fa-history"></i>
-                {{ u.updated_at }}
+                {{ quiz.updated_at|date:"Y/m/d H:i" }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div id="gq">
+          {% for quiz in goodquiz %}
+          <div class="item">
+            <a href="{% url 'app:quiz_detail' quiz.pk %}" class="q">
+              {{ quiz.question }}
+            </a>
+            <div class="foot">
+              <div class="update">
+                <i class="fas fa-history"></i>
+                {{ quiz.updated_at|date:"Y/m/d H:i" }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div id="beta">
+          {% for quiz in betamon %}
+          <div class="item">
+            <a href="{% url 'app:quiz_detail' quiz.pk %}" class="q">
+              {{ quiz.question }}
+            </a>
+            <div class="foot">
+              <div class="update">
+                <i class="fas fa-history"></i>
+                {{ quiz.updated_at|date:"Y/m/d H:i" }}
               </div>
             </div>
           </div>
@@ -43,3 +78,25 @@
   </div>
 
 {% endblock content %}
+
+
+{% block foot %}
+  <script>
+    var listElms = getElms(".right .list > *")
+    var tabBtnElms = getElms(".right .head > *")
+    for(var tabBtnElm of tabBtnElms) {
+      tabBtnElm.addEventListener("click", e => {
+        for(var tabBtnElm_ of tabBtnElms) {
+          tabBtnElm_.classList.remove("on")
+        }
+        e.currentTarget.classList.add("on")
+        for(var listElm of listElms) {
+          listElm.classList.remove("on")
+          if(listElm.id == e.currentTarget.id) {
+            listElm.classList.add("on")
+          }
+        }
+      })
+    }
+  </script>
+{% endblock foot %}
