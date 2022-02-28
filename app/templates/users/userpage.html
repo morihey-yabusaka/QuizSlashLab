@@ -8,7 +8,7 @@
   <div class="inner">
     <div class="left">
       <div class="username">
-        {{ user.username }}
+        {{ view.kwargs.slug }}
       </div>
       <div class="setting">
         {% if request.user == user_ %}
@@ -41,6 +41,9 @@
             </div>
           </div>
           {% endfor %}
+          <div class="foot">
+            <a href="{% url 'app:user_quiz_list' view.kwargs.slug %}" class="under">詳細</a>
+          </div>
         </div>
         <div id="gq">
           {% for quiz in goodquiz %}
@@ -56,6 +59,9 @@
             </div>
           </div>
           {% endfor %}
+          <div class="foot">
+            <a href="{% url 'app:good_quiz_quiz_list' view.kwargs.slug %}" class="under">詳細</a>
+          </div>
         </div>
         <div id="beta">
           {% for quiz in betamon %}
@@ -71,6 +77,9 @@
             </div>
           </div>
           {% endfor %}
+          <div class="foot">
+            <a href="{% url 'app:betamon_quiz_list' view.kwargs.slug %}" class="under">詳細</a>
+          </div>
         </div>
       </div>
     </div>

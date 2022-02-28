@@ -679,7 +679,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   height: -moz-fit-content;
   height: fit-content;
   min-height: 135px;
-  padding: 2em 2em 1em 2em;
+  padding: 1em 2em;
   background-color: #fff;
   box-shadow: 0 0 50px -35px #000;
   z-index: 2;
@@ -1322,7 +1322,9 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   font-weight: 500;
 }
 .page.userpage .main .inner .right .head > * {
-  padding: 0.1em 1em;
+  padding: 0.3em 1em;
+  padding-bottom: 0;
+  letter-spacing: 0.08em;
   border: 2px solid #ddd;
   border-bottom: none;
   border-radius: 5px 5px 0 0;
@@ -1337,31 +1339,48 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 .page.userpage .main .inner .right .list {
   flex-grow: 1;
   background: var(--green);
-  border-radius: 0 0 5px 5px;
-  padding: 0.5em 1em;
+  border-radius: 0 5px 5px 5px;
+  padding: 0;
 }
 .page.userpage .main .inner .right .list > * {
   display: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 1em;
 }
 .page.userpage .main .inner .right .list > *.on {
   display: block;
 }
-.page.userpage .main .inner .right .list .item {
+.page.userpage .main .inner .right .list > * .item {
   border-radius: 5px;
   background: #fff;
   padding: 0.5em 1em;
   font-size: 1.1rem;
 }
-.page.userpage .main .inner .right .list .item:not(:first-child) {
+.page.userpage .main .inner .right .list > * .item:not(:first-child) {
   margin-top: 0.5em;
 }
-.page.userpage .main .inner .right .list .item .foot {
+.page.userpage .main .inner .right .list > * .item .foot {
   margin-top: 0.5em;
   font-size: 0.9em;
   color: #aaa;
 }
-.page.userpage .main .inner .right .list .item .foot i {
+.page.userpage .main .inner .right .list > * .item .foot i {
   margin-right: 1em;
+}
+.page.userpage .main .inner .right .list > * > .foot {
+  background: #fff;
+  position: absolute;
+  bottom: 0.5em;
+  right: 1em;
+  left: 1em;
+  padding: 0.5em 1em;
+  border-radius: 0 0 5px 5px;
+}
+.page.userpage .main .inner .right .list > * > .foot a {
+  color: var(--green-dark);
 }
 
 .page.password_reset_done .main, .page.password_reset_complete .main {
