@@ -551,6 +551,14 @@ footer {
   filter: saturate(1);
 }
 
+.on > .light {
+  filter: drop-shadow(0 0 3px var(--color));
+}
+.on > .light:after, .on > .light:before {
+  opacity: 0.5;
+  filter: saturate(1);
+}
+
 input[type=checkbox], input[type=radio] {
   display: none;
 }
@@ -653,6 +661,44 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .notice_list .notice_item.copy.a span {
   color: var(--orange);
+}
+
+.popup {
+  --widnow-margin: .5em;
+  position: relative;
+}
+.popup.click.on .window {
+  visibility: visible;
+  opacity: 1;
+}
+.popup.left .window {
+  right: calc(100% + var(--widnow-margin));
+}
+.popup.right .window {
+  left: calc(100% + var(--widnow-margin));
+}
+.popup.top .window {
+  bottom: calc(100% + var(--widnow-margin));
+}
+.popup.bottom .window {
+  top: calc(100% + var(--widnow-margin));
+}
+.popup.left.center .window, .popup.right.center .window {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.popup.top.center .window, .popup.bottom.center .window {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.popup .window {
+  position: absolute;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0 0 15px -5px #0005;
+  opacity: 0;
+  transition: 0.2s;
+  z-index: 10;
 }
 
 .quiz.list .main {
@@ -996,32 +1042,47 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   display: flex;
   z-index: 2;
 }
-.page.quiz.detail .main .info .btns .btn, .page.quiz.delete .main .info .btns .btn, .page.quiz.create .main .info .btns .btn, .page.quiz.update .main .info .btns .btn {
-  --size: 40px;
-}
-.page.quiz.detail .main .info .btns .btn:not(.share), .page.quiz.delete .main .info .btns .btn:not(.share), .page.quiz.create .main .info .btns .btn:not(.share), .page.quiz.update .main .info .btns .btn:not(.share) {
-  font-size: 12px;
-  font-weight: 600;
-}
-.page.quiz.detail .main .info .btns .gq, .page.quiz.delete .main .info .btns .gq, .page.quiz.create .main .info .btns .gq, .page.quiz.update .main .info .btns .gq {
-  --color1: var(--orange);
-}
-.page.quiz.detail .main .info .btns .beta, .page.quiz.delete .main .info .btns .beta, .page.quiz.create .main .info .btns .beta, .page.quiz.update .main .info .btns .beta {
-  --color1: var(--blue);
-  font-size: 12px !important;
-}
-.page.quiz.detail .main .info .btns .update, .page.quiz.detail .main .info .btns .draft, .page.quiz.detail .main .info .btns .publish, .page.quiz.delete .main .info .btns .update, .page.quiz.delete .main .info .btns .draft, .page.quiz.delete .main .info .btns .publish, .page.quiz.create .main .info .btns .update, .page.quiz.create .main .info .btns .draft, .page.quiz.create .main .info .btns .publish, .page.quiz.update .main .info .btns .update, .page.quiz.update .main .info .btns .draft, .page.quiz.update .main .info .btns .publish {
-  --color1: var(--blue);
-}
-.page.quiz.detail .main .info .btns .draft, .page.quiz.delete .main .info .btns .draft, .page.quiz.create .main .info .btns .draft, .page.quiz.update .main .info .btns .draft {
-  font-size: 12px !important;
-}
-.page.quiz.detail .main .info .btns .sns, .page.quiz.delete .main .info .btns .sns, .page.quiz.create .main .info .btns .sns, .page.quiz.update .main .info .btns .sns {
+.page.quiz.detail .main .info .btns .btn_group, .page.quiz.delete .main .info .btns .btn_group, .page.quiz.create .main .info .btns .btn_group, .page.quiz.update .main .info .btns .btn_group {
   display: flex;
+  border: 3px solid #ddd;
+  border-radius: 1000px;
+  padding: 0.3em 1em;
+  padding-right: 0.5em;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  align-items: center;
+  font-size: 1.1rem;
 }
-.page.quiz.detail .main .info .btns button, .page.quiz.delete .main .info .btns button, .page.quiz.create .main .info .btns button, .page.quiz.update .main .info .btns button {
-  border: none;
-  background: none;
+.page.quiz.detail .main .info .btns .btn_group .light, .page.quiz.delete .main .info .btns .btn_group .light, .page.quiz.create .main .info .btns .btn_group .light, .page.quiz.update .main .info .btns .btn_group .light {
+  --size: 2em;
+}
+.page.quiz.detail .main .info .btns .btn_group .text, .page.quiz.delete .main .info .btns .btn_group .text, .page.quiz.create .main .info .btns .btn_group .text, .page.quiz.update .main .info .btns .btn_group .text {
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  margin: 0 1em;
+}
+.page.quiz.detail .main .info .btns .btn_group > .btn, .page.quiz.delete .main .info .btns .btn_group > .btn, .page.quiz.create .main .info .btns .btn_group > .btn, .page.quiz.update .main .info .btns .btn_group > .btn {
+  --size: 1.5em;
+  --color1: #888;
+}
+.page.quiz.detail .main .info .btns .btn_group > .btn i, .page.quiz.delete .main .info .btns .btn_group > .btn i, .page.quiz.create .main .info .btns .btn_group > .btn i, .page.quiz.update .main .info .btns .btn_group > .btn i {
+  font-size: 0.6em;
+}
+.page.quiz.detail .main .info .btns .btn_group .window, .page.quiz.delete .main .info .btns .btn_group .window, .page.quiz.create .main .info .btns .btn_group .window, .page.quiz.update .main .info .btns .btn_group .window {
+  display: flex;
+  padding: 0.5em 1em;
+  border-radius: 1000px;
+}
+.page.quiz.detail .main .info .btns .btn_group .window > *:not(:first-child), .page.quiz.delete .main .info .btns .btn_group .window > *:not(:first-child), .page.quiz.create .main .info .btns .btn_group .window > *:not(:first-child), .page.quiz.update .main .info .btns .btn_group .window > *:not(:first-child) {
+  margin-left: 0.5em;
+}
+.page.quiz.detail .main .info .btns .btn_group .window .btn, .page.quiz.delete .main .info .btns .btn_group .window .btn, .page.quiz.create .main .info .btns .btn_group .window .btn, .page.quiz.update .main .info .btns .btn_group .window .btn {
+  --size: 3.5rem;
+  font-size: 1em;
+}
+.page.quiz.detail .main .info .btns .btn_group .window .btn.draft, .page.quiz.delete .main .info .btns .btn_group .window .btn.draft, .page.quiz.create .main .info .btns .btn_group .window .btn.draft, .page.quiz.update .main .info .btns .btn_group .window .btn.draft {
+  font-size: 0.7em;
 }
 
 .page.quiz.delete form {

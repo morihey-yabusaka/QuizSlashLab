@@ -36,6 +36,14 @@
   }
 }
 
+.on > .light {
+  filter: drop-shadow(0 0 3px var(--color));
+  &:after, &:before {
+    opacity: .5;
+    filter: saturate(1);
+  }
+}
+
 input[type=checkbox], input[type=radio] {
   display: none;
 

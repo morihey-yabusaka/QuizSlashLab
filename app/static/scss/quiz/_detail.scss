@@ -187,34 +187,53 @@
           display: flex;
           z-index: 2;
 
-          .btn {
-            --size: 40px;
-          }
-
-          .btn:not(.share) {
-            font-size: 12px;
-            font-weight: 600;
-          }
-          .gq {
-            --color1: var(--orange);
-          }
-          .beta {
-            --color1: var(--blue);
-            font-size: 12px !important;
-          }
-          .update, .draft, .publish {
-            --color1: var(--blue);
-          }
-          .draft {
-            font-size: 12px !important;
-          }
-          .sns {
+          .btn_group {
             display: flex;
-          }
+            border: 3px solid #ddd;
+            border-radius: 1000px;
+            padding: .3em 1em;
+            padding-right: .5em;
+            height: min-content;
+            align-items: center;
+            font-size: 1.1rem;
 
-          button {
-            border: none;
-            background: none;
+            .light {
+              --size: 2em;
+            }
+
+            .text {
+              letter-spacing: .05em;
+              font-weight: 500;
+              margin: 0 1em;
+            }
+
+            & > .btn {
+              --size: 1.5em;
+              --color1: #888;
+
+              i {
+                font-size: .6em;
+              }
+            }
+
+            .window {
+              display: flex;
+              padding: 0.5em 1em;
+              border-radius: 1000px;
+
+              & > *:not(:first-child) {
+                margin-left: .5em;
+              }
+
+              .btn {
+                --size: 3.5rem;
+                font-size: 1em;
+
+                &.draft {
+                  font-size: .7em;
+                }
+              }
+            }
           }
         }
       }

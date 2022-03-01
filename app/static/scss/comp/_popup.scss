@@ -1,0 +1,46 @@
+.popup {
+  --widnow-margin: .5em;
+  position: relative;
+
+  &.hover {}
+
+  &.click {
+    &.on {
+      .window {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &.left {.window { right: calc(100% + var(--widnow-margin)); }}
+  &.right {.window { left: calc(100% + var(--widnow-margin)); }}
+  &.top {.window { bottom: calc(100% + var(--widnow-margin)); }}
+  &.bottom {.window { top: calc(100% + var(--widnow-margin)); }}
+  &.left, &.right {
+    &.center {
+      .window {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  &.top, &.bottom {
+    &.center {
+      .window {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .window {
+    position: absolute;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0 0 15px -5px #0005;
+    opacity: 0;
+    transition: .2s;
+    z-index: 10;
+  }
+}
