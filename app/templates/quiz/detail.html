@@ -12,7 +12,6 @@
           <span>{{ slash.before_just }}</span>
           <div class="slash">
             <div class="box">
-
               <div>読始一致クイズ: {{ slash.n_start_equals }} 問</div>
               <a href="{% url 'app:quiz_list' %}?{% get request question=slash.before_all is_start='on' qa='and' %}" class="under">
                 この読み出しで始まるクイズ
@@ -99,11 +98,13 @@
 
     <div class="btns">
       {% comment %}
-        TODO: まとめる．gq,beta,編集,シェアくらい．ポップアップでボタン表示
         TODO: 下書き，出題のnotice作製
       {% endcomment %}
+
+      {% include 'quiz/goodquiz.html' with quiz=quiz class='btn' cnt=False %}
+      {% include 'quiz/betamon.html' with quiz=quiz class='btn' cnt=False %}
       {% if user == quiz.author %}
-        <div class="edit btn_group popup click top center on">
+        <div class="edit btn_group popup click top center">
           <div class="light"></div>
           <div class="text">編集</div>
           <div class="btn pop click">
@@ -131,19 +132,17 @@
         </div>
       {% endif %}
 
-      <div class="share btn_group">
+      <div class="share btn_group popup click top center">
+        <div class="light"></div>
         <div class="text">シェア</div>
-        <div class="btn">
+        <div class="btn pop click">
           <i class="fas fa-share-alt"></i>
         </div>
+        <div class="window">
+          <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
+          <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>
+        </div>
       </div>
-
-      <!-- {% include 'quiz/goodquiz.html' with quiz=quiz class='btn' cnt=False %}
-      {% include 'quiz/betamon.html' with quiz=quiz class='btn' cnt=False %}
-      <div class="sns">
-        <a class="btn share" id="twitter" target="_blank" rel="noopener noreferrer"></a>
-        <a class="btn share" id="line" target="_blank" rel="noopener noreferrer"></a>
-      </div> -->
     </div>
 
 

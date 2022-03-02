@@ -23,13 +23,11 @@ button {
   --green-light: #04e447;
   --orange: #F09A54;
   --red: #F25E5E;
-  --blue: #4985E6;
+  --blue: #1485f5;
   --purple: #9B66CC;
-  --blue-dark: #1D65D7;
   --green-rgb: 0, 179, 55;
   --orange-rgb: 240, 154, 84;
   --red-rgb: 242, 94, 94;
-  --blue-rgb: 73, 133, 230;
   --header-height: 40px;
   --footer-height: 20px;
 }
@@ -667,7 +665,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   --widnow-margin: .5em;
   position: relative;
 }
-.popup.click.on .window {
+.popup.click.on .window, .popup.hover:hover .window {
   visibility: visible;
   opacity: 1;
 }
@@ -695,6 +693,13 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   position: absolute;
   visibility: hidden;
   background: #fff;
+  color: #000;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 1rem;
+  padding: 1em 2em;
+  border-radius: 5px;
   box-shadow: 0 0 15px -5px #0005;
   opacity: 0;
   transition: 0.2s;
@@ -1042,6 +1047,18 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   display: flex;
   z-index: 2;
 }
+.page.quiz.detail .main .info .btns .draft, .page.quiz.detail .main .info .btns .publish, .page.quiz.delete .main .info .btns .draft, .page.quiz.delete .main .info .btns .publish, .page.quiz.create .main .info .btns .draft, .page.quiz.create .main .info .btns .publish, .page.quiz.update .main .info .btns .draft, .page.quiz.update .main .info .btns .publish {
+  --color1: var(--blue);
+}
+.page.quiz.detail .main .info .btns .update, .page.quiz.delete .main .info .btns .update, .page.quiz.create .main .info .btns .update, .page.quiz.update .main .info .btns .update {
+  --color1: var(--blue);
+}
+.page.quiz.detail .main .info .btns #twitter, .page.quiz.delete .main .info .btns #twitter, .page.quiz.create .main .info .btns #twitter, .page.quiz.update .main .info .btns #twitter {
+  font-size: 20px;
+}
+.page.quiz.detail .main .info .btns #line, .page.quiz.delete .main .info .btns #line, .page.quiz.create .main .info .btns #line, .page.quiz.update .main .info .btns #line {
+  font-size: 30px;
+}
 .page.quiz.detail .main .info .btns .btn_group, .page.quiz.delete .main .info .btns .btn_group, .page.quiz.create .main .info .btns .btn_group, .page.quiz.update .main .info .btns .btn_group {
   display: flex;
   border: 3px solid #ddd;
@@ -1053,6 +1070,17 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   height: min-content;
   align-items: center;
   font-size: 1.1rem;
+  transition: 0.2s;
+}
+.page.quiz.detail .main .info .btns .btn_group.on, .page.quiz.delete .main .info .btns .btn_group.on, .page.quiz.create .main .info .btns .btn_group.on, .page.quiz.update .main .info .btns .btn_group.on {
+  border-color: var(--green);
+  background-color: rgba(var(--green-rgb), 0.1);
+}
+.page.quiz.detail .main .info .btns .btn_group.on > .btn, .page.quiz.delete .main .info .btns .btn_group.on > .btn, .page.quiz.create .main .info .btns .btn_group.on > .btn, .page.quiz.update .main .info .btns .btn_group.on > .btn {
+  --color1: var(--green);
+}
+.page.quiz.detail .main .info .btns .btn_group.on .light, .page.quiz.delete .main .info .btns .btn_group.on .light, .page.quiz.create .main .info .btns .btn_group.on .light, .page.quiz.update .main .info .btns .btn_group.on .light {
+  --color: var(--green);
 }
 .page.quiz.detail .main .info .btns .btn_group .light, .page.quiz.delete .main .info .btns .btn_group .light, .page.quiz.create .main .info .btns .btn_group .light, .page.quiz.update .main .info .btns .btn_group .light {
   --size: 2em;
@@ -1071,7 +1099,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .page.quiz.detail .main .info .btns .btn_group .window, .page.quiz.delete .main .info .btns .btn_group .window, .page.quiz.create .main .info .btns .btn_group .window, .page.quiz.update .main .info .btns .btn_group .window {
   display: flex;
-  padding: 0.5em 1em;
+  padding: 1em;
   border-radius: 1000px;
 }
 .page.quiz.detail .main .info .btns .btn_group .window > *:not(:first-child), .page.quiz.delete .main .info .btns .btn_group .window > *:not(:first-child), .page.quiz.create .main .info .btns .btn_group .window > *:not(:first-child), .page.quiz.update .main .info .btns .btn_group .window > *:not(:first-child) {
@@ -1163,9 +1191,17 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
 }
 .page.quiz.create .form form .info .btn, .page.quiz.update .form form .info .btn {
   --color1: var(--blue);
+}
+.page.quiz.create .form form .info .btn .window, .page.quiz.update .form form .info .btn .window {
+  box-shadow: 0 0 30px -10px #000;
+}
+.page.quiz.create .form form .info .btn[name=draft], .page.quiz.update .form form .info .btn[name=draft] {
+  font-size: 17px;
+  margin-left: 20px;
 }
 
 .page.form.login .main, .page.form.signup .main, .page.form.password_change .main {

@@ -187,6 +187,22 @@
           display: flex;
           z-index: 2;
 
+          .draft, .publish {
+            --color1: var(--blue);
+          }
+
+          .update {
+            --color1: var(--blue);
+          }
+
+          #twitter {
+            font-size: 20px;
+          }
+
+          #line {
+            font-size: 30px;
+          }
+
           .btn_group {
             display: flex;
             border: 3px solid #ddd;
@@ -196,6 +212,20 @@
             height: min-content;
             align-items: center;
             font-size: 1.1rem;
+            transition: .2s;
+
+            &.on {
+              border-color: var(--green);
+              background-color: rgba(var(--green-rgb), .1);
+
+              &> .btn {
+                --color1: var(--green);
+              }
+
+              .light {
+                --color: var(--green);
+              }
+            }
 
             .light {
               --size: 2em;
@@ -218,7 +248,7 @@
 
             .window {
               display: flex;
-              padding: 0.5em 1em;
+              padding: 1em;
               border-radius: 1000px;
 
               & > *:not(:first-child) {
