@@ -2,7 +2,9 @@
   class="gq {{ class }} {% if quiz in user.good_quiz.quiz %}on{% endif %}"
   onclick="action_button(this, 'gq', '{{ user.username }}', {{ quiz.pk }})"
 >
-  GQ
+  {% if text == none %}
+  <span class="text">GQ</span>
+  {% endif %}
 
   {% if cnt %}
     <span class="cnt">{{ quiz.good_quiz.count }}</span>

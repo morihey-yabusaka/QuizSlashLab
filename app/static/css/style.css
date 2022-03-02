@@ -28,6 +28,7 @@ button {
   --green-rgb: 0, 179, 55;
   --orange-rgb: 240, 154, 84;
   --red-rgb: 242, 94, 94;
+  --blue-rgb: 20, 133, 245;
   --header-height: 40px;
   --footer-height: 20px;
 }
@@ -1043,9 +1044,55 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   border-radius: 10px;
   padding: 0.5em 1em;
 }
+.page.quiz.detail .main .info .text, .page.quiz.delete .main .info .text, .page.quiz.create .main .info .text, .page.quiz.update .main .info .text {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.page.quiz.detail .main .info .text > *, .page.quiz.delete .main .info .text > *, .page.quiz.create .main .info .text > *, .page.quiz.update .main .info .text > * {
+  display: flex;
+  align-items: baseline;
+  padding: 0.2em 1em;
+  border: solid 3px #ddd;
+  border-radius: 10000px;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+.page.quiz.detail .main .info .text > * i, .page.quiz.delete .main .info .text > * i, .page.quiz.create .main .info .text > * i, .page.quiz.update .main .info .text > * i {
+  color: #555;
+}
+.page.quiz.detail .main .info .text > * *:first-child, .page.quiz.delete .main .info .text > * *:first-child, .page.quiz.create .main .info .text > * *:first-child, .page.quiz.update .main .info .text > * *:first-child {
+  margin-right: 1em;
+  flex-grow: 2;
+}
+.page.quiz.detail .main .info .text > * *:last-child, .page.quiz.delete .main .info .text > * *:last-child, .page.quiz.create .main .info .text > * *:last-child, .page.quiz.update .main .info .text > * *:last-child {
+  text-align: right;
+}
+.page.quiz.detail .main .info .text > *:not(:first-child), .page.quiz.delete .main .info .text > *:not(:first-child), .page.quiz.create .main .info .text > *:not(:first-child), .page.quiz.update .main .info .text > *:not(:first-child) {
+  margin-top: 0.5em;
+}
+.page.quiz.detail .main .info .text .author a, .page.quiz.delete .main .info .text .author a, .page.quiz.create .main .info .text .author a, .page.quiz.update .main .info .text .author a {
+  color: var(--green);
+}
+.page.quiz.detail .main .info .text .goodquiz *:first-child, .page.quiz.delete .main .info .text .goodquiz *:first-child, .page.quiz.create .main .info .text .goodquiz *:first-child, .page.quiz.update .main .info .text .goodquiz *:first-child {
+  color: var(--orange);
+}
+.page.quiz.detail .main .info .text .betamon *:first-child, .page.quiz.delete .main .info .text .betamon *:first-child, .page.quiz.create .main .info .text .betamon *:first-child, .page.quiz.update .main .info .text .betamon *:first-child {
+  color: var(--blue);
+}
 .page.quiz.detail .main .info .btns, .page.quiz.delete .main .info .btns, .page.quiz.create .main .info .btns, .page.quiz.update .main .info .btns {
   display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
   z-index: 2;
+  flex-grow: 2;
+}
+.page.quiz.detail .main .info .btns > *:not(:first-child), .page.quiz.delete .main .info .btns > *:not(:first-child), .page.quiz.create .main .info .btns > *:not(:first-child), .page.quiz.update .main .info .btns > *:not(:first-child) {
+  margin-left: 1em;
+}
+.page.quiz.detail .main .info .btns .gq, .page.quiz.detail .main .info .btns .beta, .page.quiz.delete .main .info .btns .gq, .page.quiz.delete .main .info .btns .beta, .page.quiz.create .main .info .btns .gq, .page.quiz.create .main .info .btns .beta, .page.quiz.update .main .info .btns .gq, .page.quiz.update .main .info .btns .beta {
+  --size: 1.5em;
 }
 .page.quiz.detail .main .info .btns .draft, .page.quiz.detail .main .info .btns .publish, .page.quiz.delete .main .info .btns .draft, .page.quiz.delete .main .info .btns .publish, .page.quiz.create .main .info .btns .draft, .page.quiz.create .main .info .btns .publish, .page.quiz.update .main .info .btns .draft, .page.quiz.update .main .info .btns .publish {
   --color1: var(--blue);
@@ -1081,6 +1128,26 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .page.quiz.detail .main .info .btns .btn_group.on .light, .page.quiz.delete .main .info .btns .btn_group.on .light, .page.quiz.create .main .info .btns .btn_group.on .light, .page.quiz.update .main .info .btns .btn_group.on .light {
   --color: var(--green);
+}
+.page.quiz.detail .main .info .btns .btn_group.on.gq, .page.quiz.delete .main .info .btns .btn_group.on.gq, .page.quiz.create .main .info .btns .btn_group.on.gq, .page.quiz.update .main .info .btns .btn_group.on.gq {
+  border-color: var(--orange);
+  background-color: rgba(var(--orange-rgb), 0.1);
+}
+.page.quiz.detail .main .info .btns .btn_group.on.gq > .btn, .page.quiz.delete .main .info .btns .btn_group.on.gq > .btn, .page.quiz.create .main .info .btns .btn_group.on.gq > .btn, .page.quiz.update .main .info .btns .btn_group.on.gq > .btn {
+  --color1: var(--orange);
+}
+.page.quiz.detail .main .info .btns .btn_group.on.gq .light, .page.quiz.delete .main .info .btns .btn_group.on.gq .light, .page.quiz.create .main .info .btns .btn_group.on.gq .light, .page.quiz.update .main .info .btns .btn_group.on.gq .light {
+  --color: var(--orange);
+}
+.page.quiz.detail .main .info .btns .btn_group.on.beta, .page.quiz.delete .main .info .btns .btn_group.on.beta, .page.quiz.create .main .info .btns .btn_group.on.beta, .page.quiz.update .main .info .btns .btn_group.on.beta {
+  border-color: var(--blue);
+  background-color: rgba(var(--blue-rgb), 0.1);
+}
+.page.quiz.detail .main .info .btns .btn_group.on.beta > .btn, .page.quiz.delete .main .info .btns .btn_group.on.beta > .btn, .page.quiz.create .main .info .btns .btn_group.on.beta > .btn, .page.quiz.update .main .info .btns .btn_group.on.beta > .btn {
+  --color1: var(--blue);
+}
+.page.quiz.detail .main .info .btns .btn_group.on.beta .light, .page.quiz.delete .main .info .btns .btn_group.on.beta .light, .page.quiz.create .main .info .btns .btn_group.on.beta .light, .page.quiz.update .main .info .btns .btn_group.on.beta .light {
+  --color: var(--blue);
 }
 .page.quiz.detail .main .info .btns .btn_group .light, .page.quiz.delete .main .info .btns .btn_group .light, .page.quiz.create .main .info .btns .btn_group .light, .page.quiz.update .main .info .btns .btn_group .light {
   --size: 2em;

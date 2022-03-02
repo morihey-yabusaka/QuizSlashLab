@@ -183,9 +183,72 @@
         border-radius: 10px;
         padding: .5em 1em;
 
+        .text {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          height: 100%;
+
+          & > * {
+            display: flex;
+            align-items: baseline;
+            padding: .2em 1em;
+            border: solid 3px #ddd;
+            border-radius: 10000px;
+            font-size: 1rem;
+            letter-spacing: .08em;
+
+            i {
+              color: #555;
+            }
+
+            *:first-child {
+              margin-right: 1em;
+              flex-grow: 2;
+            }
+
+            *:last-child {
+              text-align: right;
+            }
+
+            &:not(:first-child) {
+              margin-top: .5em;
+            }
+          }
+
+          .author {
+            a {
+              color: var(--green);
+            }
+          }
+
+          .goodquiz {
+            *:first-child {
+              color: var(--orange);
+            }
+          }
+
+          .betamon {
+            *:first-child {
+              color: var(--blue);
+            }
+          }
+        }
+
         .btns {
           display: flex;
+          justify-content: flex-end;
+          align-self: flex-end;
           z-index: 2;
+          flex-grow: 2;
+
+          & > *:not(:first-child) {
+            margin-left: 1em;
+          }
+
+          .gq, .beta {
+            --size: 1.5em;
+          }
 
           .draft, .publish {
             --color1: var(--blue);
@@ -224,6 +287,32 @@
 
               .light {
                 --color: var(--green);
+              }
+
+              &.gq {
+                border-color: var(--orange);
+                background-color: rgba(var(--orange-rgb), .1);
+
+                &>.btn {
+                  --color1: var(--orange);
+                }
+
+                .light {
+                  --color: var(--orange);
+                }
+              }
+
+              &.beta {
+                border-color: var(--blue);
+                background-color: rgba(var(--blue-rgb), .1);
+
+                &>.btn {
+                  --color1: var(--blue);
+                }
+
+                .light {
+                  --color: var(--blue);
+                }
               }
             }
 

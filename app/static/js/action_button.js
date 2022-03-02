@@ -12,15 +12,17 @@ function action_button(elm, type, username, pk) {
     success: (res) => {
       elm.classList.toggle("on")
       var cntELm = elm.querySelector(".cnt")
-      var cnt = parseInt(cntELm.innerText)
+      if (cntELm) {
+        var cnt = parseInt(cntELm.innerText);
 
-      if(elm.classList.contains("on")) {
-        cnt += 1
-      } else {
-        cnt -= 1
+        if (elm.classList.contains("on")) {
+          cnt += 1;
+        } else {
+          cnt -= 1;
+        }
+
+        cntELm.innerText = cnt;
       }
-
-      cntELm.innerText = cnt
     }
   })
 }

@@ -61,29 +61,33 @@
   </div>
   <div class="info">
     <div class="text">
-      <a href="{% url 'app:userpage' quiz.author %}" class="author">
+      <div class="author">
         <i class="fas fa-user"></i>
-        {{ quiz.author }}
-      </a>
+        <a href="{% url 'app:userpage' quiz.author %}" class="under">{{ quiz.author }}</a>
+      </div>
       <div class="created">
         <i class="fas fa-plus-circle"></i>
-        {{ quiz.created_at|date:"Y/m/d H:i" }}
+        <span>{{ quiz.created_at|date:"Y/m/d H:i" }}</span>
       </div>
       <div class="updated">
         <i class="fas fa-history"></i>
-        {{ quiz.updated_at|date:"Y/m/d H:i" }}
+        <span>{{ quiz.updated_at|date:"Y/m/d H:i" }}</span>
       </div>
       {% comment %}
-      <!-- TODO: このクイズをgqしている人一覧 -->
+      TODO: このクイズをgqしている人一覧
+      TODO: GQした時のカウント変動
       {% endcomment %}
       <div class="goodquiz">
-        GQ: {{ quiz.good_quiz.count }}
+        <span>GQ:</span>
+        <span>{{ quiz.good_quiz.count }}</span>
       </div>
       {% comment %}
-      <!-- TODO: このクイズをbetamonしている人一覧 -->
+      TODO: このクイズをbetamonしている人一覧
+      TODO: betamonした時のカウント変動
       {% endcomment %}
       <div class="betamon">
-        ベタ問: {{ quiz.betamon.count }}
+        <sapn>ベタ問:</sapn>
+        <span>{{ quiz.betamon.count }}</span>
       </div>
 
       {% comment %}
@@ -101,8 +105,17 @@
         TODO: 下書き，出題のnotice作製
       {% endcomment %}
 
-      {% include 'quiz/goodquiz.html' with quiz=quiz class='btn' cnt=False %}
-      {% include 'quiz/betamon.html' with quiz=quiz class='btn' cnt=False %}
+      <div class="gq btn_group {% if quiz in user.good_quiz.quiz %}on{% endif %}">
+        <div class="light"></div>
+        <div class="text">GQ</div>
+        {% include 'quiz/goodquiz.html' with quiz=quiz class='btn' cnt=False text=False %}
+      </div>
+      <div class="beta btn_group {% if quiz in user.betamon.quiz %}on{% endif %}">
+        <div class="light"></div>
+        <div class="text">ベタ問</div>
+        {% include 'quiz/betamon.html' with quiz=quiz class='btn' cnt=False text=False %}
+      </div>
+
       {% if user == quiz.author %}
         <div class="edit btn_group popup click top center">
           <div class="light"></div>
@@ -182,5 +195,15 @@
       snsBtnElm.setAttribute("href", createSNSURL(snsBtnElm.id, URL, Q))
     }
   }
+
+  // gq, beta
+  var gqElm = getElm(".btn_group .gq")
+  gqElm.addEventListener("click", e => {
+    e.currentTarget.parentElement.classList.toggle("on")
+  })
+  var betaElm = getElm(".btn_group .beta")
+  betaElm.addEventListener("click", e => {
+  e.currentTarget.parentElement.classList.toggle("on")
+  })
 </script>
 {% endblock foot %}
