@@ -1,0 +1,26 @@
+{% extends 'comp/base.html' %}
+
+{% block class %}user list{% endblock class %}
+
+{% block content %}
+
+<div class="left">
+  <div class="title">
+    {% for t in title %}
+    {% if t.s %}
+    <span>{{ t.text }}</span>
+    {% else %}
+    {{ t.text }}<br>
+    {% endif %}
+    {% endfor %}
+    一覧
+  </div>
+</div>
+
+<div class="list quiz_list">
+</div>
+
+<div class="right">
+</div>
+
+{% endblock content %}

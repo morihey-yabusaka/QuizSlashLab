@@ -1076,9 +1076,11 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   color: var(--green);
 }
 .page.quiz.detail .main .info .text .goodquiz *:first-child, .page.quiz.delete .main .info .text .goodquiz *:first-child, .page.quiz.create .main .info .text .goodquiz *:first-child, .page.quiz.update .main .info .text .goodquiz *:first-child {
+  --border-color: var(--orange);
   color: var(--orange);
 }
 .page.quiz.detail .main .info .text .betamon *:first-child, .page.quiz.delete .main .info .text .betamon *:first-child, .page.quiz.create .main .info .text .betamon *:first-child, .page.quiz.update .main .info .text .betamon *:first-child {
+  --border-color: var(--blue);
   color: var(--blue);
 }
 .page.quiz.detail .main .info .btns, .page.quiz.delete .main .info .btns, .page.quiz.create .main .info .btns, .page.quiz.update .main .info .btns {

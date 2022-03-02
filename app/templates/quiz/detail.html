@@ -78,7 +78,7 @@
       TODO: GQした時のカウント変動
       {% endcomment %}
       <div class="goodquiz">
-        <span>GQ:</span>
+        <a href="{% url 'app:good_quiz_user_list' quiz.pk %}" class="under">GQ:</a>
         <span>{{ quiz.good_quiz.count }}</span>
       </div>
       {% comment %}
@@ -86,7 +86,7 @@
       TODO: betamonした時のカウント変動
       {% endcomment %}
       <div class="betamon">
-        <sapn>ベタ問:</sapn>
+        <a href="{% url 'app:betamon_user_list' quiz.pk %}" class="under">ベタ問:</a>
         <span>{{ quiz.betamon.count }}</span>
       </div>
 

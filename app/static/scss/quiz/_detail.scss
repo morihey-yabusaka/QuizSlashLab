@@ -224,12 +224,14 @@
 
           .goodquiz {
             *:first-child {
+              --border-color: var(--orange);
               color: var(--orange);
             }
           }
 
           .betamon {
             *:first-child {
+              --border-color: var(--blue);
               color: var(--blue);
             }
           }
