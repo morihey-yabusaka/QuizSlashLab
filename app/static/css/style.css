@@ -80,15 +80,17 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .page.index .main .todays {
   position: relative;
   font-size: 2rem;
-  width: 50%;
+  width: 80%;
   background: #fff;
   box-shadow: 0 0 50px -25px #000;
   padding: 0.5em 1em;
   border-radius: 10px;
+  margin-bottom: 5vh;
 }
 .page.index .main .todays .title {
   position: relative;
@@ -144,6 +146,45 @@ html {
   letter-spacing: 0.1em;
   padding-bottom: 0.1em;
   margin-left: 1em;
+}
+.page.index .main .links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80vw;
+}
+.page.index .main .links > * {
+  padding: 3em 2em 2em 2em;
+  background: #fff;
+  border-radius: 10px;
+  width: 20vw;
+  box-shadow: 0 0 50px -25px #000;
+  transition: 0.4s;
+}
+.page.index .main .links > * .i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 48px;
+  transition: 0.4s;
+}
+.page.index .main .links > * .i .icon {
+  --color: #888;
+  --size: 48px;
+}
+.page.index .main .links > * .text {
+  margin-top: 2em;
+  color: #555;
+}
+.page.index .main .links > *:hover {
+  transform: translateY(-1em);
+}
+.page.index .main .links > *:hover .i {
+  color: var(--orange);
+}
+.page.index .main .links > *.quiz {
+  background-color: #fffa;
 }
 
 .icon {
@@ -1435,6 +1476,12 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
 }
 .page.form.login .main .form form .form_buttons button:not([type=submit]):hover, .page.form.signup .main .form form .form_buttons button:not([type=submit]):hover, .page.form.password_change .main .form form .form_buttons button:not([type=submit]):hover {
   background-color: #fff;
+}
+.page.form.login .main .form form .form_buttons .alt, .page.form.signup .main .form form .form_buttons .alt, .page.form.password_change .main .form form .form_buttons .alt {
+  font-size: 0.8em;
+}
+.page.form.login .main .form form .form_buttons .alt a, .page.form.signup .main .form form .form_buttons .alt a, .page.form.password_change .main .form form .form_buttons .alt a {
+  color: var(--green);
 }
 
 .user_menu.menu .menuitem:not(:first-child) {

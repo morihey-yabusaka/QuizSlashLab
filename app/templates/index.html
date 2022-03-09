@@ -17,4 +17,33 @@
       </a>
     </div>
   </div>
+  <div class="links">
+    <div class="quiz popup hover bottom center">
+      <div class="i">
+        {% include 'comp/icon.html' %}
+      </div>
+      <div class="text">
+        みんなでクイズが出来ます。
+      </div>
+      <div class="window">
+        開発予定です。
+      </div>
+    </div>
+    <a class="list" href="{% url 'app:quiz_list' %}">
+      <div class="i">
+        <i class="fas fa-list-ul"></i>
+      </div>
+      <div class="text">
+        みんなが作問したクイズを探せます。
+      </div>
+    </a>
+    <a class="sakumon" href="{% url 'app:quiz_create' %}">
+      <div class="i">
+        <i class="far fa-edit"></i>
+      </div>
+      <div class="text">
+        クイズを作問して、みんなに見てもらえます。(ログイン必須)
+      </div>
+    </a>
+  </div>
 {% endblock content %}

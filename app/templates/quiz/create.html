@@ -20,20 +20,36 @@
       <div class="a">
         <div class="text">
           {{ form.answer }}
-          <div class="ans_yomi">{{ form.answer_yomi }}</div>
+          <!-- <div class="ans_yomi">{{ form.answer_yomi }}</div> -->
         </div>
         <div class="back">A</div>
       </div>
     </div>
     <div class="info">
-      <button class="btn popup hover top" name='save'>
+      {% comment %}
+        TODO: fix error list design
+      {% endcomment %}
+      {% if form.errors %}
+      <div class="error_list">
+        {% include 'comp/x.html' %}
+        {% for errors in form.errors.values %}
+        {% for error in errors %}
+        <div class="error">
+          {{ error }}
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <button class="btn popup hover top" name='save' type="submit">
         出題
         <div class="window">
           <span>このクイズを保存し、</span><br>
           <span>他のプレイヤーに公開します。</span>
         </div>
       </button>
-      <button class="btn popup hover top" name="draft">
+      <button class="btn popup hover top" name="draft" type="submit">
         下書き
         <div class="window">
           <span>このクイズを下書きに保存します。</span><br>

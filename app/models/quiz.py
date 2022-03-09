@@ -57,7 +57,7 @@ class Quiz(Model):
   answer_yomi = CharField(
     '解答かな',
     max_length=255,
-    null=False,
+    null=True,
     help_text="全角ひらがな255文字まで使用できます。",
     validators=[RegexValidator(
       regex=r'^[ぁ-ん]',

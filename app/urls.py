@@ -21,5 +21,5 @@ urlpatterns = [
        good_quiz_user_list, name='good_quiz_user_list'),
   path('<int:pk>/BetaMon/user',
        betamon_user_list, name='betamon_user_list'),
-  path('user/<slug:slug>', user_page_view, name='userpage'),
+  path('user/userpage/<slug:slug>', user_page_view, name='userpage'),
 ]

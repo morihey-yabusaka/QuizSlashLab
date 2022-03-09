@@ -49,7 +49,7 @@
     <div class="a">
       <div class="text">
         {{ quiz.answer }}
-        <div class="ans_yomi">{{ quiz.answer_yomi }}</div>
+        <!-- <div class="ans_yomi">{{ quiz.answer_yomi }}</div> -->
       </div>
       <div class="back">A</div>
       <div class="btn-copy btn" id="a" data-text="{{quiz.answer}}">
@@ -66,7 +66,7 @@
         <a href="{% url 'app:userpage' quiz.author %}" class="under">{{ quiz.author }}</a>
       </div>
       <div class="created">
-        <i class="fas fa-plus-circle"></i>
+        <i class="far fa-calendar-alt"></i>
         <span>{{ quiz.created_at|date:"Y/m/d H:i" }}</span>
       </div>
       <div class="updated">

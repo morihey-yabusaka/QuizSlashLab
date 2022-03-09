@@ -45,7 +45,7 @@
           {% endif %}
 
           {% if field.html_name == 'password' or field.html_name == 'old_password' %}
-            <a href="{% url 'users:password_reset' %}" class="password_forget">パスワードを忘れた場合</a>
+            <a href="{% url 'users:password_reset' %}" class="password_forget under">パスワードを忘れた場合</a>
           {% endif %}
 
         </div>
@@ -57,6 +57,13 @@
           {% endblock form_button_text %}
         </button>
         <button type="reset">リセット</button>
+        <span class="alt">
+          {% if "login" in request.path %}
+            もしくは <a href="{% url 'users:signup' %}?next={{ next }}" class="under">新規登録</a>
+          {% elif "signup" in request.path %}
+            もしくは <a href="{% url 'users:login' %}?next={{ next }}" class="under">ログイン</a>
+          {% endif %}
+        </span>
       </div>
       <input type="hidden" name="next" value="{{ next }}"/>
     </form>

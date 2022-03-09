@@ -139,7 +139,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Application definition
 AUTH_USER_MODEL = 'users.User'
-LOGIN_URL = '/user/login'
+LOGIN_URL = '/users/login'
 
 # e-mail
 # log email in console
