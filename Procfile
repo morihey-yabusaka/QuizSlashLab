@@ -1,1 +1,1 @@
-web: gunicorn QuizSlashLab.wsgi
+web: gunicorn QuizSlashLab.wsgi --log-file -
