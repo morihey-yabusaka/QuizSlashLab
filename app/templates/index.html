@@ -4,6 +4,8 @@
 {% block class %}index{% endblock class %}
 
 {% block content %}
+
+  {% if todays %}
   <div class="todays">
     <div class="title">
       今日の一問<span>today's <span>Q</span> uestion</span>
@@ -17,6 +19,8 @@
       </a>
     </div>
   </div>
+  {% endif %}
+
   <div class="links">
     <div class="quiz popup hover bottom center">
       <div class="i">
