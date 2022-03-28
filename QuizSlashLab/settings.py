@@ -29,11 +29,6 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
 ALLOWED_HOSTS = ["*"]
 
 
@@ -106,7 +101,7 @@ DATABASES = {
         'NAME': 'name',
         'USER': 'user',
         'PASSWORD': '',
-        'HOST': 'host',
+        'HOST': '',
         'PORT': '',
     }
 }
@@ -169,3 +164,8 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
