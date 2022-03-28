@@ -160,12 +160,14 @@ LOGIN_URL = '/users/login'
 # log email in console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# if local debug == True
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
