@@ -114,8 +114,6 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-print(DATABASES)
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -164,7 +162,7 @@ LOGIN_URL = '/users/login'
 
 # e-mail
 # log email in console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # if local, debug == True
 try:
@@ -176,5 +174,3 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
-
-
