@@ -30,6 +30,7 @@ class UserManager(BaseUserManager):
       password=password
     )
     user.is_staff = True
+    user.is_superuser = True
     user.save()
     return user
 
@@ -64,9 +65,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     }
   )
 
+  is_superuser = BooleanField(
+    "管理者ステータス",
+    help_text="これを選択すると、管理者として管理権限が付与されます。",
+    default=False
+  )
+
   is_staff = BooleanField(
     "権限ステータス",
-    help_text="これを選択すると、スタッフとして管理権限が付与されます。",
+    help_text="これを選択すると、スタッフとして権限が付与されます。",
     default=False
   )
 
