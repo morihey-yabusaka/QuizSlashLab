@@ -57,6 +57,7 @@ class Quiz(Model):
   answer_yomi = CharField(
     '解答かな',
     max_length=255,
+    blank=True,
     null=True,
     help_text="全角ひらがな255文字まで使用できます。",
     validators=[RegexValidator(
@@ -135,6 +136,8 @@ class Quiz(Model):
       return "A: " + self.answer + " - Q: " + self.question
 
   def save(self, *args, **kwargs):
+    super().save(*args, **kwargs)
+
     slashes = self.slash.all()
     if self.tracker.has_changed('question') or slashes.count() == 0:
       if self.tracker.has_changed('question'):
@@ -147,8 +150,6 @@ class Quiz(Model):
           before_all=self.question[:i+1],
           before_just=self.question[i]
         )
-
-    super().save(*args, **kwargs)
 
 
 class ActionQuerySet(QuerySet):
