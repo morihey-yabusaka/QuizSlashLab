@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap');
 
 :root {
   --green-dark: #059732;
@@ -17,7 +18,8 @@
 }
 
 html {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'M PLUS 1p', 'Noto Sans JP',
+  sans-serif;
 }
 
 .page {

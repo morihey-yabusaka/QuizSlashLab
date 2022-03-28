@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap");
 a {
   color: #000;
   text-decoration: none;
@@ -34,7 +35,7 @@ button {
 }
 
 html {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "M PLUS 1p", "Noto Sans JP", sans-serif;
 }
 
 .page {
@@ -748,12 +749,12 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   z-index: 10;
 }
 
-.quiz.list .main {
+.quiz.list .main, .user.list .main {
   display: flex;
   justify-content: center;
   overflow-y: scroll;
 }
-.quiz.list .main > .list {
+.quiz.list .main > .list, .user.list .main > .list {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -763,7 +764,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   height: fit-content;
   padding: 20px 10px;
 }
-.quiz.list .main > .list .item {
+.quiz.list .main > .list .item, .user.list .main > .list .item {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -778,10 +779,10 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   z-index: 2;
   border-radius: 10px;
 }
-.quiz.list .main > .list .item:not(:last-child) {
+.quiz.list .main > .list .item:not(:last-child), .user.list .main > .list .item:not(:last-child) {
   margin-bottom: 1em;
 }
-.quiz.list .main > .list .item .icon_wrap {
+.quiz.list .main > .list .item .icon_wrap, .user.list .main > .list .item .icon_wrap {
   position: absolute;
   top: 0;
   left: 0;
@@ -793,11 +794,11 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   opacity: 0.15;
   z-index: -1;
 }
-.quiz.list .main > .list .item .icon_wrap .icon {
+.quiz.list .main > .list .item .icon_wrap .icon, .user.list .main > .list .item .icon_wrap .icon {
   --size: 100px;
   --color: var(--green-light);
 }
-.quiz.list .main > .list .item > .q {
+.quiz.list .main > .list .item > .q, .user.list .main > .list .item > .q {
   display: block;
   position: relative;
   z-index: 1;
@@ -807,13 +808,15 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   letter-spacing: 0.08em;
   flex-grow: 2;
 }
-.quiz.list .main > .list .item .foot {
+.quiz.list .main > .list .item .foot, .user.list .main > .list .item .foot {
   position: relative;
   z-index: 1;
   display: flex;
   color: #888;
 }
-.quiz.list .main > .list .item .foot .gq, .quiz.list .main > .list .item .foot .beta {
+.quiz.list .main > .list .item .foot .gq,
+.quiz.list .main > .list .item .foot .beta, .user.list .main > .list .item .foot .gq,
+.user.list .main > .list .item .foot .beta {
   color: #aaa;
   font-size: 1rem;
   font-weight: 600;
@@ -824,37 +827,43 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
           user-select: none;
   transition: 0.1s;
 }
-.quiz.list .main > .list .item .foot .gq .cnt, .quiz.list .main > .list .item .foot .beta .cnt {
+.quiz.list .main > .list .item .foot .gq .cnt,
+.quiz.list .main > .list .item .foot .beta .cnt, .user.list .main > .list .item .foot .gq .cnt,
+.user.list .main > .list .item .foot .beta .cnt {
   margin-left: 2em;
 }
-.quiz.list .main > .list .item .foot .gq.on, .quiz.list .main > .list .item .foot .beta.on {
+.quiz.list .main > .list .item .foot .gq.on,
+.quiz.list .main > .list .item .foot .beta.on, .user.list .main > .list .item .foot .gq.on,
+.user.list .main > .list .item .foot .beta.on {
   color: var(--orange);
 }
-.quiz.list .main > .list .item .foot .beta.on {
+.quiz.list .main > .list .item .foot .beta.on, .user.list .main > .list .item .foot .beta.on {
   color: var(--blue);
 }
-.quiz.list .main > .list .item .foot *:not(:first-child) {
+.quiz.list .main > .list .item .foot *:not(:first-child), .user.list .main > .list .item .foot *:not(:first-child) {
   margin-left: 2em;
 }
-.quiz.list .main .left, .quiz.list .main .right {
+.quiz.list .main .left,
+.quiz.list .main .right, .user.list .main .left,
+.user.list .main .right {
   width: 20%;
   margin: 20px 10px;
   padding: 0.5em 1em;
   background-color: #fff;
   border-radius: 10px;
 }
-.quiz.list .main .left .title {
+.quiz.list .main .left .title, .user.list .main .left .title {
   line-height: 2em;
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 0.2em;
 }
-.quiz.list .main .left .title span {
+.quiz.list .main .left .title span, .user.list .main .left .title span {
   font-size: 2em;
   font-weight: 900;
   color: var(--orange);
 }
-.quiz.list .main .quiz_search {
+.quiz.list .main .quiz_search, .user.list .main .quiz_search {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -862,7 +871,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   font-weight: 600;
   height: 100%;
 }
-.quiz.list .main .quiz_search form {
+.quiz.list .main .quiz_search form, .user.list .main .quiz_search form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -870,56 +879,69 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   font-size: 0.7em;
   flex-grow: 1;
 }
-.quiz.list .main .quiz_search form .form_item {
+.quiz.list .main .quiz_search form .form_item, .user.list .main .quiz_search form .form_item {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin-top: 10px;
 }
-.quiz.list .main .quiz_search form .form_item.text {
+.quiz.list .main .quiz_search form .form_item.text, .user.list .main .quiz_search form .form_item.text {
   flex-grow: 1;
 }
-.quiz.list .main .quiz_search form .form_item.text label {
+.quiz.list .main .quiz_search form .form_item.text label, .user.list .main .quiz_search form .form_item.text label {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 }
-.quiz.list .main .quiz_search form textarea {
+.quiz.list .main .quiz_search form textarea, .user.list .main .quiz_search form textarea {
   width: 100%;
   resize: none;
   flex-grow: 1;
 }
-.quiz.list .main .quiz_search form input[type=checkbox] + label, .quiz.list .main .quiz_search form input[type=radio] + label {
+.quiz.list .main .quiz_search form input[type=checkbox] + label,
+.quiz.list .main .quiz_search form input[type=radio] + label, .user.list .main .quiz_search form input[type=checkbox] + label,
+.user.list .main .quiz_search form input[type=radio] + label {
   display: flex;
   align-items: center;
 }
-.quiz.list .main .quiz_search form input[type=checkbox] + label .light, .quiz.list .main .quiz_search form input[type=radio] + label .light {
+.quiz.list .main .quiz_search form input[type=checkbox] + label .light,
+.quiz.list .main .quiz_search form input[type=radio] + label .light, .user.list .main .quiz_search form input[type=checkbox] + label .light,
+.user.list .main .quiz_search form input[type=radio] + label .light {
   --size: 20px;
   --ratio: .7;
   margin-right: 5px;
 }
-.quiz.list .main .quiz_search form .radio_button {
+.quiz.list .main .quiz_search form .radio_button, .user.list .main .quiz_search form .radio_button {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   margin-top: 5px;
 }
-.quiz.list .main .quiz_search form .btns {
+.quiz.list .main .quiz_search form .btns, .user.list .main .quiz_search form .btns {
   display: flex;
   justify-content: space-evenly;
   width: 80%;
   margin-top: 10px;
 }
-.quiz.list .main .quiz_search form .btns .btn {
+.quiz.list .main .quiz_search form .btns .btn, .user.list .main .quiz_search form .btns .btn {
   --color1: var(--blue);
   --size: 60px;
   font-size: 18px;
 }
-.quiz.list .main .quiz_search form .btns .btn[clear] {
+.quiz.list .main .quiz_search form .btns .btn[clear], .user.list .main .quiz_search form .btns .btn[clear] {
   --color1: var(--red);
   letter-spacing: -3px;
+}
+
+.user.list .main > .list .item {
+  display: flex;
+  justify-content: center;
+  min-height: 4em;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
 }
 
 .page.quiz.detail .main, .page.quiz.delete .main, .page.quiz.create .main, .page.quiz.update .main {
@@ -938,6 +960,7 @@ input[type=checkbox]:checked + label .light:after, input[type=checkbox]:checked 
   width: 100%;
   font-size: 2.5rem;
   font-weight: 500;
+  font-family: "M PLUS 1p", "Noto Sans JP", serif;
 }
 .page.quiz.detail .main .quiz > .q .text, .page.quiz.detail .main .quiz > .a .text, .page.quiz.delete .main .quiz > .q .text, .page.quiz.delete .main .quiz > .a .text, .page.quiz.create .main .quiz > .q .text, .page.quiz.create .main .quiz > .a .text, .page.quiz.update .main .quiz > .q .text, .page.quiz.update .main .quiz > .a .text {
   z-index: 1;
