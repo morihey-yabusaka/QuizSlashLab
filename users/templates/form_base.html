@@ -44,9 +44,9 @@
             </div>
           {% endif %}
 
-          {% comment %} {% if field.html_name == 'password' or field.html_name == 'old_password' %}
+          {% if field.html_name == 'password' or field.html_name == 'old_password' %}
             <a href="{% url 'users:password_reset' %}" class="password_forget under">パスワードを忘れた場合</a>
-          {% endif %} {% endcomment %}
+          {% endif %}
 
         </div>
       {% endfor %}
