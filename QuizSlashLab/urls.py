@@ -21,3 +21,8 @@ urlpatterns = [
     path('users/', include('users.urls'), name='users'),
     path('admin/', admin.site.urls),
 ]
+
+# 本番環境debug用 運用時にはコメントアウト
+
+from . import views
+handler500 = views.my_customized_server_error
